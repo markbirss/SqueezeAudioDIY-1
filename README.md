@@ -9,27 +9,27 @@ Obtaining Scripts
 -----------------
 ```shell
 sudo apt-get install git
-git clone https://github.com/ictinus2310/squeeze_install_scripts.git
-cd squeeze_install_scripts
+git clone https://github.com/ictinus2310/squeezelite_autoinstall.git
+cd squeezelite_autoinstall
 ```
 Squeezelite Setup for Debian-Based-Distro
 -----------------------------------------
 ```shell
-sudo sh yourdirectory/squeeze_install_scripts/squeezelite.sh
+sudo sh yourdirectory/squeezelite_autoinstall/squeezelite.sh
 ```
 Logitech Media Server v7.9 Setup for Debian-Based-Distro
 --------------------------------------------------------
 AMD64 Architecture:
 ```shell
-sh yourdirectory/squeeze_install_scripts/lms_amd64_install.sh
+sh yourdirectory/squeezelite_autoinstall/lms_amd64_install.sh
 ```
 i386 Architecture:
 ```shell
-sh yourdirectory/squeeze_install_scripts/lms_i386_install.sh
+sh yourdirectory/squeezelite_autoinstall/lms_i386_install.sh
 ```
 ARM Architecture:
 ```shell
-sh yourdirectory/squeeze_install_scripts/lms_arm_install.sh
+sh yourdirectory/squeezelite_autoinstall/lms_arm_install.sh
 ```
 
 Squeezebox Nightly v7.9:
