@@ -36,20 +36,18 @@ sudo service squeezelite stop
 #------------------------------------
 #COMPILE LATEST SQUEEZELITE
 #------------------------------------
-cd
-mkdir /home/$permissions/Squeezelite
-cd /home/$permissions/Squeezelite
-git clone https://github.com/ralph-irving/squeezelite.git
-cd ./squeezelite
+sudo mkdir /Squeezelite
+cd /Squeezelite
+sudo git clone https://github.com/ralph-irving/squeezelite.git
+cd /Squeezelite/squeezelite
 sudo OPTS="-DDSD -DRESAMPLER" make
 
 #------------------------------------
 #SYMLINKS FOR SQUEEZELITE
 #------------------------------------
-directory=$(pwd)
 cd /usr/bin
 sudo mv squeezelite ./squeezelite.bac
-sudo ln -s $directory/squeezelite squeezelite
+sudo ln -s /Squeezelite/squeezelite/squeezelite squeezelite
 
 #------------------------------------
 #START SQUEEZELITE
