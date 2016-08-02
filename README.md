@@ -15,7 +15,7 @@ cd squeezelite_autoinstall
 Squeezelite Setup for Debian-Based-Distro
 -----------------------------------------
 ```shell
-sudo sh yourdirectory/squeezelite_autoinstall/squeezelite.sh
+sudo sh yourdirectory/squeezelite_autoinstall/squeezelite_install.sh
 ```
 Logitech Media Server v7.9 Setup for Debian-Based-Distro
 --------------------------------------------------------
