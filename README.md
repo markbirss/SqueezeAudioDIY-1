@@ -12,11 +12,13 @@ sudo apt-get install git
 git clone https://github.com/ictinus2310/squeezelite_autoinstall.git
 cd squeezelite_autoinstall
 ```
+
 Squeezelite Setup for Debian-Based-Distro
 -----------------------------------------
 ```shell
 sudo sh ./squeezelite_install.sh
 ```
+
 Logitech Media Server v7.9 Setup for Debian-Based-Distro
 --------------------------------------------------------
 AMD64 Architecture:
@@ -31,17 +33,21 @@ ARM Architecture:
 ```shell
 sh ./lms_arm_install.sh
 ```
+
 Tools for Squeezelite
 ---------------------
 Select default audio device:
 ```shell
 sh ./audio_select.sh
 ```
+Select name for Squeezelite Player:
+```shell
+sh ./name_select.sh
+```
 
 Squeezebox Nightly v7.9:
 -------------------
 Is based on the nightly build available on http://downloads.slimdevices.com/nightly/?ver=7.9
-
 Squeezelite:
 ------------
 Is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
