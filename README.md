@@ -1,4 +1,4 @@
-squeeze_install_scripts
+squeezelite_autoinstall
 ==============
 I'm new to programming and this is my first attempt at it.
 This is just a personal project in exploring programming with my hobbies.
