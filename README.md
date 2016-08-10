@@ -31,6 +31,12 @@ ARM Architecture:
 ```shell
 sh ./lms_arm_install.sh
 ```
+Tools for Squeezelite
+---------------------
+Select default audio device:
+```shell
+sh ./audio_select.sh
+```
 
 Squeezebox Nightly v7.9:
 -------------------
