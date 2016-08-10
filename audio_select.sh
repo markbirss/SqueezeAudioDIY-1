@@ -4,6 +4,7 @@
 #STOP SQUEEZELITE
 #------------------------------------
 sudo service squeezelite stop
+echo "Stopped Squeezelite."
 
 #------------------------------------
 #AUDIO DEVICES AVAILABLE
@@ -28,7 +29,7 @@ cat -n ./available_list.txt #LIST LINES WITH LINE NUMBERS
 #------------------------------------
 #CREATE DEVICE LIST
 #------------------------------------
-sed 's/-.*//' ./available_list.txt > ./devices.txt #REMOVE EVERYTHING AFTER - CHAR
+sed 's/-.*//' ./available_list.txt > ./devices.txt #REMOVE EVERYTHING AFTER '-' CHAR
 sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' ./devices.txt #REMOVES SPACES FROM FILE
 
 #------------------------------------
@@ -58,3 +59,8 @@ echo "                           NEW SETTINGS                            "
 echo "###################################################################"
 cat /etc/default/squeezelite
 
+#------------------------------------
+#START SQUEEZELITE
+#------------------------------------
+service squeezelite start
+echo "Started Squeezelite."
