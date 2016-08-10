@@ -41,7 +41,16 @@ echo "Git is installed"
 #INSTALL SQUEEZELITE
 #------------------------------------
 apt-get install squeezelite > /Squeezelite/logs/apt_squeeze_log.txt
-echo "Installed Squeezelite using package manager."
+if [ $? = 0 ]
+then
+        echo "Installed Squeezelite using package manager."
+else
+        echo "Package manager does not have Squeezelite"
+        echo "-----------------------------------------"
+        echo "     Squeezelite will not auto start     "
+        echo "     and will not have config files.     "
+        echo "-----------------------------------------"
+fi
 
 #------------------------------------
 #STOP SQUEEZELITE
