@@ -15,24 +15,20 @@ cd squeezelite_autoinstall
 Squeezelite Setup for Debian-Based-Distro
 -----------------------------------------
 ```shell
-When in directory:
 sudo sh ./squeezelite_install.sh
 ```
 Logitech Media Server v7.9 Setup for Debian-Based-Distro
 --------------------------------------------------------
 AMD64 Architecture:
 ```shell
-When in directory:
 sh ./lms_amd64_install.sh
 ```
 i386 Architecture:
 ```shell
-When in directory:
 sh ./lms_i386_install.sh
 ```
 ARM Architecture:
 ```shell
-When in directory:
 sh ./lms_arm_install.sh
 ```
 
