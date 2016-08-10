@@ -40,11 +40,6 @@ read device
 selected_device=$(sed -n "${device}p" ./devices.txt)
 
 #------------------------------------
-#BACKUP SQUEEZELITE CONFIG FILE
-#------------------------------------
-sudo cp /etc/default/squeezelite /etc/default/squeezelite.bac
-
-#------------------------------------
 #EDIT SQUEEZELITE CONFIG FILE
 #------------------------------------
 sudo sed -i 9s/.*/SL_SOUNDCARD=cha$selected_device/ /etc/default/squeezelite
@@ -64,3 +59,4 @@ cat /etc/default/squeezelite
 #------------------------------------
 service squeezelite start
 echo "Started Squeezelite."
+exit
