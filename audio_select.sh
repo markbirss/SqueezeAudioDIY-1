@@ -1,6 +1,11 @@
 #!/bin/bash
 
 #------------------------------------
+#STOP SQUEEZELITE
+#------------------------------------
+sudo service squeezelite stop
+
+#------------------------------------
 #AUDIO DEVICES AVAILABLE
 #------------------------------------
 squeezelite -l > ./available_list.txt
