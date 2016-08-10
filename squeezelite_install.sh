@@ -4,55 +4,71 @@
 #PERMISSIONS REQUIRED
 #------------------------------------
 permissions=$(whoami)
-
 if [ $permissions = root ]
 then
-        echo Running as root.
+        echo "Running as root."
 else
-        echo Run script as root.
+        echo "Run script as root."
         exit
 fi
 
 #------------------------------------
+#STOP SQUEEZELITE
+#------------------------------------
+service squeezelite stop
+
+#------------------------------------
+#DIRECTORIES
+#------------------------------------
+rm -R /Squeezelite
+mkdir /Squeezelite
+mkdir /Squeezelite/logs
+echo "Directories created."
+
+#------------------------------------
 #INSTALL REQUIRED LIBRARIES
 #------------------------------------
-sudo apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential
+apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential > /Squeezelite/logs/library_log.txt
+echo "Installed required libraries."
 
 #------------------------------------
 #GIT
 #------------------------------------
-sudo apt-get install git
+apt-get install git > /Squeezelite/logs/git_log.txt
+echo "Git is installed"
 
 #------------------------------------
 #INSTALL SQUEEZELITE
 #------------------------------------
-sudo apt-get install squeezelite
+apt-get install squeezelite > /Squeezelite/logs/apt_squeeze_log.txt
+echo "Installed Squeezelite using package manager."
 
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-sudo service squeezelite stop
+service squeezelite stop
+echo "Stopped Squeezelite process."
 
 #------------------------------------
 #COMPILE LATEST SQUEEZELITE
 #------------------------------------
-sudo mkdir /Squeezelite
+echo "Compiling latest Squeezelite:"
 cd /Squeezelite
-sudo git clone https://github.com/ralph-irving/squeezelite.git
+git clone https://github.com/ralph-irving/squeezelite.git
 cd /Squeezelite/squeezelite
-sudo OPTS="-DDSD -DRESAMPLER" make
+OPTS="-DDSD -DRESAMPLER" make
 
 #------------------------------------
 #SYMLINKS FOR SQUEEZELITE
 #------------------------------------
+echo "Creating symbolic links."
 cd /usr/bin
-sudo mv squeezelite ./squeezelite.bac
-sudo ln -s /Squeezelite/squeezelite/squeezelite squeezelite
+mv squeezelite ./squeezelite.bac
+ln -s /Squeezelite/squeezelite/squeezelite squeezelite
 
 #------------------------------------
 #START SQUEEZELITE
 #------------------------------------
-sudo service squeezelite start
-
-echo Finished.
+service squeezelite start
+echo "Started Squeezelite."
 exit
