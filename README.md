@@ -30,6 +30,10 @@ Select name for Squeezelite Player:
 ```shell
 squeeze_name
 ```
+Update Squeezelite:
+```shell
+sudo squeeze_update
+```
 
 Squeezelite:
 ------------
