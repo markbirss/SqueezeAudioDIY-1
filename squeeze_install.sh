@@ -22,8 +22,18 @@ service squeezelite stop
 #------------------------------------
 rm -R /Squeezelite
 mkdir /Squeezelite
+mkdir /Squeezelite/tools
 mkdir /Squeezelite/logs
 echo "Directories created."
+
+#------------------------------------
+#COPY SQUEEZE TOOLS
+#------------------------------------
+cp ./squeeze_audio.sh /Squeezelite/tools
+cp ./squeeze_name.sh /Squeezelite/tools
+cd /usr/bin 
+ln -s /Squeezelite/tools/squeeze_audio.sh /squeeze_audio
+ln -s /Squeezelite/tools/squeeze_name.sh /squeeze_name
 
 #------------------------------------
 #INSTALL REQUIRED LIBRARIES
