@@ -24,11 +24,11 @@ Tools for Squeezelite
 ---------------------
 Select default audio device:
 ```shell
-sh ./audio_select.sh
+squeeze_audio
 ```
 Select name for Squeezelite Player:
 ```shell
-sh ./name_select.sh
+squeeze_name
 ```
 
 Squeezelite:
