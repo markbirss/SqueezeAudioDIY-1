@@ -3,7 +3,8 @@ squeezelite_autoinstall
 I'm new to programming and this is my first attempt at it.
 This is just a personal project in exploring programming with my hobbies.
 
-These scripts download the latest version of the respective programs and install them on Debian based distros.
+This script compiles the latest version of Squeezelite and installs it on Debian based distros. 
+Additionally it adds a few tools on your system for Squeezelite.
 
 Obtaining Scripts
 -----------------
@@ -19,21 +20,6 @@ Squeezelite Setup for Debian-Based-Distro
 sudo sh ./squeezelite_install.sh
 ```
 
-Logitech Media Server v7.9 Setup for Debian-Based-Distro
---------------------------------------------------------
-AMD64 Architecture:
-```shell
-sh ./lms_amd64_install.sh
-```
-i386 Architecture:
-```shell
-sh ./lms_i386_install.sh
-```
-ARM Architecture:
-```shell
-sh ./lms_arm_install.sh
-```
-
 Tools for Squeezelite
 ---------------------
 Select default audio device:
@@ -45,9 +31,6 @@ Select name for Squeezelite Player:
 sh ./name_select.sh
 ```
 
-Squeezebox Nightly v7.9:
--------------------
-Is based on the nightly build available on http://downloads.slimdevices.com/nightly/?ver=7.9
 Squeezelite:
 ------------
 Is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
