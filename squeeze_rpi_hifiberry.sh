@@ -1,6 +1,18 @@
 #!/bin/sh
 
 #------------------------------------
+#PERMISSIONS REQUIRED
+#------------------------------------
+permissions=$(whoami)
+if [ $permissions = root ]
+then
+  tput setaf 3; echo "Running as root."
+else
+  tput setaf 3; echo "Run script as root."
+  exit
+fi
+
+#------------------------------------
 #CONFIGURING BOOT.CONFIG
 #------------------------------------
 sed -i 's/#dtparam=i2s=on/dtparam=i2s=on/g' /boot/config.txt
