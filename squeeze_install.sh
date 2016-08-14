@@ -63,7 +63,7 @@ echo "Squeezelite tools active."
 #INSTALL REQUIRED LIBRARIES
 #------------------------------------
 echo "Installing required libraries."
-apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential > /Squeezelite/logs/library_log.txt
+apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
 echo "Installed required libraries."
 
 #------------------------------------
