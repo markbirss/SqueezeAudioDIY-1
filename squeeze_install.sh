@@ -54,6 +54,7 @@ echo "Squeezelite tools installed."
 #------------------------------------
 #SYMLINKS FOR SQUEEZE TOOLS
 #------------------------------------
+rm /usr/bin/squeeze_audio /usr/bin/squeeze_name /usr/bin/squeeze_update > /Squeezelite/logs/tools_sym_log.txt
 ln -s /Squeezelite/tools/squeeze_audio.sh /usr/bin/squeeze_audio
 ln -s /Squeezelite/tools/squeeze_name.sh /usr/bin/squeeze_name
 ln -s /Squeezelite/tools/squeeze_update.sh /usr/bin/squeeze_update
