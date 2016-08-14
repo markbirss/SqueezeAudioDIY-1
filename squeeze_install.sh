@@ -15,7 +15,7 @@ fi
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop
+service squeezelite stop > /Squeezelite/logs/squeeze_stop1_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
   echo "Squeezelite stopped."
@@ -70,14 +70,14 @@ echo "Installed required libraries."
 #GIT
 #------------------------------------
 echo "Updating Git"
-apt-get install git > /Squeezelite/logs/git_log.txt
+apt-get install git > /Squeezelite/logs/git_log.txt #LOG SYSTEM
 echo "Done updating Git."
 
 #------------------------------------
 #INSTALL SQUEEZELITE
 #------------------------------------
 echo "Installing Squeezelite using package manager."
-apt-get install squeezelite > /Squeezelite/logs/apt_squeeze_log.txt
+apt-get install squeezelite > /Squeezelite/logs/apt_squeeze_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
         echo "Installed Squeezelite using package manager."
@@ -92,7 +92,7 @@ fi
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop
+service squeezelite stop > /Squeezelite/logs/squeeze_stop2_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
   echo "Squeezelite stopped."
