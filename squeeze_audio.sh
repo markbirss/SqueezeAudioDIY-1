@@ -1,9 +1,21 @@
 #!/bin/bash
 
 #------------------------------------
+#PERMISSIONS REQUIRED
+#------------------------------------
+permissions=$(whoami)
+if [ $permissions = root ]
+then
+  tput setaf 3; echo "Running as root."
+else
+  tput setaf 3; echo "Run script as root."
+  exit
+fi
+
+#------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-sudo service squeezelite stop
+service squeezelite stop
 echo "Stopped Squeezelite."
 
 #------------------------------------
@@ -42,9 +54,9 @@ selected_device=$(sed -n "${device}p" ./devices.txt)
 #------------------------------------
 #EDIT SQUEEZELITE CONFIG FILE
 #------------------------------------
-sudo sed -i 9s/.*/SL_SOUNDCARD=cha$selected_device/ /etc/default/squeezelite
-sudo sed -i '9s/$/"/' /etc/default/squeezelite
-sudo sed -i '9s/cha/"/' /etc/default/squeezelite
+sed -i 9s/.*/SL_SOUNDCARD=cha$selected_device/ /etc/default/squeezelite
+sed -i '9s/$/"/' /etc/default/squeezelite
+sed -i '9s/cha/"/' /etc/default/squeezelite
 
 #------------------------------------
 #VIEW NEW SETTINGS
