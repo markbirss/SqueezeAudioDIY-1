@@ -54,10 +54,9 @@ echo "Squeezelite tools installed."
 #------------------------------------
 #SYMLINKS FOR SQUEEZE TOOLS
 #------------------------------------
-cd /usr/bin
-ln -s /Squeezelite/tools/squeeze_audio.sh /squeeze_audio
-ln -s /Squeezelite/tools/squeeze_name.sh /squeeze_name
-ln -s /Squeezelite/tools/squeeze_update.sh /squeeze_update
+ln -s /Squeezelite/tools/squeeze_audio.sh /usr/bin/squeeze_audio
+ln -s /Squeezelite/tools/squeeze_name.sh /usr/bin/squeeze_name
+ln -s /Squeezelite/tools/squeeze_update.sh /usr/bin/squeeze_update
 echo "Squeezelite tools active."
 
 #------------------------------------
@@ -114,9 +113,8 @@ OPTS="-DDSD -DRESAMPLER" make
 #SYMLINKS FOR SQUEEZELITE
 #------------------------------------
 echo "Creating symbolic links."
-cd /usr/bin
-mv squeezelite ./squeezelite.bac
-ln -s /Squeezelite/squeezelite/squeezelite squeezelite
+mv /usr/bin/squeezelite /usr/bin/squeezelite.bac
+ln -s /Squeezelite/squeezelite/squeezelite /usr/bin/squeezelite
 
 #------------------------------------
 #START SQUEEZELITE
