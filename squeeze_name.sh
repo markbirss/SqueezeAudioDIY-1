@@ -1,6 +1,17 @@
 #!/bin/bash
 
 #------------------------------------
+#PERMISSIONS REQUIRED
+#------------------------------------
+permissions=$(whoami)
+if [ $permissions = root ]
+then
+	tput setaf 3; echo "Running as root."
+else
+        tput setaf 3; echo "Run script as root."
+        exit
+fi
+#------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
 sudo service squeezelite stop
@@ -8,8 +19,8 @@ sudo service squeezelite stop
 #------------------------------------
 #BACKUP SQUEEZELITE CONFIG FILE
 #------------------------------------
-sudo mv /etc/default/squeezelite.1.namebac /etc/default/squeezelite.2.namebac
-sudo cp /etc/default/squeezelite /etc/default/squeezelite.1.namebac
+mv /etc/default/squeezelite.1.namebac /etc/default/squeezelite.2.namebac
+cp /etc/default/squeezelite /etc/default/squeezelite.1.namebac
 echo "Backup of current settings made."
 
 #------------------------------------
@@ -30,23 +41,23 @@ read user_input
 #------------------------------------
 if [ $user_input = 1 ]
 then
-	sudo sed -i 6s/.*/SL_NAME=cha$(hostname -s)/ /etc/default/squeezelite
-	sudo sed -i '6s/$/"/' /etc/default/squeezelite
-	sudo sed -i '6s/cha/"/' /etc/default/squeezelite
+	sed -i 6s/.*/SL_NAME=cha$(hostname -s)/ /etc/default/squeezelite
+	sed -i '6s/$/"/' /etc/default/squeezelite
+	sed -i '6s/cha/"/' /etc/default/squeezelite
 fi
 
 if [ $user_input = 2 ]
 then
 	echo -n "NEW NAME (DON'T USE SPACES): "
 	read new_name
-	sudo sed -i 6s/.*/SL_NAME=cha$new_name/ /etc/default/squeezelite
-        sudo sed -i '6s/$/"/' /etc/default/squeezelite
-        sudo sed -i '6s/cha/"/' /etc/default/squeezelite
+	sed -i 6s/.*/SL_NAME=cha$new_name/ /etc/default/squeezelite
+        sed -i '6s/$/"/' /etc/default/squeezelite
+        sed -i '6s/cha/"/' /etc/default/squeezelite
 fi
 
 if [ $user_input = 3 ]
 then
-	sudo mv /etc/default/squeezelite.2.namebac /etc/default/squeezelite
+	mv /etc/default/squeezelite.2.namebac /etc/default/squeezelite
 fi
 #------------------------------------
 #NEW SETTINGS
@@ -60,12 +71,12 @@ echo "#####################################"
 #------------------------------------
 #BACKUP SQUEEZELITE CONFIG FILE
 #------------------------------------
-sudo cp /etc/default/squeezelite /etc/default/squeezelite.namebac
+cp /etc/default/squeezelite /etc/default/squeezelite.namebac
 echo "Backup of settings made."
 
 #------------------------------------
 #START SQUEEZELITE
 #------------------------------------
-sudo service squeezelite start
+service squeezelite start
 echo "Started Squeezelite."
 exit
