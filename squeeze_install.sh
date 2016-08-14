@@ -16,11 +16,24 @@ fi
 #STOP SQUEEZELITE
 #------------------------------------
 service squeezelite stop
+if [ $? = 0 ]
+then
+  echo "Squeezelite stopped."
+else
+  echo "No previous version of Squeezelite."
+fi
 
 #------------------------------------
 #DIRECTORIES
 #------------------------------------
 rm -R /Squeezelite
+if [ $? = 0 ]
+then
+  echo "Old files removed."
+else
+  echo "No previous installation found."
+fi
+#MAKING NEW DIRECTORIES
 mkdir /Squeezelite
 mkdir /Squeezelite/tools
 mkdir /Squeezelite/logs
@@ -29,12 +42,14 @@ echo "Directories created."
 #------------------------------------
 #SQUEEZE TOOLS
 #------------------------------------
+echo "Installing Squeezelite tools."
 cp ./squeeze_audio.sh /Squeezelite/tools
 chmod +x /Squeezelite/tools/squeeze_audio.sh
 cp ./squeeze_name.sh /Squeezelite/tools
 chmod +x /Squeezelite/tools/squeeze_name.sh
 cp ./squeeze_update.sh /Squeezelite/tools
 chmod +x /Squeezelite/tools/squeeze_update.sh
+echo "Squeezelite tools installed."
 
 #------------------------------------
 #SYMLINKS FOR SQUEEZE TOOLS
@@ -43,22 +58,26 @@ cd /usr/bin
 ln -s /Squeezelite/tools/squeeze_audio.sh /squeeze_audio
 ln -s /Squeezelite/tools/squeeze_name.sh /squeeze_name
 ln -s /Squeezelite/tools/squeeze_update.sh /squeeze_update
+echo "Squeezelite tools active."
 
 #------------------------------------
 #INSTALL REQUIRED LIBRARIES
 #------------------------------------
+echo "Installing required libraries."
 apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential > /Squeezelite/logs/library_log.txt
 echo "Installed required libraries."
 
 #------------------------------------
 #GIT
 #------------------------------------
+echo "Updating Git"
 apt-get install git > /Squeezelite/logs/git_log.txt
-echo "Git is installed"
+echo "Done updating Git."
 
 #------------------------------------
 #INSTALL SQUEEZELITE
 #------------------------------------
+echo "Installing Squeezelite using package manager."
 apt-get install squeezelite > /Squeezelite/logs/apt_squeeze_log.txt
 if [ $? = 0 ]
 then
@@ -75,7 +94,12 @@ fi
 #STOP SQUEEZELITE
 #------------------------------------
 service squeezelite stop
-echo "Stopped Squeezelite process."
+if [ $? = 0 ]
+then
+  echo "Squeezelite stopped."
+else
+  echo "Squeezelite installation via package manager failed."
+fi
 
 #------------------------------------
 #COMPILE LATEST SQUEEZELITE
