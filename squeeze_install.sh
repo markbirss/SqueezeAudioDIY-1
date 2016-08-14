@@ -3,7 +3,7 @@
 #------------------------------------
 #PERMISSIONS REQUIRED
 #------------------------------------
-tput setaf 7; permissions=$(whoami)
+permissions=$(whoami)
 if [ $permissions = root ]
 then
         tput setaf 3; echo "Running as root."
@@ -64,21 +64,21 @@ tput setaf 3; echo "Squeezelite tools active."
 #INSTALL REQUIRED LIBRARIES
 #------------------------------------
 tput setaf 3; echo "Installing required libraries."
-apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
+tput setaf 7; apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
 tput setaf 3; echo "Installed required libraries."
 
 #------------------------------------
 #GIT
 #------------------------------------
 tput setaf 3; echo "Updating Git"
-apt-get install git 2>&1 | tee /Squeezelite/logs/git_log.txt #LOG SYSTEM
+tput setaf 7; apt-get install git 2>&1 | tee /Squeezelite/logs/git_log.txt #LOG SYSTEM
 tput setaf 3; echo "Done updating Git."
 
 #------------------------------------
 #INSTALL SQUEEZELITE
 #------------------------------------
 tput setaf 3; echo "Installing Squeezelite using package manager."
-apt-get install squeezelite 2>&1 | tee /Squeezelite/logs/apt_squeeze_log.txt #LOG SYSTEM
+tput setaf 7; apt-get install squeezelite 2>&1 | tee /Squeezelite/logs/apt_squeeze_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
         tput setaf 3; echo "Installed Squeezelite using package manager."
@@ -105,7 +105,7 @@ fi
 #COMPILE LATEST SQUEEZELITE
 #------------------------------------
 tput setaf 3; echo "Compiling latest Squeezelite:"
-cd /Squeezelite
+tput setaf 7; cd /Squeezelite
 git clone https://github.com/ralph-irving/squeezelite.git
 cd /Squeezelite/squeezelite
 OPTS="-DDSD -DRESAMPLER" make
