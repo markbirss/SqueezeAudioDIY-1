@@ -34,7 +34,10 @@ Update Squeezelite:
 ```shell
 sudo squeeze_update
 ```
-
+Update Squeezelite:
+```shell
+sudo sh squeeze_rpi_hifiberry.sh
+```
 Squeezelite:
 ------------
 Is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
