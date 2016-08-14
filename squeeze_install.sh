@@ -3,12 +3,12 @@
 #------------------------------------
 #PERMISSIONS REQUIRED
 #------------------------------------
-permissions=$(whoami)
+tput setaf 7; permissions=$(whoami)
 if [ $permissions = root ]
 then
-        echo "Running as root."
+        tput setaf 3; echo "Running as root."
 else
-        echo "Run script as root."
+        tput setaf 3; echo "Run script as root."
         exit
 fi
 
@@ -18,9 +18,9 @@ fi
 service squeezelite stop > /Squeezelite/logs/squeeze_stop1_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
-  echo "Squeezelite stopped."
+  tput setaf 3; echo "Squeezelite stopped."
 else
-  echo "No previous version of Squeezelite."
+  tput setaf 3; echo "No previous version of Squeezelite."
 fi
 
 #------------------------------------
@@ -29,27 +29,27 @@ fi
 rm -R /Squeezelite
 if [ $? = 0 ]
 then
-  echo "Old files removed."
+  tput setaf 3; echo "Old files removed."
 else
-  echo "No previous installation found."
+  tput setaf 3; echo "No previous installation found."
 fi
 #MAKING NEW DIRECTORIES
 mkdir /Squeezelite
 mkdir /Squeezelite/tools
 mkdir /Squeezelite/logs
-echo "Directories created."
+tput setaf 3; echo "Directories created."
 
 #------------------------------------
 #SQUEEZE TOOLS
 #------------------------------------
-echo "Installing Squeezelite tools."
+tput setaf 3; echo "Installing Squeezelite tools."
 cp ./squeeze_audio.sh /Squeezelite/tools
 chmod +x /Squeezelite/tools/squeeze_audio.sh
 cp ./squeeze_name.sh /Squeezelite/tools
 chmod +x /Squeezelite/tools/squeeze_name.sh
 cp ./squeeze_update.sh /Squeezelite/tools
 chmod +x /Squeezelite/tools/squeeze_update.sh
-echo "Squeezelite tools installed."
+tput setaf 3; echo "Squeezelite tools installed."
 
 #------------------------------------
 #SYMLINKS FOR SQUEEZE TOOLS
@@ -58,36 +58,36 @@ rm /usr/bin/squeeze_audio /usr/bin/squeeze_name /usr/bin/squeeze_update > /Squee
 ln -s /Squeezelite/tools/squeeze_audio.sh /usr/bin/squeeze_audio
 ln -s /Squeezelite/tools/squeeze_name.sh /usr/bin/squeeze_name
 ln -s /Squeezelite/tools/squeeze_update.sh /usr/bin/squeeze_update
-echo "Squeezelite tools active."
+tput setaf 3; echo "Squeezelite tools active."
 
 #------------------------------------
 #INSTALL REQUIRED LIBRARIES
 #------------------------------------
-echo "Installing required libraries."
+tput setaf 3; echo "Installing required libraries."
 apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
-echo "Installed required libraries."
+tput setaf 3; echo "Installed required libraries."
 
 #------------------------------------
 #GIT
 #------------------------------------
-echo "Updating Git"
+tput setaf 3; echo "Updating Git"
 apt-get install git 2>&1 | tee /Squeezelite/logs/git_log.txt #LOG SYSTEM
-echo "Done updating Git."
+tput setaf 3; echo "Done updating Git."
 
 #------------------------------------
 #INSTALL SQUEEZELITE
 #------------------------------------
-echo "Installing Squeezelite using package manager."
+tput setaf 3; echo "Installing Squeezelite using package manager."
 apt-get install squeezelite 2>&1 | tee /Squeezelite/logs/apt_squeeze_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
-        echo "Installed Squeezelite using package manager."
+        tput setaf 3; echo "Installed Squeezelite using package manager."
 else
-        echo "Package manager does not have Squeezelite"
-        echo "-----------------------------------------"
-        echo "     Squeezelite will not auto start     "
-        echo "     and will not have config files.     "
-        echo "-----------------------------------------"
+        tput setaf 3; echo "Package manager does not have Squeezelite"
+        tput setaf 3; echo "-----------------------------------------"
+        tput setaf 3; echo "     Squeezelite will not auto start     "
+        tput setaf 3; echo "     and will not have config files.     "
+        tput setaf 3; echo "-----------------------------------------"
 fi
 
 #------------------------------------
@@ -96,15 +96,15 @@ fi
 service squeezelite stop > /Squeezelite/logs/squeeze_stop2_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
-  echo "Squeezelite stopped."
+  tput setaf 3; echo "Squeezelite stopped."
 else
-  echo "Squeezelite installation via package manager failed."
+  tput setaf 3; echo "Squeezelite installation via package manager failed."
 fi
 
 #------------------------------------
 #COMPILE LATEST SQUEEZELITE
 #------------------------------------
-echo "Compiling latest Squeezelite:"
+tput setaf 3; echo "Compiling latest Squeezelite:"
 cd /Squeezelite
 git clone https://github.com/ralph-irving/squeezelite.git
 cd /Squeezelite/squeezelite
@@ -113,7 +113,7 @@ OPTS="-DDSD -DRESAMPLER" make
 #------------------------------------
 #SYMLINKS FOR SQUEEZELITE
 #------------------------------------
-echo "Creating symbolic links."
+tput setaf 3; echo "Creating symbolic links."
 mv /usr/bin/squeezelite /usr/bin/squeezelite.bac
 ln -s /Squeezelite/squeezelite/squeezelite /usr/bin/squeezelite
 
@@ -121,5 +121,5 @@ ln -s /Squeezelite/squeezelite/squeezelite /usr/bin/squeezelite
 #START SQUEEZELITE
 #------------------------------------
 service squeezelite start
-echo "Started Squeezelite."
+tput setaf 3; echo "Started Squeezelite."
 exit
