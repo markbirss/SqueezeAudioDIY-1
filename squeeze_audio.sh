@@ -71,4 +71,10 @@ cat /etc/default/squeezelite
 #------------------------------------
 service squeezelite start
 echo "Started Squeezelite."
+
+#------------------------------------
+#TEMP FILES CLEANUP
+#------------------------------------
+rm ./available_list.txt 
+rm ./devices.txt
 exit
