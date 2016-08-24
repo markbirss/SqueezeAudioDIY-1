@@ -17,18 +17,19 @@ cd squeezelite_autoinstall
 Squeezelite Setup for Debian-Based-Distro
 -----------------------------------------
 ```shell
-sudo sh ./squeezelite_install.sh
+chmod +x ./squeezelite_install.sh
+sudo ./squeezelite_install.sh
 ```
 
 Tools for Squeezelite
 ---------------------
 Select default audio device:
 ```shell
-squeeze_audio
+sudo squeeze_audio
 ```
 Select name for Squeezelite Player:
 ```shell
-squeeze_name
+sudo squeeze_name
 ```
 Update Squeezelite:
 ```shell
