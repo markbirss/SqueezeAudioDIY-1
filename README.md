@@ -37,7 +37,8 @@ sudo squeeze_update
 ```
 Update Squeezelite:
 ```shell
-sudo sh squeeze_rpi_hifiberry.sh
+chmod +x ./squeeze_rpi_hifiberry.sh
+sudo ./squeeze_rpi_hifiberry.sh
 ```
 Squeezelite:
 ------------
