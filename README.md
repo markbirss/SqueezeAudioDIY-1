@@ -35,7 +35,7 @@ Update Squeezelite:
 ```shell
 sudo squeeze_update
 ```
-Update Squeezelite:
+Raspberry Pi - HifiBerry Script
 ```shell
 chmod +x ./squeeze_rpi_hifiberry.sh
 sudo ./squeeze_rpi_hifiberry.sh
