@@ -1,18 +1,6 @@
 #!/bin/bash
 
 #------------------------------------
-#PERMISSIONS REQUIRED
-#------------------------------------
-permissions=$(whoami)
-if [ $permissions = root ]
-then
-  tput setaf 3; echo "Running as root."
-else
-  tput setaf 3; echo "Run script as root."
-  exit
-fi
-
-#------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
 service squeezelite stop
@@ -75,6 +63,6 @@ echo "Started Squeezelite."
 #------------------------------------
 #TEMP FILES CLEANUP
 #------------------------------------
-rm ./available_list.txt 
+rm ./available_list.txt
 rm ./devices.txt
 exit

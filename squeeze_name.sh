@@ -1,17 +1,6 @@
 #!/bin/bash
 
 #------------------------------------
-#PERMISSIONS REQUIRED
-#------------------------------------
-permissions=$(whoami)
-if [ $permissions = root ]
-then
-	tput setaf 3; echo "Running as root."
-else
-        tput setaf 3; echo "Run script as root."
-        exit
-fi
-#------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
 sudo service squeezelite stop
@@ -26,47 +15,47 @@ echo "Backup of current settings made."
 #------------------------------------
 #MENU
 #------------------------------------
-echo "#####################################"
-echo " NAME CHANGER FOR SQUEEZELITE PLAYER "
-echo "#####################################"
-echo " 1 Change name to localhost name"
-echo " 2 Enter own custom name"
-echo " 3 Restore previous settings"
-echo "#####################################"
-echo -n "ENTERED: "
-read user_input
+OPTION=$(whiptail --title "ictinus2310 Squeezelite Setup" --menu "squeeze_audio" 20 60 10 \
+"1" "Change name to localhost name" \
+"2" "Enter own custom name" \
+"3" "Restore previous settings" \
+"4" "Show current settings" 3>&1 1>&2 2>&3)
 
-#------------------------------------
-#USER INPUT
-#------------------------------------
-if [ $user_input = 1 ]
+exitstatus=$?
+
+if [ $exitstatus = 0 ]
 then
-	sed -i 6s/.*/SL_NAME=cha$(hostname -s)/ /etc/default/squeezelite
-	sed -i '6s/$/"/' /etc/default/squeezelite
-	sed -i '6s/cha/"/' /etc/default/squeezelite
+	if [ $OPTION = 1 ]; then
+		sed -i 6s/.*/SL_NAME=cha$(hostname -s)/ /etc/default/squeezelite
+		sed -i '6s/$/"/' /etc/default/squeezelite
+		sed -i '6s/cha/"/' /etc/default/squeezelite
+	elif [ $OPTION = 2 ]; then
+		new_name=$(whiptail --title "squeeze_name" --inputbox "Please enter new name:" 10 60 New_Name 3>&1 1>&2 2>&3)
+		exitstatus=$?
+		if [ $exitstatus = 0 ]; then
+			sed -i 6s/.*/SL_NAME=cha$new_name/ /etc/default/squeezelite
+    	sed -i '6s/$/"/' /etc/default/squeezelite
+    	sed -i '6s/cha/"/' /etc/default/squeezelite
+		else
+			echo "You chose cancel"
+			exit
+		fi
+	elif [ $OPTION = 3 ]; then
+		mv /etc/default/squeezelite.2.namebac /etc/default/squeezelite
+	elif [ $OPTION = 4 ]; then
+		name_settings=$(cat /etc/default/squeezelite)
+		whiptail --title "Current Settings" --msgbox "$name_settings" 30 99
+	fi
+else
+	echo "You chose cancel."
+	exit
 fi
 
-if [ $user_input = 2 ]
-then
-	echo -n "NEW NAME (DON'T USE SPACES): "
-	read new_name
-	sed -i 6s/.*/SL_NAME=cha$new_name/ /etc/default/squeezelite
-        sed -i '6s/$/"/' /etc/default/squeezelite
-        sed -i '6s/cha/"/' /etc/default/squeezelite
-fi
-
-if [ $user_input = 3 ]
-then
-	mv /etc/default/squeezelite.2.namebac /etc/default/squeezelite
-fi
 #------------------------------------
 #NEW SETTINGS
 #------------------------------------
-echo "#####################################"
-echo "             NEW SETTINGS            "
-echo "#####################################"
-cat /etc/default/squeezelite
-echo "#####################################"
+name_settings=$(cat /etc/default/squeezelite)
+whiptail --title "Current Settings" --msgbox "$name_settings" 30 99
 
 #------------------------------------
 #BACKUP SQUEEZELITE CONFIG FILE

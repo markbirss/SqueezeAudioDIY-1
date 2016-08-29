@@ -1,18 +1,6 @@
 #!/bin/bash
 
 #------------------------------------
-#PERMISSIONS REQUIRED
-#------------------------------------
-permissions=$(whoami)
-if [ $permissions = root ]
-then
-        echo "Running as root."
-else
-        echo "Run script as root."
-        exit
-fi
-
-#------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
 service squeezelite stop
