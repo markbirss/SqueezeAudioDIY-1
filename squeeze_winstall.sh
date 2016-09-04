@@ -1,18 +1,6 @@
 #!/bin/bash
 
 #------------------------------------
-#PERMISSIONS REQUIRED
-#------------------------------------
-permissions=$(whoami)
-if [ $permissions = root ]
-then
-        tput setaf 3; echo "Running as root."
-else
-        tput setaf 3; echo "Run script as root."
-        exit
-fi
-
-#------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
 service squeezelite stop > /Squeezelite/logs/squeeze_stop1_log.txt #LOG SYSTEM
@@ -27,7 +15,8 @@ fi
 #DIRECTORIES
 #------------------------------------
 rm -R /Squeezelite
-if [ $? = 0 ]
+directoryquery=$($?)
+if [ directoryquery = 0 ]
 then
   tput setaf 3; echo "Old files removed."
 else
