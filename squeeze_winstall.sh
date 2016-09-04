@@ -32,21 +32,21 @@ tput setaf 3; echo "Directories created."
 #SQUEEZE TOOLS
 #------------------------------------
 tput setaf 3; echo "Installing Squeezelite tools."
-cp ./squeeze_audio.sh /Squeezelite/tools
-chmod +x /Squeezelite/tools/squeeze_audio.sh
-cp ./squeeze_name.sh /Squeezelite/tools
-chmod +x /Squeezelite/tools/squeeze_name.sh
-cp ./squeeze_update.sh /Squeezelite/tools
-chmod +x /Squeezelite/tools/squeeze_update.sh
+cp ./squeeze_waudio.sh /Squeezelite/tools
+chmod +x /Squeezelite/tools/squeeze_waudio.sh
+cp ./squeeze_wname.sh /Squeezelite/tools
+chmod +x /Squeezelite/tools/squeeze_wname.sh
+cp ./squeeze_wupdate.sh /Squeezelite/tools
+chmod +x /Squeezelite/tools/squeeze_wupdate.sh
 tput setaf 3; echo "Squeezelite tools installed."
 
 #------------------------------------
 #SYMLINKS FOR SQUEEZE TOOLS
 #------------------------------------
 rm /usr/bin/squeeze_audio /usr/bin/squeeze_name /usr/bin/squeeze_update > /Squeezelite/logs/tools_sym_log.txt
-ln -s /Squeezelite/tools/squeeze_audio.sh /usr/bin/squeeze_audio
-ln -s /Squeezelite/tools/squeeze_name.sh /usr/bin/squeeze_name
-ln -s /Squeezelite/tools/squeeze_update.sh /usr/bin/squeeze_update
+ln -s /Squeezelite/tools/squeeze_waudio.sh /usr/bin/squeeze_audio
+ln -s /Squeezelite/tools/squeeze_wname.sh /usr/bin/squeeze_name
+ln -s /Squeezelite/tools/squeeze_wupdate.sh /usr/bin/squeeze_update
 tput setaf 3; echo "Squeezelite tools active."
 
 #------------------------------------
