@@ -3,7 +3,7 @@
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop > /Squeezelite/logs/squeeze_stop1_log.txt #LOG SYSTEM
+service squeezelite stop > /usr/bin/Squeezelite/logs/squeeze_stop1_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
   tput setaf 3; echo "Squeezelite stopped."
@@ -14,7 +14,7 @@ fi
 #------------------------------------
 #DIRECTORIES
 #------------------------------------
-rm -R /Squeezelite
+rm -R /usr/bin/Squeezelite
 directoryquery=$($?)
 if [ directoryquery = 0 ]
 then
@@ -23,30 +23,24 @@ else
   tput setaf 3; echo "No previous installation found."
 fi
 #MAKING NEW DIRECTORIES
-mkdir /Squeezelite
-mkdir /Squeezelite/tools
-mkdir /Squeezelite/logs
+mkdir /usr/bin/Squeezelite
+mkdir /usr/bin/Squeezelite/tools
+mkdir /usr/bin/Squeezelite/logs
 tput setaf 3; echo "Directories created."
 
 #------------------------------------
 #SQUEEZE TOOLS
 #------------------------------------
 tput setaf 3; echo "Installing Squeezelite tools."
-cp ./squeeze_waudio.sh /Squeezelite/tools
-chmod +x /Squeezelite/tools/squeeze_waudio.sh
-cp ./squeeze_wname.sh /Squeezelite/tools
-chmod +x /Squeezelite/tools/squeeze_wname.sh
-cp ./squeeze_wupdate.sh /Squeezelite/tools
-chmod +x /Squeezelite/tools/squeeze_wupdate.sh
+cp ./squeeze_* /usr/bin/Squeezelite/tools
+chmod +x /usr/bin/Squeezelite/tools/squeeze_setup.sh
 tput setaf 3; echo "Squeezelite tools installed."
 
 #------------------------------------
 #SYMLINKS FOR SQUEEZE TOOLS
 #------------------------------------
-rm /usr/bin/squeeze_audio /usr/bin/squeeze_name /usr/bin/squeeze_update > /Squeezelite/logs/tools_sym_log.txt
-ln -s /Squeezelite/tools/squeeze_waudio.sh /usr/bin/squeeze_audio
-ln -s /Squeezelite/tools/squeeze_wname.sh /usr/bin/squeeze_name
-ln -s /Squeezelite/tools/squeeze_wupdate.sh /usr/bin/squeeze_update
+rm /usr/bin/squeeze_setup > /usr/bin/Squeezelite/logs/tools_sym_log.txt
+ln -s /usr/bin/Squeezelite/tools/squeeze_setup.sh /usr/bin/squeeze_setup
 tput setaf 3; echo "Squeezelite tools active."
 
 #------------------------------------
@@ -60,14 +54,14 @@ tput setaf 3; echo "Installed required libraries."
 #GIT
 #------------------------------------
 tput setaf 3; echo "Updating Git"
-tput setaf 7; apt-get install git 2>&1 | tee /Squeezelite/logs/git_log.txt #LOG SYSTEM
+tput setaf 7; apt-get install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
 tput setaf 3; echo "Done updating Git."
 
 #------------------------------------
 #INSTALL SQUEEZELITE
 #------------------------------------
 tput setaf 3; echo "Installing Squeezelite using package manager."
-tput setaf 7; apt-get install squeezelite 2>&1 | tee /Squeezelite/logs/apt_squeeze_log.txt #LOG SYSTEM
+tput setaf 7; apt-get install squeezelite 2>&1 | tee /usr/bin/Squeezelite/logs/apt_squeeze_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
         tput setaf 3; echo "Installed Squeezelite using package manager."
@@ -82,7 +76,7 @@ fi
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop > /Squeezelite/logs/squeeze_stop2_log.txt #LOG SYSTEM
+service squeezelite stop > /usr/bin/Squeezelite/logs/squeeze_stop2_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
   tput setaf 3; echo "Squeezelite stopped."
@@ -94,9 +88,9 @@ fi
 #COMPILE LATEST SQUEEZELITE
 #------------------------------------
 tput setaf 3; echo "Compiling latest Squeezelite:"
-tput setaf 7; cd /Squeezelite
+tput setaf 7; cd /usr/bin/Squeezelite
 git clone https://github.com/ralph-irving/squeezelite.git
-cd /Squeezelite/squeezelite
+cd /usr/bin/Squeezelite/squeezelite
 OPTS="-DDSD -DRESAMPLER" make
 
 #------------------------------------
@@ -104,7 +98,7 @@ OPTS="-DDSD -DRESAMPLER" make
 #------------------------------------
 tput setaf 3; echo "Creating symbolic links."
 mv /usr/bin/squeezelite /usr/bin/squeezelite.bac
-ln -s /Squeezelite/squeezelite/squeezelite /usr/bin/squeezelite
+ln -s /usr/bin/Squeezelite/squeezelite/squeezelite /usr/bin/squeezelite
 
 #------------------------------------
 #START SQUEEZELITE
