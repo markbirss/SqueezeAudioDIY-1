@@ -5,8 +5,14 @@ This branch explores adding the whiptail interface to the original scripts and m
 Squeezelite Setup for Debian-Based-Distro
 -----------------------------------------
 ```shell
-chmod +x ./setup.sh
-sudo ./setup.sh
+chmod +x ./squeeze_setup.sh
+sudo ./squeeze_setup.sh
+```
+
+To Access Menu After Installation
+-----------------------------------------
+```shell
+sudo squeeze_setup
 ```
 
 Squeezelite:
