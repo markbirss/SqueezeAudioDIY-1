@@ -1,6 +1,14 @@
-squeezelite_autoinstall - whiptail_implementation
+squeezelite_autoinstall
 ==============
-This branch explores adding the whiptail interface to the original scripts and making it for the user easier to use the offered tools.
+These scripts install and manage Squeezelite.
+
+Features:
+---------
+- Install Squeezelite.
+- Update Squeezelite.
+- Change the default audio device.
+- Change the name of the Squeezelite player.
+- Apply configuration required for HifiBerry DACs on Raspberry Pi.
 
 Squeezelite Setup for Debian-Based-Distro
 -----------------------------------------
