@@ -101,13 +101,6 @@ mv /usr/bin/squeezelite /usr/bin/squeezelite.bac
 ln -s /usr/bin/Squeezelite/squeezelite/squeezelite /usr/bin/squeezelite
 
 #------------------------------------
-#CHANGE OWNER OF SQUEEZELITE FOLDER
-#------------------------------------
-userlist=$(ls /home/)
-username=$(whiptail --title "Available Users:" --inputbox "$userlist" 30 60 Enter_User_Here 3>&1 1>&2 2>&3)
-chown $username /usr/bin/Squeezelite
-
-#------------------------------------
 #START SQUEEZELITE
 #------------------------------------
 service squeezelite start
