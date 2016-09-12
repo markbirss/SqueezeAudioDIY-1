@@ -87,7 +87,7 @@ elif [ $packagemanager = 3 ]; then
       echo "[ ERROR ] GIT INSTALL FAILED"
   fi
 elif [ $packagemanager = 4 ]; then
-  pacman -S libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
+  pacman -S alsa-lib glibc base-devel flac libmad libvoris mpg123 ncurses gcc-libs zlib 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
   exitstatus=$?
   if [ $exitstatus = 0 ]
     then
