@@ -109,8 +109,14 @@ mv /usr/bin/squeezelite /usr/bin/squeezelite.bac
 ln -s /usr/bin/Squeezelite/squeezelite/squeezelite /usr/bin/squeezelite
 
 #------------------------------------
+#SQUEEZELITE SETTINGS FILE
+#------------------------------------
+touch /etc/default/squeezelite
+
+#------------------------------------
 #START SQUEEZELITE ON STARTUP
 #------------------------------------
+
 
 #------------------------------------
 #START SQUEEZELITE
