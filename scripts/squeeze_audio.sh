@@ -34,15 +34,14 @@ exitstatus=$?
 if [ $exitstatus = 0 ]; then
     echo "You chose:" $device
 else
-    echo "You chose Cancel."
+    echo "[ ERROR ] CANCELED"
     exit
 fi
-
-selected_device=$(sed -n "${device}p" ./devices.txt)
 
 #------------------------------------
 #EDIT SQUEEZELITE CONFIG FILE
 #------------------------------------
+selected_device=$(sed -n "${device}p" ./devices.txt)
 sed -i 9s/.*/SL_SOUNDCARD=cha$selected_device/ /etc/default/squeezelite
 sed -i '9s/$/"/' /etc/default/squeezelite
 sed -i '9s/cha/"/' /etc/default/squeezelite

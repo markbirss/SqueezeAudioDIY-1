@@ -5,7 +5,7 @@
 #------------------------------------
 sed -i 's/#dtparam=i2s=on/dtparam=i2s=on/g' /boot/config.txt
 echo "dtoverlay=hifiberry-dac" >> /boot/config.txt
-echo "Configured /boot/config.txt for I2S DAC."
+echo "[ OK ] CONFIGURED I2S DAC"
 
 #------------------------------------
 #ADDING MODULES FOR DAC
@@ -14,10 +14,17 @@ echo "snd_soc_bcm2708_i2s" >> /etc/modules
 echo "bcm2708_dmaengine" >> /etc/modules
 echo "snd_soc_pcm5102a" >> /etc/modules
 echo "snd_soc_hifiberry_dac" >> /etc/modules
-echo "Modules added to /etc/modules file."
+echo "[ OK ] MODULES ADDED"
 
 #------------------------------------
-#ADDING MODULES FOR DAC
+#REBOOT PI
 #------------------------------------
-echo "System needs to reboot for DAC to activate."
-exit
+menu=$(whiptail --title "squeeze_hifiberry | ictinus2310" --yes-button "Reboot" --no-button "Exit"  --yesno "Would you like to reboot the system?" 10 60)
+if [ $menu = 0 ]; then
+  shutdown -r now
+fi
+
+if [ $menu = 1 ]; then
+  echo [ ERROR ] CANCELED, PLEASE REBOOT.
+  exit
+fi
