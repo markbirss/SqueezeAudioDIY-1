@@ -154,3 +154,4 @@ touch /etc/default/squeezelite
 #------------------------------------
 #START SQUEEZELITE ON STARTUP
 #------------------------------------
+echo /usr/bin/squeezelite >> /etc/rc.local
