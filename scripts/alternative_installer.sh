@@ -36,65 +36,66 @@ packagemanager=$(whiptail --title "Squeezelite Setup | ictinus2310" --menu "Choo
 "2" "RPM Package Manager - YUM" \
 "3" "RPM Package Manager - DNF" \
 "4" "Pacman Package Manager" 3>&1 1>&2 2>&3)
+exitstatus=$?
+if [ $exitstatus = 0 ]
+then
+  echo "[OK] Menu"
+else
+	echo "---You chose cancel---"
+	exit
+fi
 
 #------------------------------------
 #INSTALL REQUIRED LIBRARIES & GIT
 #------------------------------------
-exitstatus=$?
-if [ $exitstatus = 0 ]
-then
-	if [ $packagemanager = 1 ]; then
-    echo "---Installing required libraries---"
-    apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
-    if [ $exitstatus = 0 ]
-    then
-      echo "---Installed required libraries---"
-    else
-      echo "[ERROR] Libraries install failed."
-    fi
-    echo "---Updating Git---"
-    apt-get install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
-    echo "---Git installed---"
+if [ $packagemanager = 1 ]; then
+  echo "---Installing required libraries---"
+  apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
+  if [ $exitstatus = 0 ]
+  then
+    echo "---Installed required libraries---"
+  else
+    echo "[ERROR] Libraries install failed."
+  fi
+  echo "---Updating Git---"
+  apt-get install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
+  echo "---Git installed---"
 	elif [ $packagemanager = 2 ]; then
-    echo "---Installing required libraries---"
-    yum install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
-    if [ $exitstatus = 0 ]
+  echo "---Installing required libraries---"
+  yum install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
+  if [ $exitstatus = 0 ]
+  then
+    echo "---Installed required libraries---"
+  else
+    echo "[ERROR] Libraries install failed."
+  fi
+  echo "---Updating Git---"
+  yum install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
+  echo "---Git installed---"
+  elif [ $packagemanager = 3 ]; then
+  echo "---Installing required libraries---"
+  dnf install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
+  if [ $exitstatus = 0 ]
     then
       echo "---Installed required libraries---"
     else
       echo "[ERROR] Libraries install failed."
-    fi
-    echo "---Updating Git---"
-    yum install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
-    echo "---Git installed---"
-	elif [ $packagemanager = 3 ]; then
-    echo "---Installing required libraries---"
-    dnf install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
-    if [ $exitstatus = 0 ]
-    then
-      echo "---Installed required libraries---"
-    else
-      echo "[ERROR] Libraries install failed."
-    fi
-    echo "---Updating Git---"
-    dnf install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
-    echo "---Git installed---"
+  fi
+  echo "---Updating Git---"
+  dnf install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
+  echo "---Git installed---"
 	elif [ $packagemanager = 4 ]; then
-    echo "---Installing required libraries---"
-    pacman -S libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
-    if [ $exitstatus = 0 ]
+  echo "---Installing required libraries---"
+  pacman -S libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
+  if [ $exitstatus = 0 ]
     then
       echo "---Installed required libraries---"
     else
       echo "[ERROR] Libraries install failed."
-    fi
-    echo "---Updating Git---"
-    pacman -S git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
-    echo "---Git installed---"
-	fi
-else
-	echo "---You chose cancel---"
-	exit
+  fi
+  echo "---Updating Git---"
+  pacman -S git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
+  echo "---Git installed---"
 fi
 
 #------------------------------------
