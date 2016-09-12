@@ -24,7 +24,7 @@ else
 fi
 #MAKING NEW DIRECTORIES
 mkdir /usr/bin/Squeezelite
-mkdir /usr/bin/Squeezelite/tools
+mkdir /usr/bin/Squeezelite/setup
 mkdir /usr/bin/Squeezelite/logs
 tput setaf 3; echo "Directories created."
 
@@ -32,15 +32,15 @@ tput setaf 3; echo "Directories created."
 #SQUEEZE TOOLS
 #------------------------------------
 tput setaf 3; echo "Installing Squeezelite tools."
-cp ./squeeze_* /usr/bin/Squeezelite/tools
-chmod +x /usr/bin/Squeezelite/tools/squeeze_setup.sh
+cp -R ./* /usr/bin/Squeezelite/setup
+chmod +x /usr/bin/Squeezelite/setup/setup.sh
 tput setaf 3; echo "Squeezelite tools installed."
 
 #------------------------------------
 #SYMLINKS FOR SQUEEZE TOOLS
 #------------------------------------
 rm /usr/bin/squeeze_setup > /usr/bin/Squeezelite/logs/tools_sym_log.txt
-ln -s /usr/bin/Squeezelite/tools/squeeze_setup.sh /usr/bin/squeeze_setup
+ln -s /usr/bin/Squeezelite/setup/setup.sh /usr/bin/squeeze_setup
 tput setaf 3; echo "Squeezelite tools active."
 
 #------------------------------------

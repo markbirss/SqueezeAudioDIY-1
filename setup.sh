@@ -25,20 +25,20 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $OPTION = 1 ]; then
-		chmod +x ./squeeze_winstall.sh
-		./squeeze_winstall.sh
+		chmod +x ./scripts/squeeze_install.sh
+		./scripts/squeeze_install.sh
 	elif [ $OPTION = 2]; then
-		chmod +x ./squeeze_wupdate.sh
-		./squeeze_wupdate.sh
+		chmod +x ./scripts/squeeze_update.sh
+		./scripts/squeeze_update.sh
 	elif [ $OPTION = 3 ]; then
-		chmod +x ./squeeze_waudio.sh
-		./squeeze_waudio.sh
+		chmod +x ./scripts/squeeze_audio.sh
+		./scripts/squeeze_audio.sh
 	elif [ $OPTION = 4 ]; then
-		chmod +x ./squeeze_wname.sh
-		./squeeze_wname.sh
+		chmod +x ./scripts/squeeze_name.sh
+		./scripts/squeeze_name.sh
 	elif [ $OPTION = 5 ]; then
-		chmod +x ./squeeze_wrpi_hifiberry.sh
-		./squeeze_wrpi_hifiberry.sh
+		chmod +x ./scripts/squeeze_rpi_hifiberry.sh
+		./scripts/squeeze_rpi_hifiberry.sh
 	fi
 else
 	echo "You chose cancel."
