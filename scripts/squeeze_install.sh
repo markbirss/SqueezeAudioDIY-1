@@ -16,7 +16,7 @@ fi
 #------------------------------------
 rm -R /usr/bin/Squeezelite
 directoryquery=$($?)
-if [ directoryquery = 0 ]
+if [ $directoryquery = 0 ]
 then
   tput setaf 3; echo "Old files removed."
 else

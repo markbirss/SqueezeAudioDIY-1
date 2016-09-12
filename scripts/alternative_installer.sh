@@ -3,19 +3,17 @@
 #------------------------------------
 #DIRECTORIES
 #------------------------------------
-rm -R /usr/bin/squeeze_files
-directoryquery=$($?)
-if [ directoryquery = 0 ]
+rm -R /usr/bin/squeeze_files > /usr/bin/squeeze_files/logs/direct_log.txt
+exitstatus=$?
+if [ $exitstatus = 0 ]
 then
-  echo "---Old files removed---"
-else
-  echo "---No previous installation found---"
+  echo "[ OK ] OLD FILES REMOVED"
 fi
 #MAKING NEW DIRECTORIES
 mkdir /usr/bin/squeeze_files
 mkdir /usr/bin/squeeze_files/setup
 mkdir /usr/bin/squeeze_files/logs
-echo "---Directories created---"
+echo "[ OK ] DIRECTORIES CREATED"
 
 #------------------------------------
 #DETERMINE PACKAGE MANAGER
@@ -28,9 +26,9 @@ packagemanager=$(whiptail --title "Squeezelite Setup | ictinus2310" --menu "Choo
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
-  echo "[OK] Menu"
+  echo "[ OK ] MENU"
 else
-	echo "---You chose cancel---"
+	echo "[ ERROR ] YOU CHOSE CANCEL"
 	exit
 fi
 
@@ -38,8 +36,8 @@ fi
 #INSTALL REQUIRED LIBRARIES & GIT
 #------------------------------------
 if [ $packagemanager = 1 ]; then
-  echo "---Installing required libraries---"
   apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
+  exitstatus=$?
   if [ $exitstatus = 0 ]
   then
     echo "---Installed required libraries---"
@@ -52,6 +50,7 @@ if [ $packagemanager = 1 ]; then
 	elif [ $packagemanager = 2 ]; then
   echo "---Installing required libraries---"
   yum install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
+  exitstatus=$?
   if [ $exitstatus = 0 ]
   then
     echo "---Installed required libraries---"
@@ -64,6 +63,7 @@ if [ $packagemanager = 1 ]; then
   elif [ $packagemanager = 3 ]; then
   echo "---Installing required libraries---"
   dnf install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
+  exitstatus=$?
   if [ $exitstatus = 0 ]
     then
       echo "---Installed required libraries---"
@@ -76,6 +76,7 @@ if [ $packagemanager = 1 ]; then
 	elif [ $packagemanager = 4 ]; then
   echo "---Installing required libraries---"
   pacman -S libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
+  exitstatus=$?
   if [ $exitstatus = 0 ]
     then
       echo "---Installed required libraries---"

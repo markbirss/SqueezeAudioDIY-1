@@ -5,9 +5,9 @@
 permissions=$(whoami)
 if [ $permissions = root ]
 then
-	echo "Running as root."
+	echo "[ OK ] RUNNING AS ROOT"
 else
-  echo "Run script as root."
+  echo "[ ERROR ] RUN SCRIPT AS ROOT"
   exit
 fi
 
