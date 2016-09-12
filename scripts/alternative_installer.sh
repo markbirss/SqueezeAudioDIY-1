@@ -40,84 +40,111 @@ if [ $packagemanager = 1 ]; then
   exitstatus=$?
   if [ $exitstatus = 0 ]
   then
-    echo "---Installed required libraries---"
+    echo "[ OK ] INSTALLED REQUIRED LIBRARIES"
   else
-    echo "[ERROR] Libraries install failed."
+    echo "[ ERROR ] LIBRARIES INSTALL FAILED"
   fi
-  echo "---Updating Git---"
   apt-get install git 2>&1 | tee /usr/bin/squeeze_files/logs/git_log.txt #LOG SYSTEM
-  echo "---Git installed---"
-	elif [ $packagemanager = 2 ]; then
-  echo "---Installing required libraries---"
+  exitstatus=$?
+  if [ $exitstatus = 0 ]
+    then
+      echo "[ OK ] GIT INSTALLED"
+    else
+      echo "[ ERROR ] GIT INSTALL FAILED"
+  fi
+elif [ $packagemanager = 2 ]; then
   yum install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
   exitstatus=$?
   if [ $exitstatus = 0 ]
   then
-    echo "---Installed required libraries---"
+    echo "[ OK ] INSTALLED REQUIRED LIBRARIES"
   else
-    echo "[ERROR] Libraries install failed."
+    echo "[ ERROR ] LIBRARIES INSTALL FAILED"
   fi
-  echo "---Updating Git---"
   yum install git 2>&1 | tee /usr/bin/squeeze_files/logs/git_log.txt #LOG SYSTEM
-  echo "---Git installed---"
-  elif [ $packagemanager = 3 ]; then
-  echo "---Installing required libraries---"
+  exitstatus=$?
+  if [ $exitstatus = 0 ]
+    then
+      echo "[ OK ] GIT INSTALLED"
+    else
+      echo "[ ERROR ] GIT INSTALL FAILED"
+  fi
+elif [ $packagemanager = 3 ]; then
   dnf install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
   exitstatus=$?
   if [ $exitstatus = 0 ]
     then
-      echo "---Installed required libraries---"
+      echo "[ OK ] INSTALLED REQUIRED LIBRARIES"
     else
-      echo "[ERROR] Libraries install failed."
+      echo "[ ERROR ] LIBRARIES INSTALL FAILED"
   fi
-  echo "---Updating Git---"
   dnf install git 2>&1 | tee /usr/bin/squeeze_files/logs/git_log.txt #LOG SYSTEM
-  echo "---Git installed---"
-	elif [ $packagemanager = 4 ]; then
-  echo "---Installing required libraries---"
+  exitstatus=$?
+  if [ $exitstatus = 0 ]
+    then
+      echo "[ OK ] GIT INSTALLED"
+    else
+      echo "[ ERROR ] GIT INSTALL FAILED"
+  fi
+elif [ $packagemanager = 4 ]; then
   pacman -S libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
   exitstatus=$?
   if [ $exitstatus = 0 ]
     then
-      echo "---Installed required libraries---"
+      echo "[ OK ] INSTALLED REQUIRED LIBRARIES"
     else
-      echo "[ERROR] Libraries install failed."
+      echo "[ ERROR ] LIBRARIES INSTALL FAILED"
   fi
-  echo "---Updating Git---"
   pacman -S git 2>&1 | tee /usr/bin/squeeze_files/logs/git_log.txt #LOG SYSTEM
-  echo "---Git installed---"
+  exitstatus=$?
+  if [ $exitstatus = 0 ]
+    then
+      echo "[ OK ] GIT INSTALLED"
+    else
+      echo "[ ERROR ] GIT INSTALL FAILED"
+  fi
 fi
 
 #------------------------------------
 #SQUEEZE TOOLS
 #------------------------------------
-echo "---Installing Squeezelite tools---"
 cp -R ./* /usr/bin/squeeze_files/setup
 chmod +x /usr/bin/squeeze_files/setup/setup.sh
-echo "---Squeezelite tools installed---"
-
-#------------------------------------
-#SYMLINKS FOR SQUEEZE TOOLS
-#------------------------------------
 rm /usr/bin/squeeze_setup > /usr/bin/squeeze_files/logs/tools_sym_log.txt
 ln -s /usr/bin/squeeze_files/setup/setup.sh /usr/bin/squeeze_setup
-echo "---Squeezelite tools active---"
+exitstatus=$?
+if [ $exitstatus = 0 ]
+  then
+    echo "[ OK ] SQUEEZELITE TOOLS INSTALLED"
+  else
+    echo "[ ERROR ] SQUEEZELITE TOOLS INSTALL FAILED"
+fi
 
 #------------------------------------
 #COMPILE LATEST SQUEEZELITE
 #------------------------------------
-echo "---Compiling latest Squeezelite---"
 cd /usr/bin/squeeze_files/
 git clone https://github.com/ralph-irving/squeezelite.git
 cd /usr/bin/squeeze_files/squeezelite
 OPTS="-DDSD -DRESAMPLER" make
+if [ $exitstatus = 0 ]
+  then
+    echo "[ OK ] LATEST SQUEEZELITE COMPILED"
+  else
+    echo "[ ERROR ] LATEST SQUEEZELITE COMPILING FAILED"
+fi
 
 #------------------------------------
 #SYMLINKS FOR SQUEEZELITE
 #------------------------------------
-echo "---Creating symbolic links---"
 rm /usr/bin/squeezelite
 ln -s /usr/bin/squeeze_files/squeezelite/squeezelite /usr/bin/squeezelite
+if [ $exitstatus = 0 ]
+  then
+    echo "[ OK ] SYMBOLIC LINKS CREATED"
+  else
+    echo "[ ERROR ] CREATING OF SYMBOLIC FAILED"
+fi
 
 #------------------------------------
 #SQUEEZELITE SETTINGS FILE
