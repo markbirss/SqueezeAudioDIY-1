@@ -16,9 +16,9 @@ echo "Old Squeezelite removed."
 #COMPILE LATEST SQUEEZELITE
 #------------------------------------
 echo "Compiling latest Squeezelite:"
-cd /usr/bin/Squeezelite/
+cd /usr/bin/squeeze_files/
 git clone https://github.com/ralph-irving/squeezelite.git
-cd /usr/bin/Squeezelite/squeezelite
+cd /usr/bin/squeeze_files/queezelite
 OPTS="-DDSD -DRESAMPLER" make
 
 #------------------------------------

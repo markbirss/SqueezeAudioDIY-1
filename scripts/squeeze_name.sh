@@ -10,12 +10,12 @@ sudo service squeezelite stop
 #------------------------------------
 mv /etc/default/squeezelite.1.namebac /etc/default/squeezelite.2.namebac
 cp /etc/default/squeezelite /etc/default/squeezelite.1.namebac
-echo "Backup of current settings made."
+echo "[ OK ] BACKUP MADE OF SETTINGS"
 
 #------------------------------------
 #MENU
 #------------------------------------
-OPTION=$(whiptail --title "ictinus2310 Squeezelite Setup" --menu "squeeze_audio" 20 60 10 \
+menu=$(whiptail --title "ictinus2310 Squeezelite Setup" --menu "squeeze_audio" 20 60 10 \
 "1" "Change name to localhost name" \
 "2" "Enter own custom name" \
 "3" "Restore previous settings" \
@@ -25,11 +25,11 @@ exitstatus=$?
 
 if [ $exitstatus = 0 ]
 then
-	if [ $OPTION = 1 ]; then
+	if [ $menu = 1 ]; then
 		sed -i 6s/.*/SL_NAME=cha$(hostname -s)/ /etc/default/squeezelite
 		sed -i '6s/$/"/' /etc/default/squeezelite
 		sed -i '6s/cha/"/' /etc/default/squeezelite
-	elif [ $OPTION = 2 ]; then
+	elif [ $menu = 2 ]; then
 		new_name=$(whiptail --title "squeeze_name" --inputbox "Please enter new name:" 10 60 New_Name 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
@@ -40,14 +40,14 @@ then
 			echo "You chose cancel"
 			exit
 		fi
-	elif [ $OPTION = 3 ]; then
+	elif [ $menu = 3 ]; then
 		mv /etc/default/squeezelite.2.namebac /etc/default/squeezelite
-	elif [ $OPTION = 4 ]; then
+	elif [ $menu = 4 ]; then
 		name_settings=$(cat /etc/default/squeezelite)
 		whiptail --title "Current Settings" --msgbox "$name_settings" 30 99
 	fi
 else
-	echo "You chose cancel."
+	echo "[ ERROR ] CANCELED"
 	exit
 fi
 
@@ -60,12 +60,12 @@ whiptail --title "Current Settings" --msgbox "$name_settings" 30 99
 #------------------------------------
 #BACKUP SQUEEZELITE CONFIG FILE
 #------------------------------------
-cp /etc/default/squeezelite /etc/default/squeezelite.namebac
-echo "Backup of settings made."
+cp /etc/default/squeezelite /etc/default/squeezelite.1.namebac
+echo "[ OK ] BACKUP MADE OF SETTINGS"
 
 #------------------------------------
 #START SQUEEZELITE
 #------------------------------------
 service squeezelite start
-echo "Started Squeezelite."
+echo "[ OK ] SQUEEZELITE STARTED"
 exit

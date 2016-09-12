@@ -19,12 +19,9 @@ echo "[ OK ] MODULES ADDED"
 #------------------------------------
 #REBOOT PI
 #------------------------------------
-menu=$(whiptail --title "squeeze_hifiberry | ictinus2310" --yes-button "Reboot" --no-button "Exit"  --yesno "Would you like to reboot the system?" 10 60)
-if [ $menu = 0 ]; then
+if (whiptail --title "squeeze_hifiberry | ictinus2310" --yes-button "Reboot" --no-button "Exit" --yesno "Would you like to reboot the system?" 10 60) then
   shutdown -r now
-fi
-
-if [ $menu = 1 ]; then
+else
   echo [ ERROR ] CANCELED, PLEASE REBOOT.
   exit
 fi
