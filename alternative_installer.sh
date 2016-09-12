@@ -12,6 +12,55 @@ else
 fi
 
 #------------------------------------
+#DETERMINE PACKAGE MANAGER
+#------------------------------------
+packagemanager=$(whiptail --title "Squeezelite Setup | ictinus2310" --menu "Choose your package manager:" 20 60 10 \
+"1" "Advanced Package Tool - APT" \
+"2" "RPM Package Manager - YUM" \
+"3" "RPM Package Manager - DNF" \
+"4" "Pacman Package Manager" 3>&1 1>&2 2>&3)
+
+#------------------------------------
+#INSTALL REQUIRED LIBRARIES & GIT
+#------------------------------------
+exitstatus=$?
+if [ $exitstatus = 0 ]
+then
+	if [ $packagemanager = 1 ]; then
+    tput setaf 3; echo "Installing required libraries."
+    tput setaf 7; apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
+    tput setaf 3; echo "Installed required libraries."
+    tput setaf 3; echo "Updating Git"
+    tput setaf 7; apt-get install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
+    tput setaf 3; echo "Git installed."
+	elif [ $packagemanager = 2]; then
+    tput setaf 3; echo "Installing required libraries."
+    tput setaf 7; yum install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
+    tput setaf 3; echo "Installed required libraries."
+    tput setaf 3; echo "Updating Git"
+    tput setaf 7; yum install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
+    tput setaf 3; echo "Git installed."
+	elif [ $packagemanager = 3 ]; then
+    tput setaf 3; echo "Installing required libraries."
+    tput setaf 7; dnf install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
+    tput setaf 3; echo "Installed required libraries."
+    tput setaf 3; echo "Updating Git"
+    tput setaf 7; dnf install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
+    tput setaf 3; echo "Git installed."
+	elif [ $packagemanager = 4 ]; then
+    tput setaf 3; echo "Installing required libraries."
+    tput setaf 7; pacman -S install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
+    tput setaf 3; echo "Installed required libraries."
+    tput setaf 3; echo "Updating Git"
+    tput setaf 7; pacman -S install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
+    tput setaf 3; echo "Git installed."
+	fi
+else
+	echo "You chose cancel."
+	exit
+fi
+
+#------------------------------------
 #DIRECTORIES
 #------------------------------------
 rm -R /usr/bin/Squeezelite
@@ -42,20 +91,6 @@ tput setaf 3; echo "Squeezelite tools installed."
 rm /usr/bin/squeeze_setup > /usr/bin/Squeezelite/logs/tools_sym_log.txt
 ln -s /usr/bin/Squeezelite/tools/squeeze_setup.sh /usr/bin/squeeze_setup
 tput setaf 3; echo "Squeezelite tools active."
-
-#------------------------------------
-#INSTALL REQUIRED LIBRARIES
-#------------------------------------
-tput setaf 3; echo "Installing required libraries."
-tput setaf 7; apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
-tput setaf 3; echo "Installed required libraries."
-
-#------------------------------------
-#GIT
-#------------------------------------
-tput setaf 3; echo "Updating Git"
-tput setaf 7; apt-get install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
-tput setaf 3; echo "Done updating Git."
 
 #------------------------------------
 #COMPILE LATEST SQUEEZELITE
