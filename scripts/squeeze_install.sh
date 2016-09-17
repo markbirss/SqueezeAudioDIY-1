@@ -3,106 +3,109 @@
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop > /usr/bin/Squeezelite/logs/squeeze_stop1_log.txt #LOG SYSTEM
-if [ $? = 0 ]
-then
-  tput setaf 3; echo "Squeezelite stopped."
-else
-  tput setaf 3; echo "No previous version of Squeezelite."
-fi
+service squeezelite stop > /usr/bin/squeeze_files/logs/squeeze_stop1_log.txt #LOG SYSTEM
 
 #------------------------------------
 #DIRECTORIES
 #------------------------------------
-rm -R /usr/bin/Squeezelite
-directoryquery=$($?)
-if [ $directoryquery = 0 ]
+rm -R /usr/bin/squeeze_files > /usr/bin/squeeze_files/logs/direct_log.txt
+exitstatus=$?
+if [ $exitstatus = 0 ]
 then
-  tput setaf 3; echo "Old files removed."
-else
-  tput setaf 3; echo "No previous installation found."
+  echo "[ OK ] OLD FILES REMOVED"
 fi
 #MAKING NEW DIRECTORIES
-mkdir /usr/bin/Squeezelite
-mkdir /usr/bin/Squeezelite/setup
-mkdir /usr/bin/Squeezelite/logs
-tput setaf 3; echo "Directories created."
+mkdir /usr/bin/squeeze_files
+mkdir /usr/bin/squeeze_files/setup
+mkdir /usr/bin/squeeze_files/logs
+echo "[ OK ] DIRECTORIES CREATED"
 
 #------------------------------------
 #SQUEEZE TOOLS
 #------------------------------------
-tput setaf 3; echo "Installing Squeezelite tools."
-cp -R ./* /usr/bin/Squeezelite/setup
-chmod +x /usr/bin/Squeezelite/setup/setup.sh
-tput setaf 3; echo "Squeezelite tools installed."
-
-#------------------------------------
-#SYMLINKS FOR SQUEEZE TOOLS
-#------------------------------------
-rm /usr/bin/squeeze_setup > /usr/bin/Squeezelite/logs/tools_sym_log.txt
-ln -s /usr/bin/Squeezelite/setup/setup.sh /usr/bin/squeeze_setup
-tput setaf 3; echo "Squeezelite tools active."
+cp -R ./* /usr/bin/squeeze_files/setup
+chmod +x /usr/bin/squeeze_files/setup/scripts/squeeze_setup.sh
+rm /usr/bin/squeeze_setup > /usr/bin/squeeze_files/logs/tools_sym_log.txt
+ln -s /usr/bin/squeeze_files/setup/scripts/squeeze_setup.sh /usr/bin/squeeze_setup
+exitstatus=$?
+if [ $exitstatus = 0 ]
+  then
+    echo "[ OK ] SQUEEZELITE TOOLS INSTALLED"
+  else
+    echo "[ ERROR ] SQUEEZELITE TOOLS INSTALL FAILED"
+fi
 
 #------------------------------------
 #INSTALL REQUIRED LIBRARIES
 #------------------------------------
-tput setaf 3; echo "Installing required libraries."
-tput setaf 7; apt-get install libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /Squeezelite/logs/library_log.txt
-tput setaf 3; echo "Installed required libraries."
+apt-get -y install ffmpeg libsoxr-dev libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
+exitstatus=$?
+if [ $exitstatus = 0 ]
+then
+  echo "[ OK ] INSTALLED REQUIRED LIBRARIES"
+else
+  echo "[ ERROR ] LIBRARIES INSTALL FAILED"
+fi
 
 #------------------------------------
 #GIT
 #------------------------------------
-tput setaf 3; echo "Updating Git"
-tput setaf 7; apt-get install git 2>&1 | tee /usr/bin/Squeezelite/logs/git_log.txt #LOG SYSTEM
-tput setaf 3; echo "Done updating Git."
+apt-get -y install git 2>&1 | tee /usr/bin/squeeze_files/logs/git_log.txt #LOG SYSTEM
+exitstatus=$?
+if [ $exitstatus = 0 ]
+  then
+    echo "[ OK ] GIT INSTALLED"
+  else
+    echo "[ ERROR ] GIT INSTALL FAILED"
 
 #------------------------------------
 #INSTALL SQUEEZELITE
 #------------------------------------
-tput setaf 3; echo "Installing Squeezelite using package manager."
-tput setaf 7; apt-get install squeezelite 2>&1 | tee /usr/bin/Squeezelite/logs/apt_squeeze_log.txt #LOG SYSTEM
+apt-get -y install squeezelite 2>&1 | tee /usr/bin/squeeze_files/logs/apt_squeeze_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
-        tput setaf 3; echo "Installed Squeezelite using package manager."
+        echo "[ OK ] INSTALLED SQUEEZELITE VIA PACKAGE MANAGER"
 else
-        tput setaf 3; echo "Package manager does not have Squeezelite"
-        tput setaf 3; echo "-----------------------------------------"
-        tput setaf 3; echo "     Squeezelite will not auto start     "
-        tput setaf 3; echo "     and will not have config files.     "
-        tput setaf 3; echo "-----------------------------------------"
+        echo "[ ERROR ] PACKAGE MANAGER DOES NOT HAVE SQUEEZELITE"
+        echo "[ ERROR ] -----------------------------------------"
+        echo "[ ERROR ]      SQUEEZELITE WILL NOT AUTO START     "
+        echo "[ ERROR ]      AND WILL NOT HAVE CONFIG FILES      "
+        echo "[ ERROR ] -----------------------------------------"
 fi
 
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop > /usr/bin/Squeezelite/logs/squeeze_stop2_log.txt #LOG SYSTEM
-if [ $? = 0 ]
-then
-  tput setaf 3; echo "Squeezelite stopped."
-else
-  tput setaf 3; echo "Squeezelite installation via package manager failed."
-fi
+service squeezelite stop > /usr/bin/squeeze_files/logs/squeeze_stop2_log.txt #LOG SYSTEM
 
 #------------------------------------
 #COMPILE LATEST SQUEEZELITE
 #------------------------------------
-tput setaf 3; echo "Compiling latest Squeezelite:"
-tput setaf 7; cd /usr/bin/Squeezelite
+cd /usr/bin/squeeze_files/
 git clone https://github.com/ralph-irving/squeezelite.git
-cd /usr/bin/Squeezelite/squeezelite
-OPTS="-DDSD -DRESAMPLER" make
+cd /usr/bin/squeeze_files/squeezelite
+OPTS="-DDSD -DRESAMPLE -DALSA" make
+if [ $exitstatus = 0 ]
+  then
+    echo "[ OK ] LATEST SQUEEZELITE COMPILED"
+  else
+    echo "[ ERROR ] LATEST SQUEEZELITE COMPILING FAILED"
+fi
 
 #------------------------------------
 #SYMLINKS FOR SQUEEZELITE
 #------------------------------------
-tput setaf 3; echo "Creating symbolic links."
-mv /usr/bin/squeezelite /usr/bin/squeezelite.bac
-ln -s /usr/bin/Squeezelite/squeezelite/squeezelite /usr/bin/squeezelite
+rm /usr/bin/squeezelite > /usr/bin/squeeze_files/logs/rm_int_squeeze.txt
+ln -s /usr/bin/squeeze_files/squeezelite/squeezelite /usr/bin/squeezelite
+if [ $exitstatus = 0 ]
+  then
+    echo "[ OK ] SYMBOLIC LINKS CREATED"
+  else
+    echo "[ ERROR ] CREATING OF SYMBOLIC FAILED"
+fi
 
 #------------------------------------
 #START SQUEEZELITE
 #------------------------------------
 service squeezelite start
-tput setaf 3; echo "Started Squeezelite."
 exit
