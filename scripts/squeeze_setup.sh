@@ -18,8 +18,7 @@ menu=$(whiptail --title "Squeezelite Setup | ictinus2310 " --menu "Main Menu:" 2
 "1" "Install Squeezelite" \
 "2" "Update Squeezelite" \
 "3" "Change default audio device" \
-"4" "Change name of player" \
-"5" "HifiBerry I2S DAC Setup for Raspberry Pi" 3>&1 1>&2 2>&3)
+"4" "Change name of player" 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 if [ $exitstatus = 0 ]
@@ -36,9 +35,6 @@ then
 	elif [ $menu = 4 ]; then
 		chmod +x ./scripts/squeeze_name.sh
 		/usr/bin/squeeze_files/setup/scripts/squeeze_name.sh
-	elif [ $menu = 5 ]; then
-		chmod +x /usr/bin/squeeze_files/setup/scripts/squeeze_rpi_hifiberry.sh
-		/usr/bin/squeeze_files/setup/scripts/squeeze_rpi_hifiberry.sh
 	fi
 else
 	echo "[ ERROR ] CANCELED"
