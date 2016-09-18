@@ -8,7 +8,6 @@ Features:
 - Update Squeezelite.
 - Change the default audio device.
 - Change the name of the Squeezelite player.
-- Apply configuration required for HifiBerry DACs on Raspberry Pi.
 
 Squeezelite Setup for Debian-Based-Distro
 -----------------------------------------
