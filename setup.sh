@@ -1,14 +1,9 @@
 #!/bin/bash
 #------------------------------------
-#PERMISSIONS REQUIRED
+#ENSURE RUNNING AS ROOT
 #------------------------------------
-permissions=$(whoami)
-if [ $permissions = root ]
-then
-	echo "[ OK ] RUNNING AS ROOT"
-else
-  echo "[ ERROR ] RUN SCRIPT AS ROOT"
-  exit
+if [ "$(id -u)" != "0" ]; then
+  exec sudo "$0" "$@"
 fi
 
 chmod +x ./scripts/squeeze_install.sh
