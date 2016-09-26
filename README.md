@@ -9,7 +9,7 @@ Requirements:
 
 Features:
 ---------
-- Install Squeezelite v1.8.5-802.zip.
+- Install Squeezelite v1.8.5-802.
 - Change the default audio device.
 - Change the name of the Squeezelite player.
 
