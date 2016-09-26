@@ -5,7 +5,6 @@ These scripts install and manage Squeezelite.
 Features:
 ---------
 - Install Squeezelite.
-- Update Squeezelite.
 - Change the default audio device.
 - Change the name of the Squeezelite player.
 
