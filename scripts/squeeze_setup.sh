@@ -10,7 +10,7 @@ fi
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(whiptail --title "Squeezelite Setup | ictinus2310 " --menu "Main Menu:" 20 60 10 \
+menu=$(whiptail --title "Squeezelite Setup | Coenraad Human " --menu "Main Menu:" 20 60 10 \
 "1" "Install Squeezelite" \
 "2" "Update Squeezelite" \
 "3" "Change default audio device" \
@@ -20,17 +20,17 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-		chmod +x /usr/bin/squeeze_files/setup/scripts/squeeze_install.sh
-		/usr/bin/squeeze_files/setup/scripts/squeeze_install.sh
+		chmod +x /usr/share/squeeze_files/setup/scripts/squeeze_install.sh
+		/usr/share/squeeze_files/setup/scripts/squeeze_install.sh
 	elif [ $menu = 2]; then
-		chmod +x /usr/bin/squeeze_files/setup/scripts/squeeze_update.sh
-		/usr/bin/squeeze_files/setup/scripts/squeeze_update.sh
+		chmod +x /usr/share/squeeze_files/setup/scripts/squeeze_update.sh
+		/usr/share/squeeze_files/setup/scripts/squeeze_update.sh
 	elif [ $menu = 3 ]; then
-		chmod +x /usr/bin/squeeze_files/setup/scripts/squeeze_audio.sh
-		/usr/bin/squeeze_files/setup/scripts/squeeze_audio.sh
+		chmod +x /usr/share/squeeze_files/setup/scripts/squeeze_audio.sh
+		/usr/share/squeeze_files/setup/scripts/squeeze_audio.sh
 	elif [ $menu = 4 ]; then
-		chmod +x ./scripts/squeeze_name.sh
-		/usr/bin/squeeze_files/setup/scripts/squeeze_name.sh
+		chmod +x /usr/share/squeeze_files/scripts/squeeze_name.sh
+		/usr/share/squeeze_files/setup/scripts/squeeze_name.sh
 	fi
 else
 	echo "[ ERROR ] CANCELED"
