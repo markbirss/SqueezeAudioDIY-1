@@ -12,14 +12,15 @@ Features:
 Squeezelite Setup for Debian-Based-Distro
 -----------------------------------------
 ```shell
+cd squeezelite_autoinstall
 chmod +x ./setup.sh
-sudo ./setup.sh
+./setup.sh
 ```
 
 To Access Menu After Installation
 -----------------------------------------
 ```shell
-sudo squeeze_setup
+squeeze_setup
 ```
 
 Squeezelite:
