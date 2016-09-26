@@ -13,16 +13,16 @@ Features:
 - Change the default audio device.
 - Change the name of the Squeezelite player.
 
-Squeezelite v1.8.5-802 Setup for Debian-Based-Distro
-----------------------------------------------------
+Squeezelite v1.8.5-802 Setup for Debian-Based-Distro:
+-----------------------------------------------------
 ```shell
 cd squeezelite_autoinstall
 chmod +x ./setup.sh
 ./setup.sh
 ```
 
-To Access Menu After Installation
----------------------------------
+To Access Menu After Installation:
+----------------------------------
 ```shell
 squeeze_setup
 ```
