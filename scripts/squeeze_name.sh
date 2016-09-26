@@ -15,7 +15,7 @@ echo "[ OK ] BACKUP MADE OF SETTINGS"
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(whiptail --title "ictinus2310 Squeezelite Setup" --menu "squeeze_audio" 20 60 10 \
+menu=$(whiptail --title "Squeezelite Setup | Coenraad Human" --menu "squeeze_audio" 20 60 10 \
 "1" "Change name to localhost name" \
 "2" "Enter own custom name" \
 "3" "Restore previous settings" \
