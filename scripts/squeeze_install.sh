@@ -8,7 +8,7 @@ service squeezelite stop > /usr/bin/squeeze_files/logs/squeeze_stop1_log.txt #LO
 #------------------------------------
 #DIRECTORIES
 #------------------------------------
-rm -R /usr/bin/squeeze_files > /usr/bin/squeeze_files/logs/direct_log.txt
+rm -R /usr/bin/squeeze_files > /usr/bin/squeeze_files/logs/direct_log.txt #LOG SYSTEM
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -38,7 +38,7 @@ fi
 #------------------------------------
 #INSTALL REQUIRED LIBRARIES
 #------------------------------------
-apt-get -y install ffmpeg libsoxr-dev libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
+apt-get install -y unzip ffmpeg libsoxr-dev libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -46,17 +46,6 @@ then
 else
   echo "[ ERROR ] LIBRARIES INSTALL FAILED"
 fi
-
-#------------------------------------
-#GIT
-#------------------------------------
-apt-get -y install git 2>&1 | tee /usr/bin/squeeze_files/logs/git_log.txt #LOG SYSTEM
-exitstatus=$?
-if [ $exitstatus = 0 ]
-  then
-    echo "[ OK ] GIT INSTALLED"
-  else
-    echo "[ ERROR ] GIT INSTALL FAILED"
 
 #------------------------------------
 #INSTALL SQUEEZELITE
@@ -81,8 +70,8 @@ service squeezelite stop > /usr/bin/squeeze_files/logs/squeeze_stop2_log.txt #LO
 #------------------------------------
 #COMPILE LATEST SQUEEZELITE
 #------------------------------------
-cd /usr/bin/squeeze_files/
-git clone https://github.com/ralph-irving/squeezelite.git
+cp ./other/squeezelite-v1.8.5-802.zip /usr/bin/squeeze_files/squeezelite.zip
+unzip /usr/bin/squeeze_files/squeezelite.zip
 cd /usr/bin/squeeze_files/squeezelite
 OPTS="-DDSD -DRESAMPLE -DALSA" make
 if [ $exitstatus = 0 ]
