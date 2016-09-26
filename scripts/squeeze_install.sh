@@ -1,32 +1,32 @@
 #!/bin/bash
 
 #------------------------------------
-#STOP SQUEEZELITE
-#------------------------------------
-service squeezelite stop > /usr/bin/squeeze_files/logs/squeeze_stop1_log.txt #LOG SYSTEM
-
-#------------------------------------
 #DIRECTORIES
 #------------------------------------
-rm -R /usr/bin/squeeze_files > /usr/bin/squeeze_files/logs/direct_log.txt #LOG SYSTEM
+rm -R /usr/share/squeeze_files >/dev/null 2>&1
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
   echo "[ OK ] OLD FILES REMOVED"
 fi
 #MAKING NEW DIRECTORIES
-mkdir /usr/bin/squeeze_files
-mkdir /usr/bin/squeeze_files/setup
-mkdir /usr/bin/squeeze_files/logs
+mkdir /usr/share/squeeze_files
+mkdir /usr/share/squeeze_files/setup
+mkdir /usr/share/squeeze_files/logs
 echo "[ OK ] DIRECTORIES CREATED"
+
+#------------------------------------
+#STOP SQUEEZELITE
+#------------------------------------
+service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop1_log.txt #LOG SYSTEM
 
 #------------------------------------
 #SQUEEZE TOOLS
 #------------------------------------
-cp -R ./* /usr/bin/squeeze_files/setup
-chmod +x /usr/bin/squeeze_files/setup/scripts/squeeze_setup.sh
-rm /usr/bin/squeeze_setup > /usr/bin/squeeze_files/logs/tools_sym_log.txt
-ln -s /usr/bin/squeeze_files/setup/scripts/squeeze_setup.sh /usr/bin/squeeze_setup
+cp -R ./* /usr/share/squeeze_files/setup
+chmod +x /usr/share/squeeze_files/setup/scripts/squeeze_setup.sh
+rm /usr/bin/squeeze_setup >/usr/share/squeeze_files/logs/tools_sym_log.txt
+ln -s /usr/share/squeeze_files/setup/scripts/squeeze_setup.sh /usr/bin/squeeze_setup
 exitstatus=$?
 if [ $exitstatus = 0 ]
   then
@@ -50,7 +50,7 @@ fi
 #------------------------------------
 #INSTALL SQUEEZELITE
 #------------------------------------
-apt-get -y install squeezelite 2>&1 | tee /usr/bin/squeeze_files/logs/apt_squeeze_log.txt #LOG SYSTEM
+apt-get install -y squeezelite 2>&1 | tee /usr/share/squeeze_files/logs/apt_squeeze_log.txt #LOG SYSTEM
 if [ $? = 0 ]
 then
         echo "[ OK ] INSTALLED SQUEEZELITE VIA PACKAGE MANAGER"
@@ -65,14 +65,13 @@ fi
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop > /usr/bin/squeeze_files/logs/squeeze_stop2_log.txt #LOG SYSTEM
+service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop2_log.txt #LOG SYSTEM
 
 #------------------------------------
-#COMPILE LATEST SQUEEZELITE
+#COMPILE SQUEEZELITE
 #------------------------------------
-cp ./other/squeezelite-v1.8.5-802.zip /usr/bin/squeeze_files/squeezelite.zip
-unzip /usr/bin/squeeze_files/squeezelite.zip
-cd /usr/bin/squeeze_files/squeezelite
+unzip ./other/squeezelite-v1.8.5-802.zip
+cd ./other/squeezelite-v1.8.5-802
 OPTS="-DDSD -DRESAMPLE -DALSA" make
 if [ $exitstatus = 0 ]
   then
@@ -80,18 +79,8 @@ if [ $exitstatus = 0 ]
   else
     echo "[ ERROR ] LATEST SQUEEZELITE COMPILING FAILED"
 fi
-
-#------------------------------------
-#SYMLINKS FOR SQUEEZELITE
-#------------------------------------
-rm /usr/bin/squeezelite > /usr/bin/squeeze_files/logs/rm_int_squeeze.txt
-ln -s /usr/bin/squeeze_files/squeezelite/squeezelite /usr/bin/squeezelite
-if [ $exitstatus = 0 ]
-  then
-    echo "[ OK ] SYMBOLIC LINKS CREATED"
-  else
-    echo "[ ERROR ] CREATING OF SYMBOLIC FAILED"
-fi
+rm /usr/bin/squeezelite > /usr/share/squeeze_files/logs/rm_int_squeeze.txt #LOG SYSTEM
+cp ./squeezelite /usr/bin/
 
 #------------------------------------
 #START SQUEEZELITE
