@@ -40,7 +40,8 @@ fi
 #------------------------------------
 #INSTALL REQUIRED LIBRARIES
 #------------------------------------
-apt-get install -y unzip ffmpeg libsoxr-dev libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/bin/squeeze_files/logs/library_log.txt
+apt-get update
+apt-get install -y unzip ffmpeg libsoxr-dev libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/share/squeeze_files/logs/library_log.txt
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
