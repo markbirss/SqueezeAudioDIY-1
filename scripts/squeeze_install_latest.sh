@@ -72,8 +72,10 @@ service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop2_log.txt #
 #------------------------------------
 #COMPILE SQUEEZELITE
 #------------------------------------
-unzip ./files/squeezelite-v1.8.5-802.zip -d /usr/share/squeeze_files/include/
-cd /usr/share/squeeze_files/include/squeezelite-master/
+cd /usr/share/squeeze_files/latest/
+apt-get install -y git > /usr/share/squeeze_files/logs/git_log.txt #LOG SYSTEM
+git clone https://github.com/ralph-irving/squeezelite.git
+cd /usr/share/squeeze_files/latest/squeezelite/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
 if [ $exitstatus = 0 ]
   then
