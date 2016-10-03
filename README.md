@@ -1,18 +1,24 @@
 squeezelite_autoinstall
 ==============
-These scripts install and manage Squeezelite v1.8.5-802.
+These scripts install and manage Squeezelite v1.8.5-802
 
 Requirements:
 -------------
-- Debian Jessie and higher.
-- Ubuntu 14.04 and higher.
+- Debian Jessie and higher
+- Ubuntu 14.04 and higher
+
+Supported Architecture:
+-----------------------
+- i386
+- x86_64
+- ARM
 
 Features:
 ---------
-- Install Squeezelite v1.8.5-802.
-- Install latest version of Squeezelite.
-- Change the default audio device.
-- Change the name of the Squeezelite player.
+- Install Squeezelite v1.8.5-802
+- Install latest version of Squeezelite
+- Change the default audio device
+- Change the name of the Squeezelite player
 
 Squeezelite v1.8.5-802 Setup for Debian-Based-Distro:
 -----------------------------------------------------
