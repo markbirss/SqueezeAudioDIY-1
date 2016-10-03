@@ -81,12 +81,6 @@ apt-get install -y git > /usr/share/squeeze_files/logs/git_log.txt #LOG SYSTEM
 git clone https://github.com/ralph-irving/squeezelite.git
 cd /usr/share/squeeze_files/latest/squeezelite/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
-if [ $exitstatus = 0 ]
-  then
-    echo "[ OK ] LATEST SQUEEZELITE COMPILED"
-  else
-    echo "[ ERROR ] LATEST SQUEEZELITE COMPILING FAILED"
-fi
 rm /usr/bin/squeezelite > /usr/share/squeeze_files/logs/rm_int_squeeze.txt #LOG SYSTEM
 cp ./squeezelite /usr/bin/
 

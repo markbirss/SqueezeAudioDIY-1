@@ -79,12 +79,6 @@ service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop2_log.txt #
 unzip ./files/squeezelite-v1.8.5-802.zip -d /usr/share/squeeze_files/include/
 cd /usr/share/squeeze_files/include/squeezelite-master/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
-if [ $exitstatus = 0 ]
-  then
-    echo "[ OK ] LATEST SQUEEZELITE COMPILED"
-  else
-    echo "[ ERROR ] LATEST SQUEEZELITE COMPILING FAILED"
-fi
 rm /usr/bin/squeezelite > /usr/share/squeeze_files/logs/rm_int_squeeze.txt #LOG SYSTEM
 cp ./squeezelite /usr/bin/
 
