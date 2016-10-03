@@ -23,8 +23,7 @@ Features:
 Squeezelite v1.8.5-802 Setup for Debian-Based-Distro:
 -----------------------------------------------------
 ```shell
-cd squeezelite_autoinstall
-chmod +x ./setup.sh
+cd SqueezeAudioDIY
 ./setup.sh
 ```
 
