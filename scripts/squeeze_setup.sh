@@ -10,7 +10,7 @@ fi
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(whiptail --title "Squeezelite Setup | Coenraad Human" --menu "Main Menu:" 20 60 10 \
+menu=$(whiptail --title "Squeezelite Setup | Coenraad Human" --menu "Main Menu:" 20 75 10 \
 "1" "Install Squeezelite v1.8.5-802" \
 "2" "Install latest Squeezelite available" \
 "3" "Change default audio device" \
