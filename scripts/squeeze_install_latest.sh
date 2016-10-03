@@ -3,7 +3,7 @@
 #------------------------------------
 #DIRECTORIES
 #------------------------------------
-rm -R /usr/share/squeeze_files >/dev/null 2>&1
+rm -R /usr/share/squeeze_files > /dev/null 2>&1
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -23,14 +23,14 @@ echo "[ OK ] DIRECTORIES CREATED"
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop1_log.txt #LOG SYSTEM
+service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop1_log.txt 2>&1 #LOG SYSTEM
 
 #------------------------------------
 #SQUEEZE TOOLS
 #------------------------------------
 cp -R ./* /usr/share/squeeze_files/setup
 chmod +x /usr/share/squeeze_files/setup/scripts/squeeze_setup.sh
-rm /usr/bin/squeeze_setup >/usr/share/squeeze_files/logs/tools_sym_log.txt
+rm /usr/bin/squeeze_setup >/usr/share/squeeze_files/logs/tools_sym_log.txt 2>&1
 ln -s /usr/share/squeeze_files/setup/scripts/squeeze_setup.sh /usr/bin/squeeze_setup
 exitstatus=$?
 if [ $exitstatus = 0 ]
@@ -71,17 +71,17 @@ fi
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop2_log.txt #LOG SYSTEM
+service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop2_log.txt 2>&1 #LOG SYSTEM
 
 #------------------------------------
 #COMPILE SQUEEZELITE
 #------------------------------------
 cd /usr/share/squeeze_files/latest/
-apt-get install -y git > /usr/share/squeeze_files/logs/git_log.txt #LOG SYSTEM
+apt-get install -y git > /usr/share/squeeze_files/logs/git_log.txt 2>&1 #LOG SYSTEM
 git clone https://github.com/ralph-irving/squeezelite.git
 cd /usr/share/squeeze_files/latest/squeezelite/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
-rm /usr/bin/squeezelite > /usr/share/squeeze_files/logs/rm_int_squeeze.txt #LOG SYSTEM
+rm /usr/bin/squeezelite > /usr/share/squeeze_files/logs/rm_int_squeeze.txt 2>&1 #LOG SYSTEM
 cp ./squeezelite /usr/bin/
 
 #------------------------------------
