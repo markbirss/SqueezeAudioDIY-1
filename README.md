@@ -4,8 +4,8 @@ These scripts install and manage Squeezelite v1.8.5-802
 
 Requirements:
 -------------
-- Debian Jessie and higher
-- Ubuntu 14.04 and higher
+- Debian Jessie or higher
+- Ubuntu 14.04 or higher
 
 Supported Architecture:
 -----------------------
@@ -35,6 +35,14 @@ To Access Menu After Installation:
 squeeze_setup
 ```
 
-Squeezelite v1.8.5-802:
+Squeezelite:
 -----------------------
 Is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
+
+Squeezebox Stable v7.7.5 (Released 27-Nov-2014):
+-----------------------------------------------
+Is based on the stable build available on http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/
+
+Squeezebox Nightly v7.9:
+------------------------
+Is based on the nightly build available on http://downloads.slimdevices.com/nightly/?ver=7.9
