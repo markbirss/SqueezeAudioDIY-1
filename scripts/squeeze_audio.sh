@@ -9,25 +9,25 @@ echo "Stopped Squeezelite."
 #------------------------------------
 #AUDIO DEVICES AVAILABLE
 #------------------------------------
-squeezelite -l > ./available_list.txt
+squeezelite -l > /usr/share/squeeze_files/tmp/available_list.txt
 
 #------------------------------------
 #CREATE AVAILABLE LIST
 #------------------------------------
-sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' ./available_list.txt #REMOVES SPACES FROM FILE
+sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' /usr/share/squeeze_files/tmp/available_list.txt #REMOVES SPACES FROM FILE
 sed -i '1 d' ./available_list.txt #REMOVES FIRST LINE FROM FILE
 sed -i '$ d' ./available_list.txt #REMOVES LAST LINE FROM FILE
 
 #------------------------------------
 #CREATE DEVICE LIST
 #------------------------------------
-sed 's/-.*//' ./available_list.txt > ./devices.txt #REMOVE EVERYTHING AFTER '-' CHAR
-sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' ./devices.txt #REMOVES SPACES FROM FILE
+sed 's/-.*//' /usr/share/squeeze_files/tmp/available_list.txt > /usr/share/squeeze_files/tmp/devices.txt #REMOVE EVERYTHING AFTER '-' CHAR
+sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' /usr/share/squeeze_files/tmp/devices.txt #REMOVES SPACES FROM FILE
 
 #------------------------------------
 #SELECT DEVICE
 #------------------------------------
-available_list=$(cat -n ./available_list.txt)
+available_list=$(cat -n /usr/share/squeeze_files/tmp/devices.txt)
 device=$(whiptail --title "Available Devices:" --inputbox "$available_list" 30 140 Number 3>&1 1>&2 2>&3)
 
 exitstatus=$?
@@ -41,7 +41,7 @@ fi
 #------------------------------------
 #EDIT SQUEEZELITE CONFIG FILE
 #------------------------------------
-selected_device=$(sed -n "${device}p" ./devices.txt)
+selected_device=$(sed -n "${device}p" /usr/share/squeeze_files/tmp/devices.txt)
 sed -i 9s/.*/SL_SOUNDCARD=cha$selected_device/ /etc/default/squeezelite
 sed -i '9s/$/"/' /etc/default/squeezelite
 sed -i '9s/cha/"/' /etc/default/squeezelite

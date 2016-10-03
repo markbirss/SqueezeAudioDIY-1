@@ -18,6 +18,7 @@ mkdir /usr/share/squeeze_files/include
 mkdir /usr/share/squeeze_files/lms
 mkdir /usr/share/squeeze_files/lms/stable
 mkdir /usr/share/squeeze_files/lms/nightly
+mkdir /usr/share/squeeze_files/tmp
 echo "[ OK ] DIRECTORIES CREATED"
 
 #------------------------------------
