@@ -19,6 +19,8 @@ Features:
 - Install latest version of Squeezelite
 - Change the default audio device
 - Change the name of the Squeezelite player
+- Install stable Logitech Media Server v7.7.5 (Released 27-Nov-2014)
+- Install nightly Logitech Media Server v7.9
 
 Squeezelite v1.8.5-802 Setup for Debian-Based-Distro:
 -----------------------------------------------------
