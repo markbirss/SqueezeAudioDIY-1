@@ -32,7 +32,7 @@ then
   elif [ $menu = 5 ]; then
   	/usr/share/squeeze_files/setup/scripts/lms_install.sh
   elif [ $menu = 6 ]; then
-  	/usr/share/squeeze_files/setup/scripts/lms_install_latest.sh.
+  	/usr/share/squeeze_files/setup/scripts/lms_install_latest.sh
   fi
 else
 	echo "[ ERROR ] CANCELED"
