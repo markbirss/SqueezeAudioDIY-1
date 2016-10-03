@@ -15,8 +15,8 @@ squeezelite -l > /usr/share/squeeze_files/tmp/available_list.txt
 #CREATE AVAILABLE LIST
 #------------------------------------
 sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' /usr/share/squeeze_files/tmp/available_list.txt #REMOVES SPACES FROM FILE
-sed -i '1 d' ./available_list.txt #REMOVES FIRST LINE FROM FILE
-sed -i '$ d' ./available_list.txt #REMOVES LAST LINE FROM FILE
+sed -i '1 d' /usr/share/squeeze_files/tmp/available_list.txt #REMOVES FIRST LINE FROM FILE
+sed -i '$ d' /usr/share/squeeze_files/tmp/available_list.txt #REMOVES LAST LINE FROM FILE
 
 #------------------------------------
 #CREATE DEVICE LIST
@@ -28,7 +28,7 @@ sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' /usr/share/squeeze_files/tmp/devices.tx
 #SELECT DEVICE
 #------------------------------------
 available_list=$(cat -n /usr/share/squeeze_files/tmp/devices.txt)
-device=$(whiptail --title "Available Devices:" --inputbox "$available_list" 30 140 Number 3>&1 1>&2 2>&3)
+device=$(whiptail --title "Available Devices:" --inputbox "$available_list" 30 60 Number 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
