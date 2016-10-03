@@ -1,4 +1,4 @@
-squeezelite_autoinstall
+SqueezeAudioDIY
 ==============
 These scripts install and manage Squeezelite v1.8.5-802
 
@@ -23,7 +23,7 @@ Features:
 Squeezelite v1.8.5-802 Setup for Debian-Based-Distro:
 -----------------------------------------------------
 ```shell
-cd squeezelite_autoinstall
+cd SqueezeAudioDIY
 ./setup.sh
 ```
 

@@ -22,22 +22,16 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-		chmod +x /usr/share/squeeze_files/squeeze_install.sh
 		/usr/share/squeeze_files/squeeze_install.sh
 	elif [ $menu = 2 ]; then
-		chmod +x /usr/share/squeeze_files/squeeze_install_latest.sh
 		/usr/share/squeeze_files/squeeze_install_latest.sh
 	elif [ $menu = 3 ]; then
-		chmod +x /usr/share/squeeze_files/scripts/squeeze_audio.sh
 		/usr/share/squeeze_files/setup/scripts/squeeze_audio.sh
   elif [ $menu = 4 ]; then
-		chmod +x /usr/share/squeeze_files/scripts/squeeze_name.sh
 		/usr/share/squeeze_files/setup/scripts/squeeze_name.sh
   elif [ $menu = 5 ]; then
-  	chmod +x /usr/share/squeeze_files/setup/scripts/lms_install.sh
   	/usr/share/squeeze_files/setup/scripts/lms_install.sh
   elif [ $menu = 6 ]; then
-  	chmod +x /usr/share/squeeze_files/setup/scripts/lms_install_latest.sh
   	/usr/share/squeeze_files/setup/scripts/lms_install_latest.sh.
   fi
 else
