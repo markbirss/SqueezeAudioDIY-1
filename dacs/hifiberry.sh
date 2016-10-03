@@ -26,11 +26,11 @@ fi
 #------------------------------------
 if [ $modules = 1 ]; then
 	echo "dtoverlay=hifiberry-dac" >> /boot/config.txt
-elif [ $packagemanager = 2 ]; then
+elif [ $modules = 2 ]; then
 	echo "dtoverlay=hifiberry-dacplus" >> /boot/config.txt
-elif [ $packagemanager = 3 ]; then
+elif [ $modules = 3 ]; then
 	echo "dtoverlay=hifiberry-digi" >> /boot/config.txt
-elif [ $packagemanager = 4 ]; then
+elif [ $modules = 4 ]; then
 	echo "dtoverlay=hifiberry-amp" >> /boot/config.txt
 fi
 
