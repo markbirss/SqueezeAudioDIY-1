@@ -1,4 +1,4 @@
-SqueezeAudioDIY 1.1
+SqueezeAudioDIY 1.1.1
 ==============
 These scripts install and manage Squeezelite v1.8.5-802
 
@@ -17,6 +17,7 @@ Features:
 ---------
 - Install Squeezelite v1.8.5-802
 - Install latest version of Squeezelite
+- View audio devices in detail
 - Change the default audio device
 - Change the name of the Squeezelite player
 - Install stable Logitech Media Server v7.7.5 (Released 27-Nov-2014)
