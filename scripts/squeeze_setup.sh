@@ -23,9 +23,9 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-		/usr/share/squeeze_files/squeeze_install.sh
+		/usr/share/squeeze_files/setup/squeeze_reinstall.sh
 	elif [ $menu = 2 ]; then
-		/usr/share/squeeze_files/squeeze_install_latest.sh
+		/usr/share/squeeze_files/setup/squeeze_install_latest.sh
   elif [ $menu = 3 ]; then
     /usr/share/squeeze_files/setup/scripts/squeeze_audio_info.sh
 	elif [ $menu = 4 ]; then

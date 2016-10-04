@@ -1,45 +1,9 @@
 #!/bin/bash
 
 #------------------------------------
-#DIRECTORIES
-#------------------------------------
-rm -R /usr/share/squeeze_files > /dev/null 2>&1
-exitstatus=$?
-if [ $exitstatus = 0 ]
-then
-  echo "[ OK ] OLD FILES REMOVED"
-fi
-#MAKING NEW DIRECTORIES
-mkdir /usr/share/squeeze_files
-mkdir /usr/share/squeeze_files/setup
-mkdir /usr/share/squeeze_files/logs
-mkdir /usr/share/squeeze_files/latest
-mkdir /usr/share/squeeze_files/include
-mkdir /usr/share/squeeze_files/lms
-mkdir /usr/share/squeeze_files/lms/stable
-mkdir /usr/share/squeeze_files/lms/nightly
-mkdir /usr/share/squeeze_files/tmp
-echo "[ OK ] DIRECTORIES CREATED"
-
-#------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
 service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop1_log.txt 2>&1 #LOG SYSTEM
-
-#------------------------------------
-#SQUEEZE TOOLS
-#------------------------------------
-cp -R ./* /usr/share/squeeze_files/setup
-chmod +x /usr/share/squeeze_files/setup/scripts/squeeze_setup.sh
-rm /usr/bin/squeeze_setup > /usr/share/squeeze_files/logs/tools_sym_log.txt 2>&1
-ln -s /usr/share/squeeze_files/setup/scripts/squeeze_setup.sh /usr/bin/squeeze_setup
-exitstatus=$?
-if [ $exitstatus = 0 ]
-  then
-    echo "[ OK ] SQUEEZELITE TOOLS INSTALLED"
-  else
-    echo "[ ERROR ] SQUEEZELITE TOOLS INSTALL FAILED"
-fi
 
 #------------------------------------
 #INSTALL REQUIRED LIBRARIES
@@ -77,7 +41,9 @@ service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop2_log.txt 2
 #------------------------------------
 #COMPILE SQUEEZELITE
 #------------------------------------
-unzip ./files/squeezelite-v1.8.5-802.zip -d /usr/share/squeeze_files/include/
+rm -R /usr/share/squeeze_files/include
+mkdir /usr/share/squeeze_files/include
+unzip /usr/share/squeeze_files/setup/files/squeezelite-v1.8.5-802.zip -d /usr/share/squeeze_files/include/
 cd /usr/share/squeeze_files/include/squeezelite-master/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
 rm /usr/bin/squeezelite > /usr/share/squeeze_files/logs/rm_int_squeeze.txt 2>&1 #LOG SYSTEM
