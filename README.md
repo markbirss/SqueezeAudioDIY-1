@@ -1,4 +1,4 @@
-SqueezeAudioDIY 1.1.2
+SqueezeAudioDIY 1.1.3
 ==============
 These scripts install and manage Squeezelite v1.8.5-802
 
