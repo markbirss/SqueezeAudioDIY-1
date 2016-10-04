@@ -11,7 +11,7 @@ fi
 #MENU
 #------------------------------------
 menu=$(whiptail --title "SqueezeAudioDIY | Coenraad Human" --menu "Main Menu:" 20 75 10 \
-"1" "Install Squeezelite v1.8.5-802" \
+"1" "Re-install Squeezelite v1.8.5-802" \
 "2" "Install latest Squeezelite available" \
 "3" "Display audio devices in detail" \
 "4" "Change default audio device" \
