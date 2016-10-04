@@ -61,6 +61,6 @@ echo "Started Squeezelite."
 #------------------------------------
 #TEMP FILES CLEANUP
 #------------------------------------
-rm ./available_list.txt
-rm ./devices.txt
+rm /usr/share/squeeze_files/tmp/available_list.txt
+rm /usr/share/squeeze_files/tmp/devices.txt
 exit

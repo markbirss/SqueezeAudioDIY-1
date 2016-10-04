@@ -18,8 +18,7 @@ echo "[ OK ] BACKUP MADE OF SETTINGS"
 menu=$(whiptail --title "Squeezelite Setup | Coenraad Human" --menu "squeeze_audio" 20 60 10 \
 "1" "Change name to localhost name" \
 "2" "Enter own custom name" \
-"3" "Restore previous settings" \
-"4" "Show current settings" 3>&1 1>&2 2>&3)
+"3" "Show current settings" 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -37,12 +36,10 @@ then
     	sed -i '6s/$/"/' /etc/default/squeezelite
     	sed -i '6s/cha/"/' /etc/default/squeezelite
 		else
-			echo "You chose cancel"
+			echo "[ ERROR ] CANCELED"
 			exit
 		fi
 	elif [ $menu = 3 ]; then
-		mv /etc/default/squeezelite.2.namebac /etc/default/squeezelite
-	elif [ $menu = 4 ]; then
 		name_settings=$(cat /etc/default/squeezelite)
 		whiptail --title "Current Settings" --msgbox "$name_settings" 30 99
 	fi

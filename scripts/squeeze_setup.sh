@@ -27,7 +27,6 @@ then
 	elif [ $menu = 2 ]; then
 		/usr/share/squeeze_files/squeeze_install_latest.sh
   elif [ $menu = 3 ]; then
-    chmod +x /usr/share/squeeze_files/setup/scripts/squeeze_audio_info.sh
     /usr/share/squeeze_files/setup/scripts/squeeze_audio_info.sh
 	elif [ $menu = 4 ]; then
 		/usr/share/squeeze_files/setup/scripts/squeeze_audio.sh
