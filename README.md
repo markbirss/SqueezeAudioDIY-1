@@ -1,6 +1,6 @@
 SqueezeAudioDIY 1.1.3
 ==============
-These scripts install and manage Squeezelite v1.8.5-802
+These are terminal based utilities to install and manage Squeezelite
 
 Requirements:
 -------------
