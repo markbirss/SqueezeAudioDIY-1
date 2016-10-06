@@ -14,15 +14,70 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-
+		ls /usr/share/squeeze_files/logs/squeeze_install/ > /usr/share/squeeze_files/tmp/loglist.txt
+		loglist=$(cat -n /usr/share/squeeze_files/tmp/loglist.txt)
+		logselect=$(whiptail --title "Available logs:" --inputbox "$loglist" 30 60 Number 3>&1 1>&2 2>&3)
+		exitstatus=$?
+		if [ $exitstatus = 0 ]; then
+		    displaylog=$(cat /usr/share/squeeze_files/logs/squeeze_install/$log)
+				eval `resize` && whiptail --title "$log log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
+				rm /usr/share/squeeze_files/tmp/loglist.txt
+		else
+		    echo "[ ERROR ] CANCELED"
+		    exit
+		fi
 	elif [ $menu = 2 ]; then
-
+		ls /usr/share/squeeze_files/logs/squeeze_re-install/ > /usr/share/squeeze_files/tmp/loglist.txt
+		loglist=$(cat -n /usr/share/squeeze_files/tmp/loglist.txt)
+		logselect=$(whiptail --title "Available logs:" --inputbox "$loglist" 30 60 Number 3>&1 1>&2 2>&3)
+		exitstatus=$?
+		if [ $exitstatus = 0 ]; then
+		    displaylog=$(cat /usr/share/squeeze_files/logs/squeeze_install/$log)
+				eval `resize` && whiptail --title "$log log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
+				rm /usr/share/squeeze_files/tmp/loglist.txt
+		else
+		    echo "[ ERROR ] CANCELED"
+		    exit
+		fi
   elif [ $menu = 3 ]; then
-
+		ls /usr/share/squeeze_files/logs/squeeze_latest/ > /usr/share/squeeze_files/tmp/loglist.txt
+		loglist=$(cat -n /usr/share/squeeze_files/tmp/loglist.txt)
+		logselect=$(whiptail --title "Available logs:" --inputbox "$loglist" 30 60 Number 3>&1 1>&2 2>&3)
+		exitstatus=$?
+		if [ $exitstatus = 0 ]; then
+		    displaylog=$(cat /usr/share/squeeze_files/logs/squeeze_install/$log)
+				eval `resize` && whiptail --title "$log log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
+				rm /usr/share/squeeze_files/tmp/loglist.txt
+		else
+		    echo "[ ERROR ] CANCELED"
+		    exit
+		fi
   elif [ $menu = 4 ]; then
-
+		ls /usr/share/squeeze_files/logs/lms_install/ > /usr/share/squeeze_files/tmp/loglist.txt
+		loglist=$(cat -n /usr/share/squeeze_files/tmp/loglist.txt)
+		logselect=$(whiptail --title "Available logs:" --inputbox "$loglist" 30 60 Number 3>&1 1>&2 2>&3)
+		exitstatus=$?
+		if [ $exitstatus = 0 ]; then
+		    displaylog=$(cat /usr/share/squeeze_files/logs/squeeze_install/$log)
+				eval `resize` && whiptail --title "$log log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
+				rm /usr/share/squeeze_files/tmp/loglist.txt
+		else
+		    echo "[ ERROR ] CANCELED"
+		    exit
+		fi
   elif [ $menu = 5 ]; then
-      
+		ls /usr/share/squeeze_files/logs/lms_latest/ > /usr/share/squeeze_files/tmp/loglist.txt
+		loglist=$(cat -n /usr/share/squeeze_files/tmp/loglist.txt)
+		logselect=$(whiptail --title "Available logs:" --inputbox "$loglist" 30 60 Number 3>&1 1>&2 2>&3)
+		exitstatus=$?
+		if [ $exitstatus = 0 ]; then
+		    displaylog=$(cat /usr/share/squeeze_files/logs/squeeze_install/$log)
+				eval `resize` && whiptail --title "$log log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
+				rm /usr/share/squeeze_files/tmp/loglist.txt
+		else
+		    echo "[ ERROR ] CANCELED"
+		    exit
+		fi
   fi
 else
 	echo "[ ERROR ] CANCELED"
