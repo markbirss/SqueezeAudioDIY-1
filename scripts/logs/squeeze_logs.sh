@@ -24,7 +24,7 @@ log_viewer () {
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(whiptail --title "SqueezeAudioDIY | Coenraad Human" --menu "Logs:" 20 75 10 \
+menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY | Coenraad Human" --menu --scrolltext "Logs:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Install Squeezelite v1.8.5-802 log" \
 "2" "Re-install Squeezelite v1.8.5-802 log" \
 "3" "Install latest Squeezelite available log" \

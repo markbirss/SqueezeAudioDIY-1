@@ -50,7 +50,7 @@ sed -i '9s/cha/"/' /etc/default/squeezelite
 #VIEW NEW SETTINGS
 #------------------------------------
 name_settings=$(cat /etc/default/squeezelite)
-whiptail --title "Current Settings" --msgbox "$name_settings" 30 100
+eval `resize` && whiptail --title "Current Settings" --msgbox "$name_settings" $LINES $COLUMNS
 
 #------------------------------------
 #START SQUEEZELITE
