@@ -19,11 +19,17 @@ Features:
 ---------
 - Install Squeezelite v1.8.5-802
 - Install latest version of Squeezelite
+- Install stable Logitech Media Server v7.7.5 (Released 27-Nov-2014)
+- Install latest nightly Logitech Media Server v7.9
 - View audio devices in detail
 - Change the default audio device
-- Change the name of the Squeezelite player
-- Install stable Logitech Media Server v7.7.5 (Released 27-Nov-2014 this does not work on Ubuntu 16.04+)
-- Install latest nightly Logitech Media Server v7.9
+- Set default options for Squeezelite
+  - Name of the Squeezelite player
+- View logs
+
+Notes:
+------
+- Logitech Media Server v7.7.5 does not work on Ubuntu 16.04+
 
 Squeezelite v1.8.5-802 Setup for Debian-Based-Distro:
 -----------------------------------------------------
@@ -39,7 +45,7 @@ squeeze_setup
 ```
 
 Squeezelite:
------------------------
+------------
 Is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
 
 Squeezebox Stable v7.7.5 (Released 27-Nov-2014):

@@ -8,8 +8,8 @@ sudo service squeezelite stop
 #------------------------------------
 #BACKUP SQUEEZELITE CONFIG FILE
 #------------------------------------
-mv /etc/default/squeezelite.1.namebac /etc/default/squeezelite.2.namebac
-cp /etc/default/squeezelite /etc/default/squeezelite.1.namebac
+bacname=$(date +"%Y%m%d.%H%M%S")
+cp /etc/default/squeezelite /usr/share/squeeze_files/settings/backups/bacname
 echo "[ OK ] BACKUP MADE OF SETTINGS"
 
 #------------------------------------
@@ -53,12 +53,6 @@ fi
 #------------------------------------
 name_settings=$(cat /etc/default/squeezelite)
 whiptail --title "Current Settings" --msgbox "$name_settings" 30 99
-
-#------------------------------------
-#BACKUP SQUEEZELITE CONFIG FILE
-#------------------------------------
-cp /etc/default/squeezelite /etc/default/squeezelite.1.namebac
-echo "[ OK ] BACKUP MADE OF SETTINGS"
 
 #------------------------------------
 #START SQUEEZELITE
