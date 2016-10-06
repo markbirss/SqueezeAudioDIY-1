@@ -21,7 +21,7 @@ menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2 | Coenraad Human" 
 "5" "Display audio devices in detail" \
 "6" "Change default audio device" \
 "7" "Default Squeezelite options" \
-"8" "View installer logs" 3>&1 1>&2 2>&3)
+"8" "View logs of installers" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then

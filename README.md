@@ -1,7 +1,5 @@
-SqueezeAudioDIY 1.2-Beta
+SqueezeAudioDIY 1.2
 =========================
-Please take note this is a development branch.
-
 These are terminal based utilities to install and manage Squeezelite
 
 Requirements:
@@ -25,7 +23,7 @@ Features:
 - Change the default audio device
 - Set default options for Squeezelite
   - Set name of the Squeezelite player
-- View install logs
+- View logs of installers
 
 Notes:
 ------
