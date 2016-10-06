@@ -1,4 +1,4 @@
-SqueezeAudioDIY 1.2-Alpha
+SqueezeAudioDIY 1.2-Beta
 =========================
 Please take note this is a development branch.
 
@@ -25,7 +25,7 @@ Features:
 - Change the default audio device
 - Set default options for Squeezelite
   - Set name of the Squeezelite player
-- View logs
+- View install logs
 
 Notes:
 ------
