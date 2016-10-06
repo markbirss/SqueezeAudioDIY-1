@@ -27,7 +27,7 @@ if (eval `resize` && whiptail \
         --yesno "Would you like to change your audio device?: \n\n$display_list" \
         $LINES $COLUMNS $(( $LINES - 12 )) \
         --scrolltext ) then
-        /usr/share/squeeze_files/setup/scripts/squeeze_audio.sh
+        /usr/share/squeeze_files/setup/scripts/audio/squeeze_audio.sh
     else
         exit
     fi
