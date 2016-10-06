@@ -13,7 +13,7 @@ fi
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY | Coenraad Human" --menu --scrolltext "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2 | Coenraad Human" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Re-install Squeezelite v1.8.5-802" \
 "2" "Install latest Squeezelite available" \
 "3" "Install stable Logitech Media Server 7.7.5 (Released 27-Nov-2014)" \

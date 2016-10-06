@@ -3,7 +3,7 @@
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY | Coenraad Human" --menu --scrolltext "Squeezelite default options:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2 | Coenraad Human" --menu "Squeezelite default options:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Change Squeezelite player name" \
 "2" "option2" \
 "3" "option3" \

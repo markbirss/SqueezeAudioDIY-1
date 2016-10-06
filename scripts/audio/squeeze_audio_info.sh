@@ -23,7 +23,7 @@ display_list=$(cat -n /usr/share/squeeze_files/tmp/available_list.txt)
 #QUESTION
 #------------------------------------
 if (eval `resize` && whiptail \
-        --title "SqueezeAudioDIY | Coenraad Human" \
+        --title "SqueezeAudioDIY 1.2 | Coenraad Human" \
         --yesno "Would you like to change your audio device?: \n\n$display_list" \
         $LINES $COLUMNS $(( $LINES - 12 )) \
         --scrolltext ) then

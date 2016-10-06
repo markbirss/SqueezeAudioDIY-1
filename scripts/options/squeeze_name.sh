@@ -5,7 +5,7 @@
 #------------------------------------
 view_settings () {
 	name_settings=$(cat /etc/default/squeezelite)
-	eval `resize` && whiptail --title "Current Settings" --msgbox --scrolltext "$name_settings" $LINES $COLUMNS
+	eval `resize` && whiptail --title "Current Settings" --msgbox "$name_settings" $LINES $COLUMNS
 }
 
 #------------------------------------
@@ -23,7 +23,7 @@ echo "[ OK ] BACKUP MADE OF SETTINGS"
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "Squeezelite Setup | Coenraad Human" --menu --scrolltext "squeeze_audio" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "Squeezelite Setup 1.2 | Coenraad Human" --menu "squeeze_audio" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Change name to localhost name" \
 "2" "Enter own custom name" \
 "3" "Show current settings" 3>&1 1>&2 2>&3)
@@ -38,7 +38,7 @@ then
 		sed -i '6s/cha/"/' /etc/default/squeezelite
 		view_settings
 	elif [ $menu = 2 ]; then
-		new_name=$(eval `resize` && whiptail --title "squeeze_name" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
+		new_name=$(eval `resize` && whiptail --title "Squeezelite Setup 1.2 | Coenraad Human" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
 			sed -i 6s/.*/SL_NAME=cha$new_name/ /etc/default/squeezelite
