@@ -19,9 +19,12 @@ then
 		logselect=$(whiptail --title "Available logs:" --inputbox "$loglist" 30 60 Number 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
-		    displaylog=$(cat /usr/share/squeeze_files/logs/squeeze_install/$log)
-				eval `resize` && whiptail --title "$log log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
+		    cat -n /usr/share/squeeze_files/tmp/loglist.txt | grep "^ *$logselect" > /usr/share/squeeze_files/tmp/logselect.txt
+				selection=$(cat /usr/share/squeeze_files/tmp/logselect.txt | cut -c8-22)
+				displaylog=$(cat /usr/share/squeeze_files/logs/squeeze_install/$selection)
+				eval `resize` && whiptail --title "Squeezelite install log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
 				rm /usr/share/squeeze_files/tmp/loglist.txt
+				rm usr/share/squeeze_files/tmp/logselect.txt
 		else
 		    echo "[ ERROR ] CANCELED"
 		    exit
@@ -32,9 +35,12 @@ then
 		logselect=$(whiptail --title "Available logs:" --inputbox "$loglist" 30 60 Number 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
-		    displaylog=$(cat /usr/share/squeeze_files/logs/squeeze_install/$log)
-				eval `resize` && whiptail --title "$log log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
+		    cat -n /usr/share/squeeze_files/tmp/loglist.txt | grep "^ *$logselect" > /usr/share/squeeze_files/tmp/logselect.txt
+				selection=$(cat /usr/share/squeeze_files/tmp/logselect.txt | cut -c8-22)
+				displaylog=$(cat /usr/share/squeeze_files/logs/squeeze_re-install/$selection)
+				eval `resize` && whiptail --title "Squeezelite install log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
 				rm /usr/share/squeeze_files/tmp/loglist.txt
+				rm usr/share/squeeze_files/tmp/logselect.txt
 		else
 		    echo "[ ERROR ] CANCELED"
 		    exit
