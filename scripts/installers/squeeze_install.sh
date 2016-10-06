@@ -60,7 +60,7 @@ fi
 #INSTALL REQUIRED LIBRARIES
 #------------------------------------
 apt-get update
-apt-get install -y xterm unzip ffmpeg libsoxr-dev libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/share/squeeze_files/logs/squeeze_install/$logname #LOG SYSTEM
+apt-get install -y xterm unzip ffmpeg libsoxr-dev libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential &>> /usr/share/squeeze_files/logs/squeeze_install/$logname #LOG SYSTEM
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -72,7 +72,7 @@ fi
 #------------------------------------
 #INSTALL SQUEEZELITE
 #------------------------------------
-apt-get install -y squeezelite 2>&1 | tee /usr/share/squeeze_files/logs/squeeze_install/$logname #LOG SYSTEM
+apt-get install -y squeezelite &>> /usr/share/squeeze_files/logs/squeeze_install/$logname #LOG SYSTEM
 if [ $? = 0 ]
 then
         echo "[ OK ] INSTALLED SQUEEZELITE VIA PACKAGE MANAGER"
