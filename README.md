@@ -24,7 +24,7 @@ Features:
 - View audio devices in detail
 - Change the default audio device
 - Set default options for Squeezelite
-  - Name of the Squeezelite player
+  - Set name of the Squeezelite player
 - View logs
 
 Notes:
