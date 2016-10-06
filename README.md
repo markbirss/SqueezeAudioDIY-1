@@ -1,5 +1,7 @@
-SqueezeAudioDIY 1.1.3
-==============
+SqueezeAudioDIY 1.2-Alpha
+=========================
+Please take note this is a development branch.
+
 These are terminal based utilities to install and manage Squeezelite
 
 Requirements:
