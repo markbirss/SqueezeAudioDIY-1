@@ -26,7 +26,8 @@ echo "[ OK ] BACKUP MADE OF SETTINGS"
 menu=$(eval `resize` && whiptail --title "Squeezelite Setup 1.2 | Coenraad Human" --menu "squeeze_audio" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Change name to localhost name" \
 "2" "Enter own custom name" \
-"3" "Show current settings" 3>&1 1>&2 2>&3)
+"3" "Show current settings" \
+"4" "Back" 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -51,6 +52,8 @@ then
 		fi
 	elif [ $menu = 3 ]; then
 		view_settings
+	elif [ $menu = 4 ]; then
+		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
 	fi
 else
 	echo "[ ERROR ] CANCELED"

@@ -29,5 +29,5 @@ if (eval `resize` && whiptail \
         --scrolltext ) then
         /usr/share/squeeze_files/setup/scripts/audio/squeeze_audio.sh
     else
-        exit
+        squeeze_setup
     fi

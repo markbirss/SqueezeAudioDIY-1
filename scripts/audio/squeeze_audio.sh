@@ -34,7 +34,7 @@ exitstatus=$?
 if [ $exitstatus = 0 ]; then
     echo "You chose:" $device
 else
-    echo "[ ERROR ] CANCELED"
+    squeeze_setup
     exit
 fi
 
