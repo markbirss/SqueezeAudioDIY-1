@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#LOG FILE NAME
+logname=$(date +"%Y%m%d.%H%M%S")
+
 #------------------------------------
 #ENSURE RUNNING AS ROOT
 #------------------------------------
@@ -24,13 +27,13 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-		/usr/share/squeeze_files/setup/scripts/installers/squeeze_reinstall.sh
+		/usr/share/squeeze_files/setup/scripts/installers/squeeze_reinstall.sh | tee /usr/share/squeeze_files/logs/squeeze_re-install/$logname
 	elif [ $menu = 2 ]; then
-		/usr/share/squeeze_files/setup/scripts/installers/squeeze_install_latest.sh
+		/usr/share/squeeze_files/setup/scripts/installers/squeeze_install_latest.sh | tee /usr/share/squeeze_files/logs/squeeze_latest/$logname
   elif [ $menu = 3 ]; then
-  	/usr/share/squeeze_files/setup/scripts/installers/lms_install.sh
+  	/usr/share/squeeze_files/setup/scripts/installers/lms_install.sh | tee /usr/share/squeeze_files/logs/lms_install/$logname
   elif [ $menu = 4 ]; then
-  	/usr/share/squeeze_files/setup/scripts/installers/lms_install_latest.sh
+  	/usr/share/squeeze_files/setup/scripts/installers/lms_install_latest.sh | tee /usr/share/squeeze_files/logs/lms_latest/$logname
   elif [ $menu = 5 ]; then
     /usr/share/squeeze_files/setup/scripts/audio/squeeze_audio_info.sh
 	elif [ $menu = 6 ]; then

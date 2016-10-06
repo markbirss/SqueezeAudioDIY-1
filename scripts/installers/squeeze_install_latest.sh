@@ -1,12 +1,9 @@
 #!/bin/bash
 
-#LOG FILE NAME
-logname=$(date +"%Y%m%d.%H%M%S")
-
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop &>> /usr/share/squeeze_files/logs/squeeze_latest/$logname #LOG SYSTEM
+service squeezelite stop
 
 #------------------------------------
 #INSTALL REQUIRED LIBRARIES
@@ -24,7 +21,7 @@ fi
 #------------------------------------
 #INSTALL SQUEEZELITE
 #------------------------------------
-apt-get install -y squeezelite 2>&1 | tee /usr/share/squeeze_files/logs/squeeze_latest/$logname #LOG SYSTEM
+apt-get install -y squeezelite
 if [ $? = 0 ]
 then
         echo "[ OK ] INSTALLED SQUEEZELITE VIA PACKAGE MANAGER"
@@ -39,7 +36,7 @@ fi
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop &>> /usr/share/squeeze_files/logs/squeeze_latest/$logname #LOG SYSTEM
+service squeezelite stop
 
 #------------------------------------
 #COMPILE SQUEEZELITE
@@ -47,11 +44,11 @@ service squeezelite stop &>> /usr/share/squeeze_files/logs/squeeze_latest/$logna
 rm -R /usr/share/squeeze_files/installers/squeeze_latest
 mkdir /usr/share/squeeze_files/installers/squeeze_latest
 cd /usr/share/squeeze_files/installers/squeeze_latest
-apt-get install -y git &>> /usr/share/squeeze_files/logs/squeeze_latest/$logname #LOG SYSTEM
+apt-get install -y git
 git clone https://github.com/ralph-irving/squeezelite.git
 cd /usr/share/squeeze_files/installers/squeeze_latest/squeezelite/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
-rm /usr/bin/squeezelite &>> /usr/share/squeeze_files/logs/squeeze_latest/$logname #LOG SYSTEM
+rm /usr/bin/squeezelite
 cp ./squeezelite /usr/bin/
 
 #------------------------------------
