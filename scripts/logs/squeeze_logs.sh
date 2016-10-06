@@ -29,20 +29,28 @@ menu=$(whiptail --title "SqueezeAudioDIY | Coenraad Human" --menu "Logs:" 20 75 
 "2" "Re-install Squeezelite v1.8.5-802 log" \
 "3" "Install latest Squeezelite available log" \
 "4" "Install Logitech Media Server 7.7.5 log" \
-"5" "Install latest Logitech Media Server v7.9 log" 3>&1 1>&2 2>&3)
+"5" "Install latest Logitech Media Server v7.9 log" \
+"6" "Back" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
 		log_viewer /usr/share/squeeze_files/logs/squeeze_install
+		/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
 	elif [ $menu = 2 ]; then
 		log_viewer /usr/share/squeeze_files/logs/squeeze_re-install
+		/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
   elif [ $menu = 3 ]; then
 		log_viewer /usr/share/squeeze_files/logs/squeeze_latest
+		/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
   elif [ $menu = 4 ]; then
 		log_viewer /usr/share/squeeze_files/logs/lms_install
+		/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
   elif [ $menu = 5 ]; then
 		log_viewer /usr/share/squeeze_files/logs/lms_latest
+		/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
+	elif [ $menu = 6 ]; then
+		squeeze_setup
 	else
 	echo "[ ERROR ] CANCELED"
 	exit
