@@ -1,6 +1,14 @@
 #!/bin/bash
 
 #------------------------------------
+#NEW SETTINGS
+#------------------------------------
+view_settings () {
+	name_settings=$(cat /etc/default/squeezelite)
+	eval `resize` && whiptail --title "Current Settings" --msgbox "$name_settings" $LINES $COLUMNS
+}
+
+#------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
 sudo service squeezelite stop
@@ -8,17 +16,18 @@ sudo service squeezelite stop
 #------------------------------------
 #BACKUP SQUEEZELITE CONFIG FILE
 #------------------------------------
-mv /etc/default/squeezelite.1.namebac /etc/default/squeezelite.2.namebac
-cp /etc/default/squeezelite /etc/default/squeezelite.1.namebac
+bacname=$(date +"%Y%m%d.%H%M%S")
+cp /etc/default/squeezelite /usr/share/squeeze_files/settings/backups/bacname
 echo "[ OK ] BACKUP MADE OF SETTINGS"
 
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(whiptail --title "Squeezelite Setup | Coenraad Human" --menu "squeeze_audio" 20 60 10 \
+menu=$(eval `resize` && whiptail --title "Squeezelite Setup 1.2 | Coenraad Human" --menu "squeeze_audio" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Change name to localhost name" \
 "2" "Enter own custom name" \
-"3" "Show current settings" 3>&1 1>&2 2>&3)
+"3" "Show current settings" \
+"4" "Back" 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 
@@ -28,37 +37,28 @@ then
 		sed -i 6s/.*/SL_NAME=cha$(hostname -s)/ /etc/default/squeezelite
 		sed -i '6s/$/"/' /etc/default/squeezelite
 		sed -i '6s/cha/"/' /etc/default/squeezelite
+		view_settings
 	elif [ $menu = 2 ]; then
-		new_name=$(whiptail --title "squeeze_name" --inputbox "Please enter new name:" 10 60 New_Name 3>&1 1>&2 2>&3)
+		new_name=$(eval `resize` && whiptail --title "Squeezelite Setup 1.2 | Coenraad Human" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
 			sed -i 6s/.*/SL_NAME=cha$new_name/ /etc/default/squeezelite
     	sed -i '6s/$/"/' /etc/default/squeezelite
     	sed -i '6s/cha/"/' /etc/default/squeezelite
+			view_settings
 		else
 			echo "[ ERROR ] CANCELED"
 			exit
 		fi
 	elif [ $menu = 3 ]; then
-		name_settings=$(cat /etc/default/squeezelite)
-		whiptail --title "Current Settings" --msgbox "$name_settings" 30 99
+		view_settings
+	elif [ $menu = 4 ]; then
+		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
 	fi
 else
 	echo "[ ERROR ] CANCELED"
 	exit
 fi
-
-#------------------------------------
-#NEW SETTINGS
-#------------------------------------
-name_settings=$(cat /etc/default/squeezelite)
-whiptail --title "Current Settings" --msgbox "$name_settings" 30 99
-
-#------------------------------------
-#BACKUP SQUEEZELITE CONFIG FILE
-#------------------------------------
-cp /etc/default/squeezelite /etc/default/squeezelite.1.namebac
-echo "[ OK ] BACKUP MADE OF SETTINGS"
 
 #------------------------------------
 #START SQUEEZELITE

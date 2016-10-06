@@ -3,13 +3,13 @@
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop1_log.txt 2>&1 #LOG SYSTEM
+service squeezelite stop
 
 #------------------------------------
 #INSTALL REQUIRED LIBRARIES
 #------------------------------------
 apt-get update
-apt-get install -y xterm unzip ffmpeg libsoxr-dev libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/share/squeeze_files/logs/library_log.txt
+apt-get install -y xterm unzip ffmpeg libsoxr-dev libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential 2>&1 | tee /usr/share/squeeze_files/logs/squeeze_latest/$logname #LOG SYSTEM
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -21,7 +21,7 @@ fi
 #------------------------------------
 #INSTALL SQUEEZELITE
 #------------------------------------
-apt-get install -y squeezelite 2>&1 | tee /usr/share/squeeze_files/logs/apt_squeeze_log.txt #LOG SYSTEM
+apt-get install -y squeezelite
 if [ $? = 0 ]
 then
         echo "[ OK ] INSTALLED SQUEEZELITE VIA PACKAGE MANAGER"
@@ -36,19 +36,19 @@ fi
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop > /usr/share/squeeze_files/logs/squeeze_stop2_log.txt 2>&1 #LOG SYSTEM
+service squeezelite stop
 
 #------------------------------------
 #COMPILE SQUEEZELITE
 #------------------------------------
-rm -R /usr/share/squeeze_files/latest
-mkdir /usr/share/squeeze_files/latest
-cd /usr/share/squeeze_files/latest/
-apt-get install -y git > /usr/share/squeeze_files/logs/git_log.txt 2>&1 #LOG SYSTEM
+rm -R /usr/share/squeeze_files/installers/squeeze_latest
+mkdir /usr/share/squeeze_files/installers/squeeze_latest
+cd /usr/share/squeeze_files/installers/squeeze_latest
+apt-get install -y git
 git clone https://github.com/ralph-irving/squeezelite.git
-cd /usr/share/squeeze_files/latest/squeezelite/
+cd /usr/share/squeeze_files/installers/squeeze_latest/squeezelite/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
-rm /usr/bin/squeezelite > /usr/share/squeeze_files/logs/rm_int_squeeze.txt 2>&1 #LOG SYSTEM
+rm /usr/bin/squeezelite
 cp ./squeezelite /usr/bin/
 
 #------------------------------------
