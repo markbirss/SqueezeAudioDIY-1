@@ -40,6 +40,7 @@ then
 		name_changer $(hostname -s)
 		view_settings
 		service squeezelite start
+		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
 	elif [ $menu = 2 ]; then
 		new_name=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
 		exitstatus=$?
@@ -47,11 +48,13 @@ then
 			name_changer $new_name
 			view_settings
 			service squeezelite start
+			/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
 		else
 			/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
 		fi
 	elif [ $menu = 3 ]; then
 		view_settings
+		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
 	elif [ $menu = 4 ]; then
 		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
 	fi
