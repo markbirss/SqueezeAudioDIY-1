@@ -14,16 +14,6 @@ then
 		/usr/share/squeeze_files/setup/scripts/options/squeeze_name.sh
 	elif [ $menu = 2 ]; then
 		squeeze_setup
-  elif [ $menu = 3 ]; then
-  	/usr/share/squeeze_files/setup/scripts/options/
-  elif [ $menu = 4 ]; then
-  	/usr/share/squeeze_files/setup/scripts/options/
-  elif [ $menu = 5 ]; then
-    /usr/share/squeeze_files/setup/scripts/options/
-	elif [ $menu = 6 ]; then
-		/usr/share/squeeze_files/setup/scripts/options/
-  elif [ $menu = 7 ]; then
-		/usr/share/squeeze_files/setup/scripts/options/
   fi
 else
 	exit
