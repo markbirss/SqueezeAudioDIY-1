@@ -13,6 +13,7 @@ name_changer () {
 	sed -i '6s/$/"/' /etc/default/squeezelite
 	sed -i '6s/cha/"/' /etc/default/squeezelite
 }
+
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
