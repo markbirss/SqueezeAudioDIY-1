@@ -26,6 +26,6 @@ then
 		/usr/share/squeeze_files/setup/scripts/options/
   fi
 else
-	echo "[ ERROR ] CANCELED"
+	echo "[ ERROR ] CANCELED" > /dev/null 2>&1
 	exit
 fi

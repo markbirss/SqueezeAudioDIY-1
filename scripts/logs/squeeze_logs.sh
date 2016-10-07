@@ -16,7 +16,7 @@ log_viewer () {
 			rm /usr/share/squeeze_files/tmp/loglist.txt
 			rm /usr/share/squeeze_files/tmp/logselect.txt
 	else
-			echo "[ ERROR ] CANCELED"
+			echo "[ ERROR ] CANCELED" > /dev/null 2>&1
 			exit
 	fi
 }
@@ -56,7 +56,7 @@ then
 	elif [ $menu = 6 ]; then
 		squeeze_setup
 	else
-	echo "[ ERROR ] CANCELED"
+	echo "[ ERROR ] CANCELED" > /dev/null 2>&1
 	exit
 	fi
 fi
