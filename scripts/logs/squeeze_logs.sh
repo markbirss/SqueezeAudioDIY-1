@@ -12,7 +12,7 @@ log_viewer () {
 			cat -n /usr/share/squeeze_files/tmp/loglist.txt | grep "^ *$logselect" > /usr/share/squeeze_files/tmp/logselect.txt
 			selection=$(cat /usr/share/squeeze_files/tmp/logselect.txt | cut -c8-22)
 			displaylog=$(cat $1/$selection)
-			eval `resize` && whiptail --title "Squeezelite install log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
+			eval `resize` && whiptail --title "Log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
 			rm /usr/share/squeeze_files/tmp/loglist.txt
 			rm /usr/share/squeeze_files/tmp/logselect.txt
 	else
