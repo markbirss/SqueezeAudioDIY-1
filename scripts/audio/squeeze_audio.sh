@@ -4,7 +4,6 @@
 #STOP SQUEEZELITE
 #------------------------------------
 service squeezelite stop
-echo "Stopped Squeezelite."
 
 #------------------------------------
 #AUDIO DEVICES AVAILABLE
@@ -28,11 +27,11 @@ sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' /usr/share/squeeze_files/tmp/devices.tx
 #SELECT DEVICE
 #------------------------------------
 available_list=$(cat -n /usr/share/squeeze_files/tmp/devices.txt)
-device=$(eval `resize` && whiptail --title "Squeezelite Setup 1.2 | Coenraad Human" --inputbox "$available_list" $LINES $COLUMNS Number 3>&1 1>&2 2>&3)
+device=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --inputbox "$available_list" $LINES $COLUMNS Number 3>&1 1>&2 2>&3)
 
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
-    echo "You chose:" $device
+    echo "You chose:" $device > /dev/null 2>&1
 else
     squeeze_setup
     exit
@@ -50,13 +49,12 @@ sed -i '9s/cha/"/' /etc/default/squeezelite
 #VIEW NEW SETTINGS
 #------------------------------------
 name_settings=$(cat /etc/default/squeezelite)
-eval `resize` && whiptail --title "Squeezelite Setup 1.2 | Coenraad Human" --msgbox "$name_settings" $LINES $COLUMNS
+eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --msgbox "$name_settings" $LINES $COLUMNS
 
 #------------------------------------
 #START SQUEEZELITE
 #------------------------------------
 service squeezelite start
-echo "Started Squeezelite."
 
 #------------------------------------
 #TEMP FILES CLEANUP

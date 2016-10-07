@@ -1,12 +1,12 @@
 #!/bin/bash
 
 #------------------------------------
-#FUNCTION
+#FUNCTIONS
 #------------------------------------
 log_viewer () {
 	ls $1/ > /usr/share/squeeze_files/tmp/loglist.txt
 	loglist=$(cat -n /usr/share/squeeze_files/tmp/loglist.txt)
-	logselect=$(whiptail --title "Squeezelite Setup 1.2 | Coenraad Human" --inputbox "$loglist" 30 60 Number 3>&1 1>&2 2>&3)
+	logselect=$(whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --inputbox "$loglist" 30 60 Number 3>&1 1>&2 2>&3)
 	exitstatus=$?
 	if [ $exitstatus = 0 ]; then
 			cat -n /usr/share/squeeze_files/tmp/loglist.txt | grep "^ *$logselect" > /usr/share/squeeze_files/tmp/logselect.txt
@@ -21,10 +21,14 @@ log_viewer () {
 	fi
 }
 
+return_logmenu () {
+	/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
+}
+
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY | Coenraad Human" --menu "Logs:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --menu "Logs:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Install Squeezelite v1.8.5-802 log" \
 "2" "Re-install Squeezelite v1.8.5-802 log" \
 "3" "Install latest Squeezelite available log" \
@@ -36,19 +40,19 @@ if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
 		log_viewer /usr/share/squeeze_files/logs/squeeze_install
-		/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
+		return_logmenu
 	elif [ $menu = 2 ]; then
 		log_viewer /usr/share/squeeze_files/logs/squeeze_re-install
-		/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
+		return_logmenu
   elif [ $menu = 3 ]; then
 		log_viewer /usr/share/squeeze_files/logs/squeeze_latest
-		/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
+		return_logmenu
   elif [ $menu = 4 ]; then
 		log_viewer /usr/share/squeeze_files/logs/lms_install
-		/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
+		return_logmenu
   elif [ $menu = 5 ]; then
 		log_viewer /usr/share/squeeze_files/logs/lms_latest
-		/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
+		return_logmenu
 	elif [ $menu = 6 ]; then
 		squeeze_setup
 	else

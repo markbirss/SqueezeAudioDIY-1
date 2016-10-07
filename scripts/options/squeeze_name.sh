@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #------------------------------------
-#NEW SETTINGS
+#FUNCTION
 #------------------------------------
 view_settings () {
 	name_settings=$(cat /etc/default/squeezelite)
@@ -23,7 +23,7 @@ echo "[ OK ] BACKUP MADE OF SETTINGS"
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "Squeezelite Setup 1.2 | Coenraad Human" --menu "squeeze_audio" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --menu "squeeze_audio" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Change name to localhost name" \
 "2" "Enter own custom name" \
 "3" "Show current settings" \
@@ -38,14 +38,16 @@ then
 		sed -i '6s/$/"/' /etc/default/squeezelite
 		sed -i '6s/cha/"/' /etc/default/squeezelite
 		view_settings
+		service squeezelite start
 	elif [ $menu = 2 ]; then
-		new_name=$(eval `resize` && whiptail --title "Squeezelite Setup 1.2 | Coenraad Human" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
+		new_name=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
 			sed -i 6s/.*/SL_NAME=cha$new_name/ /etc/default/squeezelite
     	sed -i '6s/$/"/' /etc/default/squeezelite
     	sed -i '6s/cha/"/' /etc/default/squeezelite
 			view_settings
+			service squeezelite start
 		else
 			echo "[ ERROR ] CANCELED"
 			exit
@@ -59,10 +61,3 @@ else
 	echo "[ ERROR ] CANCELED"
 	exit
 fi
-
-#------------------------------------
-#START SQUEEZELITE
-#------------------------------------
-service squeezelite start
-echo "[ OK ] SQUEEZELITE STARTED"
-exit

@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#LOG FILE NAME
-logname=$(date +"%Y%m%d.%H%M%S")
-
 #------------------------------------
 #INSTALL
 #------------------------------------
@@ -13,6 +10,5 @@ wget http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/$download
 service logitechmediaserver stop
 install=$(ls | grep logitechmediaserver_....._all.deb)
 dpkg -i /usr/share/squeeze_files/installers/lms_stable/$install
-echo Done.
 rm /usr/share/squeeze_files/installers/lms_stable/index*
-exit
+squeeze_setup

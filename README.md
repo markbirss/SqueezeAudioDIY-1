@@ -1,4 +1,4 @@
-SqueezeAudioDIY 1.2
+SqueezeAudioDIY 1.2.1
 =========================
 These are terminal based utilities to install and manage Squeezelite
 

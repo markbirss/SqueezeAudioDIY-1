@@ -36,14 +36,14 @@ echo "[ OK ] DIRECTORIES CREATED"
 #------------------------------------
 #STOP SQUEEZELITE
 #------------------------------------
-service squeezelite stop
+service squeezelite stop > /dev/null 2>&1
 
 #------------------------------------
 #SQUEEZE TOOLS
 #------------------------------------
 cp -R ./* /usr/share/squeeze_files/setup
 chmod +x /usr/share/squeeze_files/setup/scripts/squeeze_setup.sh
-rm /usr/bin/squeeze_setup
+rm /usr/bin/squeeze_setup > /dev/null 2>&1
 ln -s /usr/share/squeeze_files/setup/scripts/squeeze_setup.sh /usr/bin/squeeze_setup
 exitstatus=$?
 if [ $exitstatus = 0 ]
@@ -58,13 +58,6 @@ fi
 #------------------------------------
 apt-get update
 apt-get install -y xterm unzip ffmpeg libsoxr-dev libasound2-dev libflac-dev libmad0-dev libvorbis-dev libfaad-dev libmpg123-dev liblircclient-dev libncurses5-dev build-essential
-exitstatus=$?
-if [ $exitstatus = 0 ]
-then
-  echo "[ OK ] INSTALLED REQUIRED LIBRARIES"
-else
-  echo "[ ERROR ] LIBRARIES INSTALL FAILED"
-fi
 
 #------------------------------------
 #INSTALL SQUEEZELITE

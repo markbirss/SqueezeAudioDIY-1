@@ -4,7 +4,6 @@
 #STOP SQUEEZELITE
 #------------------------------------
 service squeezelite stop
-echo "Stopped Squeezelite."
 
 #------------------------------------
 #AUDIO DEVICES AVAILABLE
@@ -23,11 +22,11 @@ display_list=$(cat -n /usr/share/squeeze_files/tmp/available_list.txt)
 #QUESTION
 #------------------------------------
 if (eval `resize` && whiptail \
-        --title "SqueezeAudioDIY 1.2 | Coenraad Human" \
+        --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" \
         --yesno "Would you like to change your audio device?: \n\n$display_list" \
         $LINES $COLUMNS $(( $LINES - 12 )) \
         --scrolltext ) then
         /usr/share/squeeze_files/setup/scripts/audio/squeeze_audio.sh
     else
         squeeze_setup
-    fi
+fi

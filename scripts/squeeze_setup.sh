@@ -13,7 +13,7 @@ fi
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2 | Coenraad Human" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Re-install Squeezelite v1.8.5-802" \
 "2" "Install latest Squeezelite available" \
 "3" "Install stable Logitech Media Server 7.7.5 (Released 27-Nov-2014)" \
@@ -26,13 +26,13 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-		/usr/share/squeeze_files/setup/scripts/installers/squeeze_reinstall.sh | tee /usr/share/squeeze_files/logs/squeeze_re-install/$logname
+		/usr/share/squeeze_files/setup/scripts/installers/squeeze_reinstall.sh 2>&1 | tee /usr/share/squeeze_files/logs/squeeze_re-install/$logname
 	elif [ $menu = 2 ]; then
-		/usr/share/squeeze_files/setup/scripts/installers/squeeze_install_latest.sh | tee /usr/share/squeeze_files/logs/squeeze_latest/$logname
+		/usr/share/squeeze_files/setup/scripts/installers/squeeze_install_latest.sh 2>&1 | tee /usr/share/squeeze_files/logs/squeeze_latest/$logname
   elif [ $menu = 3 ]; then
-  	/usr/share/squeeze_files/setup/scripts/installers/lms_install.sh | tee /usr/share/squeeze_files/logs/lms_install/$logname
+  	/usr/share/squeeze_files/setup/scripts/installers/lms_install.sh 2>&1 | tee /usr/share/squeeze_files/logs/lms_install/$logname
   elif [ $menu = 4 ]; then
-  	/usr/share/squeeze_files/setup/scripts/installers/lms_install_latest.sh | tee /usr/share/squeeze_files/logs/lms_latest/$logname
+  	/usr/share/squeeze_files/setup/scripts/installers/lms_install_latest.sh 2>&1 | tee /usr/share/squeeze_files/logs/lms_latest/$logname
   elif [ $menu = 5 ]; then
     /usr/share/squeeze_files/setup/scripts/audio/squeeze_audio_info.sh
 	elif [ $menu = 6 ]; then
