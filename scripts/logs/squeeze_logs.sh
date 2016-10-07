@@ -6,7 +6,7 @@
 log_viewer () {
 	ls $1/ > /usr/share/squeeze_files/tmp/loglist.txt
 	loglist=$(cat -n /usr/share/squeeze_files/tmp/loglist.txt)
-	logselect=$(whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --inputbox "$loglist" 30 60 Number 3>&1 1>&2 2>&3)
+	logselect=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --inputbox "$loglist" $LINES $COLUMNS 1 3>&1 1>&2 2>&3)
 	exitstatus=$?
 	if [ $exitstatus = 0 ]; then
 			cat -n /usr/share/squeeze_files/tmp/loglist.txt | grep "^ *$logselect" > /usr/share/squeeze_files/tmp/logselect.txt
