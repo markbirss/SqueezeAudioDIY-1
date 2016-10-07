@@ -56,7 +56,6 @@ then
 	elif [ $menu = 6 ]; then
 		squeeze_setup
 	else
-	echo "[ ERROR ] CANCELED" > /dev/null 2>&1
-	exit
+		exit
 	fi
 fi

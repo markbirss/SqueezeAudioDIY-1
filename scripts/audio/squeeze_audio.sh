@@ -34,7 +34,6 @@ if [ $exitstatus = 0 ]; then
     echo "You chose:" $device > /dev/null 2>&1
 else
     squeeze_setup
-    exit
 fi
 
 #------------------------------------
@@ -61,4 +60,4 @@ service squeezelite start
 #------------------------------------
 rm /usr/share/squeeze_files/tmp/available_list.txt
 rm /usr/share/squeeze_files/tmp/devices.txt
-exit
+squeeze_setup

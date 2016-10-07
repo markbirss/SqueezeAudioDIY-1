@@ -43,6 +43,5 @@ then
     /usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
   fi
 else
-	echo "[ ERROR ] CANCELED" > /dev/null 2>&1
 	exit
 fi

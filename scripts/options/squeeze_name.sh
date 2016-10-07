@@ -58,6 +58,5 @@ then
 		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
 	fi
 else
-	echo "[ ERROR ] CANCELED" > /dev/null 2>&1
 	exit
 fi
