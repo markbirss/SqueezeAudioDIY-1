@@ -1,5 +1,5 @@
 #!/bin/bash
-title=$(SqueezeAudioDIY 1.3 | Coenraad Human)
+title=$(cat /usr/share/squeeze_files/setup/version)
 
 #LOG FILE NAME
 logname=$(date +"%Y%m%d.%H%M%S")
@@ -23,7 +23,7 @@ menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $CO
 "6" "Change default audio device" \
 "7" "Default Squeezelite options" \
 "8" "View logs of installers" \
-"0" "Board fixes for I2S use" 3>&1 1>&2 2>&3)
+"9" "Board fixes for I2S use" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then

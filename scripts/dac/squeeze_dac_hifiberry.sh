@@ -1,5 +1,5 @@
 #!/bin/bash
-title=$(SqueezeAudioDIY 1.3 | Coenraad Human)
+title=$(cat /usr/share/squeeze_files/setup/version)
 
 #https://www.hifiberry.com/guides/hifiberry-software-configuration/
 #https://www.hifiberry.com/guides/configuring-linux-3-18-x/

@@ -1,6 +1,5 @@
 #!/bin/bash
-title=$(SqueezeAudioDIY 1.3 | Coenraad Human)
-
+title=$(cat /usr/share/squeeze_files/setup/version)
 
 #------------------------------------
 #REBOOT PI

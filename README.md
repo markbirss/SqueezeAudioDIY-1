@@ -25,8 +25,8 @@ Features:
   - Set name of the Squeezelite player
 - View logs of installers
 - Board fixes for I2S use
- - Raspberry Pi
  - Orange Pi
+ - Raspberry Pi
 
 Notes:
 ------
