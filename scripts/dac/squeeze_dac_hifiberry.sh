@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+title=$(SqueezeAudioDIY 1.3 | Coenraad Human)
 
 #https://www.hifiberry.com/guides/hifiberry-software-configuration/
 #https://www.hifiberry.com/guides/configuring-linux-3-18-x/
@@ -7,7 +8,7 @@
 #------------------------------------
 #ADDING MODULES FOR DAC
 #------------------------------------
-modules=$(whiptail --title "Squeezelite Setup | ictinus2310" --menu "Choose your package manager:" 20 60 10 \
+modules=$(whiptail --title "$title" --menu "Choose your package manager:" 20 60 10 \
 "1" "DAC/DAC+ Light" \
 "2" "DAC+ Standard/Pro" \
 "3" "Digi and Digi+" \
@@ -37,7 +38,7 @@ fi
 #------------------------------------
 #REBOOT PI
 #------------------------------------
-if (whiptail --title "squeeze_hifiberry | ictinus2310" --yes-button "Reboot" --no-button "Exit" --yesno "Would you like to reboot the system?" 10 60) then
+if (whiptail --title "$title" --yes-button "Reboot" --no-button "Exit" --yesno "Would you like to reboot the system?" 10 60) then
   shutdown -r now
 else
   echo [ ERROR ] CANCELED, PLEASE REBOOT.

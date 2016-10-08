@@ -1,4 +1,5 @@
 #!/bin/bash
+title=$(SqueezeAudioDIY 1.3 | Coenraad Human)
 
 #LOG FILE NAME
 logname=$(date +"%Y%m%d.%H%M%S")
@@ -13,7 +14,7 @@ fi
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Re-install Squeezelite v1.8.5-802" \
 "2" "Install latest Squeezelite available" \
 "3" "Install stable Logitech Media Server 7.7.5" \
@@ -22,7 +23,7 @@ menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human
 "6" "Change default audio device" \
 "7" "Default Squeezelite options" \
 "8" "View logs of installers" \
-"0" "Board fixes for I2S" 3>&1 1>&2 2>&3)
+"0" "Board fixes for I2S use" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then

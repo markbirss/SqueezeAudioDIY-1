@@ -1,4 +1,5 @@
 #!/bin/bash
+title=$(SqueezeAudioDIY 1.3 | Coenraad Human)
 
 #------------------------------------
 #FUNCTIONS
@@ -9,7 +10,7 @@ audio_select () {
   sed -i '9s/$/"/' /etc/default/squeezelite
   sed -i '9s/cha/"/' /etc/default/squeezelite
   name_settings=$(cat /etc/default/squeezelite)
-  eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --msgbox "$name_settings" $LINES $COLUMNS
+  eval `resize` && whiptail --title "$title" --msgbox "$name_settings" $LINES $COLUMNS
 }
 
 create_list () {
@@ -30,7 +31,7 @@ create_list
 #SELECT DEVICE
 #------------------------------------
 available_list=$(cat -n /usr/share/squeeze_files/tmp/devices.txt)
-device=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --inputbox "$available_list" $LINES $COLUMNS Number 3>&1 1>&2 2>&3)
+device=$(eval `resize` && whiptail --title "S$title" --inputbox "$available_list" $LINES $COLUMNS Number 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
   service squeezelite stop

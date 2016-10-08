@@ -1,4 +1,5 @@
 #!/bin/bash
+title=$(SqueezeAudioDIY 1.3 | Coenraad Human)
 
 #------------------------------------
 #FUNCTIONS
@@ -6,7 +7,7 @@
 log_viewer () {
 	ls $1/ > /usr/share/squeeze_files/tmp/loglist.txt
 	loglist=$(cat -n /usr/share/squeeze_files/tmp/loglist.txt)
-	logselect=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --inputbox "$loglist" $LINES $COLUMNS 1 3>&1 1>&2 2>&3)
+	logselect=$(eval `resize` && whiptail --title "$title" --inputbox "$loglist" $LINES $COLUMNS 1 3>&1 1>&2 2>&3)
 	exitstatus=$?
 	if [ $exitstatus = 0 ]; then
 			cat -n /usr/share/squeeze_files/tmp/loglist.txt | grep "^ *$logselect" > /usr/share/squeeze_files/tmp/logselect.txt
@@ -28,7 +29,7 @@ return_logmenu () {
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --menu "Logs:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "$title" --menu "Logs:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Install Squeezelite v1.8.5-802 log" \
 "2" "Re-install Squeezelite v1.8.5-802 log" \
 "3" "Install latest Squeezelite available log" \
