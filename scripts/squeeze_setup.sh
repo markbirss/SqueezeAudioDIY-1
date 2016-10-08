@@ -16,12 +16,13 @@ fi
 menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Re-install Squeezelite v1.8.5-802" \
 "2" "Install latest Squeezelite available" \
-"3" "Install stable Logitech Media Server 7.7.5 (Released 27-Nov-2014)" \
+"3" "Install stable Logitech Media Server 7.7.5" \
 "4" "Install latest nightly Logitech Media Server v7.9" \
 "5" "Display audio devices in detail" \
 "6" "Change default audio device" \
 "7" "Default Squeezelite options" \
-"8" "View logs of installers" 3>&1 1>&2 2>&3)
+"8" "View logs of installers" \
+"0" "Board fixes for I2S" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -41,6 +42,8 @@ then
 		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
   elif [ $menu = 8 ]; then
     /usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
+  elif [ $menu = 9 ];then
+    /usr/share/squeeze_files/setup/scripts/boards/squeeze_boards_menu.sh
   fi
 else
 	exit

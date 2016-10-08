@@ -1,4 +1,4 @@
-SqueezeAudioDIY 1.2.1
+SqueezeAudioDIY 1.3
 =========================
 These are terminal based utilities to install and manage Squeezelite
 
@@ -17,13 +17,14 @@ Features:
 ---------
 - Install Squeezelite v1.8.5-802
 - Install latest version of Squeezelite
-- Install stable Logitech Media Server v7.7.5 (Released 27-Nov-2014)
+- Install stable Logitech Media Server v7.7.5
 - Install latest nightly Logitech Media Server v7.9
 - View audio devices in detail
 - Change the default audio device
 - Set default options for Squeezelite
   - Set name of the Squeezelite player
 - View logs of installers
+- Board fixes for I2S
 
 Notes:
 ------
