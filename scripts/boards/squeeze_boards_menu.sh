@@ -5,8 +5,8 @@ title=$(cat /usr/share/squeeze_files/setup/version)
 #MENU
 #------------------------------------
 menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
-"1" "Orange Pi" \
-"2" "Raspberry Pi" \
+"1" "Orange Pi fix for Armbian (Legacy Kernel)" \
+"2" "Raspberry Pi fix for Raspbian (Linux 3.18.x/4.x)" \
 "3" "Back" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
