@@ -43,7 +43,7 @@ then
 		service squeezelite start
 		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
 	elif [ $menu = 2 ]; then
-		new_name=$(eval `resize` && whiptail --title "$title" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
+		inputbox=$(eval `resize` && whiptail --title "$title" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
 			name_changer $new_name
