@@ -49,6 +49,6 @@ Notes:
 
 Resources:
 ------------
-Squeezelite is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
-Squeezebox stable v7.7.5 (Released 27-Nov-2014) based on the stable build available on http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/
-Sqeezebox nightly v7.9.x is based on the nightly build available on http://downloads.slimdevices.com/nightly/?ver=7.9
+- Squeezelite is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
+- Squeezebox stable v7.7.5 (Released 27-Nov-2014) based on the stable build available on http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/
+- Sqeezebox nightly v7.9.x is based on the nightly build available on http://downloads.slimdevices.com/nightly/?ver=7.9
