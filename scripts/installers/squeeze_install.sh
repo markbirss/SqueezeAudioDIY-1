@@ -20,6 +20,7 @@ mkdir /usr/share/squeeze_files/logs/squeeze_re-install
 mkdir /usr/share/squeeze_files/logs/squeeze_latest
 mkdir /usr/share/squeeze_files/logs/lms_install
 mkdir /usr/share/squeeze_files/logs/lms_latest
+mkdir /usr/share/squeeze_files/logs/squeeze/
 #INSTALLERS DIRECTORIES
 mkdir /usr/share/squeeze_files/installers
 mkdir /usr/share/squeeze_files/installers/squeeze_latest
@@ -91,5 +92,6 @@ cp ./squeezelite /usr/bin/
 #------------------------------------
 #START SQUEEZELITE
 #------------------------------------
+chmod -R 0777 /usr/share/squeeze_files/logs
 service squeezelite start
 exit
