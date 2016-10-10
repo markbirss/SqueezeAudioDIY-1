@@ -46,7 +46,7 @@ then
 		inputbox=$(eval `resize` && whiptail --title "$title" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
-			name_changer $new_name
+			name_changer $inputbox
 			view_settings
 			service squeezelite start
 			/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
