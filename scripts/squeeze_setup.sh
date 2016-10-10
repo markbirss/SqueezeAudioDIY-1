@@ -35,7 +35,7 @@ then
   elif [ $menu = 4 ]; then
   	/usr/share/squeeze_files/setup/scripts/installers/lms_install_latest.sh 2>&1 | tee /usr/share/squeeze_files/logs/lms_latest/$logname
   elif [ $menu = 5 ]; then
-    /usr/share/squeeze_files/setup/scripts/options/squeeze_audio.sh
+    /usr/share/squeeze_files/setup/scripts/options/audio/squeeze_audio.sh
   elif [ $menu = 6 ]; then
 		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
   elif [ $menu = 7 ]; then

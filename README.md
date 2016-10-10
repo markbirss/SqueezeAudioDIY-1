@@ -30,9 +30,9 @@ Features:
 ---------
 - Installers:
   - Squeezelite v1.8.5-802
-  - Install latest version of Squeezelite
-  - Install stable Logitech Media Server v7.7.5
-  - Install latest nightly Logitech Media Server v7.9.x
+  - Latest version of Squeezelite
+  - Stable Logitech Media Server v7.7.5
+  - Latest nightly Logitech Media Server v7.9.x
 
 - Squeezelite audio device:
   - View audio devices in detail
