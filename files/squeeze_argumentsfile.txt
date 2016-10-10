@@ -1,25 +1,4 @@
-NAME
-
-       squeezelite - Lightweight headless Squeezebox emulator
-
-SYNOPSIS
-
-       squeezelite [options]
-
-DESCRIPTION
-
-       Squeezelite  is  a  small  headless Logitech Squeezebox emulator. It is
-       aimed at supporting high quality audio including USB DAC  based  output
-       at multiple sample rates.
-
-       The  player is controlled using, and media is streamed from, a Logitech
-       Media Server instance running somewhere on the local network.
-
-OPTIONS
-
-       This program supports the following options:
-
-       -h     Show a summary of the available command-line options.
+Enter your options:
 
        -s <server>[:<port>]
               Connect to the specified Logitech Media Server,  otherwise  uses
@@ -27,15 +6,6 @@ OPTIONS
               option should only be needed if  automatic  discovery  does  not
               work,  or  the  server is not on the local network segment (e.g.
               behind a router).
-
-       -o <output device>
-              Specify the audio output device; the default value  is  default.
-              Use  the  -l  option to list available output devices.  - can be
-              used to output raw samples to standard output.
-
-       -l     List available audio output devices to stdout  and  exit.  These
-              device names can be passed to the -o option in order to select a
-              particular device or configuration to use for audio playback.
 
        -a <params>
               Specify parameters used when opening  an  audio  output  device.
@@ -73,17 +43,6 @@ OPTIONS
               delimited  hexadecimal,  for example: ab:cd:ef:12:34:56. This is
               usually automatically  detected,  and  should  not  need  to  be
               provided in most circumstances.
-
-       -n <name>
-              Set  the  player  name.  This name is used by the Logitech Media
-              Server to refer to the player by name. This option is  mututally
-              exclusive with -N.
-
-       -N <filename>
-              Allow  the  server  to set the player's name. The player name is
-              stored in the file pointed to  by  <filename>  so  that  it  can
-              persist  between  restarts.  This  option is mututally exclusive
-              with -n.
 
        -p <priority>
               Set real time priority of output thread (1-99; default 45).  Not
@@ -227,13 +186,3 @@ RESAMPLING
 
        Examples
               -u ::::::50 specifies linear phase.
-
-SEE ALSO
-
-       https://code.google.com/p/squeezelite/
-       http://www.communitysqueeze.org/squeezelite_about.jsp
-       http://www.communitysqueeze.org/squeezelite_upsample.jsp
-       sox(1) - for further information about resampling
-
-The above information was obtained from the following site:
-http://manpages.ubuntu.com/manpages/trusty/man1/squeezelite.1.html
