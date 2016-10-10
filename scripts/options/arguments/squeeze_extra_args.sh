@@ -15,7 +15,8 @@ args_changer () {
 	sed -i '19s/cha/"/' /etc/default/squeezelite
 }
 
-inputbox=$(eval `resize` && whiptail --title "$title" --inputbox "Please enter arguments:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
+argumentsfile=$(cat /usr/share/squeeze_files/setup/files/squeeze_argumentsfile.txt)
+inputbox=$(eval `resize` && whiptail --title "$title" --inputbox "$argumentsfile" $LINES $COLUMNS ? --scrolltext 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
 	service squeezelite start
