@@ -34,10 +34,6 @@ Enter your options:
               option can be repeated to set different log levels for different
               categories.
 
-       -f <logfile>
-              Send  logging output to a log file instead of standard output or
-              standard error.
-
        -m <mac addr>
               Override the player's MAC address. The  format  must  be  colon-
               delimited  hexadecimal,  for example: ab:cd:ef:12:34:56. This is
