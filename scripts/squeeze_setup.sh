@@ -18,12 +18,11 @@ menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $CO
 "1" "Re-install Squeezelite v1.8.5-802" \
 "2" "Install latest Squeezelite available" \
 "3" "Install stable Logitech Media Server 7.7.5" \
-"4" "Install latest nightly Logitech Media Server v7.9" \
-"5" "Display audio devices in detail" \
-"6" "Change default audio device" \
-"7" "Default Squeezelite options" \
-"8" "View logs of installers" \
-"9" "Board fixes for I2S use" 3>&1 1>&2 2>&3)
+"4" "Install latest nightly Logitech Media Server v7.9.x" \
+"5" "Squeezelite audio device" \
+"6" "Squeezelite options" \
+"7" "View logs of installers" \
+"8" "Fixes for I2S use" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -36,15 +35,13 @@ then
   elif [ $menu = 4 ]; then
   	/usr/share/squeeze_files/setup/scripts/installers/lms_install_latest.sh 2>&1 | tee /usr/share/squeeze_files/logs/lms_latest/$logname
   elif [ $menu = 5 ]; then
-    /usr/share/squeeze_files/setup/scripts/audio/squeeze_audio_info.sh
-	elif [ $menu = 6 ]; then
-		/usr/share/squeeze_files/setup/scripts/audio/squeeze_audio.sh
-  elif [ $menu = 7 ]; then
+    /usr/share/squeeze_files/setup/scripts/options/squeeze_audio.sh
+  elif [ $menu = 6 ]; then
 		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
-  elif [ $menu = 8 ]; then
-    /usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
-  elif [ $menu = 9 ];then
-    /usr/share/squeeze_files/setup/scripts/boards/squeeze_boards_menu.sh
+  elif [ $menu = 7 ]; then
+    /usr/share/squeeze_files/setup/scripts/logs/logs_installers.sh
+  elif [ $menu = 8 ];then
+    /usr/share/squeeze_files/setup/scripts/fixes/i2s_fixes_menu.sh
   fi
 else
 	exit

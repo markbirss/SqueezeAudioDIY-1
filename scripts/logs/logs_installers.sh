@@ -29,12 +29,12 @@ return_logmenu () {
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Logs:" $LINES $COLUMNS $(( $LINES - 10 )) \
-"1" "Install Squeezelite v1.8.5-802 log" \
-"2" "Re-install Squeezelite v1.8.5-802 log" \
-"3" "Install latest Squeezelite available log" \
-"4" "Install Logitech Media Server 7.7.5 log" \
-"5" "Install latest Logitech Media Server v7.9 log" \
+menu=$(eval `resize` && whiptail --title "$title" --menu "Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+"1" "Log - Install Squeezelite v1.8.5-802" \
+"2" "Log - Re-install Squeezelite v1.8.5-802" \
+"3" "Log - Install latest Squeezelite available" \
+"4" "Log - Install Logitech Media Server 7.7.5" \
+"5" "Log - Install latest Logitech Media Server v7.9.x" \
 "6" "Back" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
@@ -56,7 +56,7 @@ then
 		return_logmenu
 	elif [ $menu = 6 ]; then
 		squeeze_setup
-	else
-		exit
 	fi
+else
+	exit
 fi

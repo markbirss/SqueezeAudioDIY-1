@@ -4,7 +4,7 @@ title=$(cat /usr/share/squeeze_files/setup/version)
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Squeezelite default options:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "$title" --menu "Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Set Squeezelite player name" \
 "2" "Back" 3>&1 1>&2 2>&3)
 

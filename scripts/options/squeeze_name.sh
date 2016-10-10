@@ -29,7 +29,7 @@ cp /etc/default/squeezelite /usr/share/squeeze_files/settings/backups/bacname
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "squeeze_audio" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "$title" --menu "Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Change name to localhost name" \
 "2" "Enter own custom name" \
 "3" "Show current settings" \
