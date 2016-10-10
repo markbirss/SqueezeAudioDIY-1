@@ -19,14 +19,18 @@ Features:
 - Install latest version of Squeezelite
 - Install stable Logitech Media Server v7.7.5
 - Install latest nightly Logitech Media Server v7.9
-- View audio devices in detail
-- Change the default audio device
+- Squeezelite audio device
+  - View audio devices in detail
+  - Change the default audio device
 - Set default options for Squeezelite
   - Set name of the Squeezelite player
 - View logs of installers
-- Board fixes for I2S use
- - Orange Pi
- - Raspberry Pi
+- Fixes for I2S use
+ - Armbian
+  - Orange Pi Single Board Computers
+ - Raspbian
+  - Raspberry Pi Singe Board Computers
+  - Hifiberry Products
 
 Notes:
 ------
