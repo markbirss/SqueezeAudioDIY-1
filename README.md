@@ -13,6 +13,19 @@ Supported Architecture:
 - x86_64
 - ARM
 
+Setup:
+-----------------------------------------------------
+```shell
+cd SqueezeAudioDIY
+./setup.sh
+```
+
+To Access Scripts After Installation:
+----------------------------------
+```shell
+squeeze_setup
+```
+
 Features:
 ---------
 - Install Squeezelite v1.8.5-802
@@ -34,27 +47,8 @@ Notes:
 ------
 - Logitech Media Server v7.7.5 does not work on Ubuntu 16.04+
 
-Setup:
------------------------------------------------------
-```shell
-cd SqueezeAudioDIY
-./setup.sh
-```
-
-To Access Program After Installation:
-----------------------------------
-```shell
-squeeze_setup
-```
-
-Squeezelite:
+Resources:
 ------------
-Is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
-
-Squeezebox Stable v7.7.5 (Released 27-Nov-2014):
------------------------------------------------
-Is based on the stable build available on http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/
-
-Squeezebox Nightly v7.9.x:
-------------------------
-Is based on the nightly build available on http://downloads.slimdevices.com/nightly/?ver=7.9
+Squeezelite is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
+Squeezebox stable v7.7.5 (Released 27-Nov-2014) based on the stable build available on http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/
+Sqeezebox nightly v7.9.x is based on the nightly build available on http://downloads.slimdevices.com/nightly/?ver=7.9
