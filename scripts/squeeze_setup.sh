@@ -21,7 +21,7 @@ menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $CO
 "4" "Install latest nightly Logitech Media Server v7.9.x" \
 "5" "Squeezelite audio device" \
 "6" "Squeezelite options" \
-"7" "View logs of installers" \
+"7" "View logs" \
 "8" "Fixes for I2S use" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
