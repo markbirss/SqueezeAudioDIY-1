@@ -10,9 +10,9 @@ log_viewer () {
 	logselect=$(eval `resize` && whiptail --title "$title" --inputbox "$loglist" $LINES $COLUMNS 1 3>&1 1>&2 2>&3)
 	exitstatus=$?
 	if [ $exitstatus = 0 ]; then
-			cat -n /usr/share/squeeze_files/tmp/loglist.txt | grep "^ *$logselect" > /usr/share/squeeze_files/tmp/logselect.txt
-			selection=$(cat /usr/share/squeeze_files/tmp/logselect.txt | cut -c8-22)
-			displaylog=$(cat $1/$selection)
+			cat -n /usr/share/squeeze_files/tmp/loglist.txt | grep $logselect > /usr/share/squeeze_files/tmp/logselect.txt
+			selection=$(cat /usr/share/squeeze_files/tmp/logselect.txt | cut -c8-42)
+			displaylog=$(cat /var/log/squeezeaudiodiy/$selection)
 			eval `resize` && whiptail --title "Log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
 			rm /usr/share/squeeze_files/tmp/loglist.txt
 			rm /usr/share/squeeze_files/tmp/logselect.txt
@@ -23,7 +23,7 @@ log_viewer () {
 }
 
 return_logmenu () {
-	/usr/share/squeeze_files/setup/scripts/logs/squeeze_logs.sh
+	/usr/share/squeeze_files/setup/scripts/logs/logs_installers.sh
 }
 
 #------------------------------------
@@ -43,16 +43,16 @@ then
 		log_viewer squeeze_install
 		return_logmenu
 	elif [ $menu = 2 ]; then
-		log_viewer squeeze_re-install
+		log_viewer sque_re-install
 		return_logmenu
   elif [ $menu = 3 ]; then
-		log_viewer squeeze_latest
+		log_viewer squeeze_latest_
 		return_logmenu
   elif [ $menu = 4 ]; then
-		log_viewer lms_install
+		log_viewer logicms_install
 		return_logmenu
   elif [ $menu = 5 ]; then
-		log_viewer lms_latest
+		log_viewer logicms_latest_
 		return_logmenu
 	elif [ $menu = 6 ]; then
 		squeeze_setup

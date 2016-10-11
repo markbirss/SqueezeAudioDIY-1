@@ -3,6 +3,7 @@
 #------------------------------------
 #DIRECTORIES
 #------------------------------------
+rm -R /var/log/squeezeaudiodiy > /dev/null 2>&1
 rm -R /usr/share/squeeze_files > /dev/null 2>&1
 exitstatus=$?
 if [ $exitstatus = 0 ]
@@ -68,11 +69,10 @@ else
         echo "[ ERROR ]      AND WILL NOT HAVE CONFIG FILES      "
         echo "[ ERROR ] -----------------------------------------"
 fi
-
-#------------------------------------
-#STOP SQUEEZELITE
-#------------------------------------
 service squeezelite stop
+sed -i '19s:.*:SB_EXTRA_ARGS=cha-d all=debug -f /var/log/squeezeaudiodiy/squeezelite.log:' /etc/default/squeezelite
+sed -i '19s:$:":' /etc/default/squeezelite
+sed -i '19s:cha:":' /etc/default/squeezelite
 
 #------------------------------------
 #COMPILE SQUEEZELITE
@@ -87,7 +87,7 @@ cp ./squeezelite /usr/bin/
 #EXTRA
 #------------------------------------
 chmod -R 0777 /var/log/squeezeaudiodiy
-/usr/share/squeeze_files/scripts/options/arguments/squeeze_args_de.sh
+chmod -R 0777 /usr/share/squeeze_files/tmp
 
 #------------------------------------
 #START SQUEEZELITE
