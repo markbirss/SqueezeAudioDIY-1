@@ -39,7 +39,7 @@ then
   elif [ $menu = 6 ]; then
 		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
   elif [ $menu = 7 ]; then
-    /usr/share/squeeze_files/setup/scripts/logs/logs_installers.sh
+    /usr/share/squeeze_files/setup/scripts/logs/logs_menu.sh
   elif [ $menu = 8 ];then
     /usr/share/squeeze_files/setup/scripts/fixes/i2s_fixes_menu.sh
   fi

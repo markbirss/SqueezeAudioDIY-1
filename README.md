@@ -39,6 +39,7 @@ Features:
   - Change the default audio device
 
 - Squeezelite options:
+  - View Squeezelite settings
   - Set name of the Squeezelite player
   - Deactivate player name in configuration file
   - Set extra arguments to Squeezelite
@@ -46,7 +47,10 @@ Features:
   - Point Squeezelite to your Server via IPv4
   - Deactivate custom server IPv4 address in configuration file
 
-- View logs of installers
+- View logs
+  - Installer logs
+  - Squeezelite watch log (when listening)
+  - Squeezelite static log
 
 - Fixes for I2S use:
  - Armbian - Orange Pi Single Board Computers
