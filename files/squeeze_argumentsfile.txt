@@ -1,5 +1,7 @@
 Enter your options:
 
+PLEASE USE '+' FOR SPACES!!!
+
        -s <server>[:<port>]
               Connect to the specified Logitech Media Server,  otherwise  uses
               automatic  discovery  to  find server on the local network. This
