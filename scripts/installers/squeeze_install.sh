@@ -90,8 +90,13 @@ rm /usr/bin/squeezelite
 cp ./squeezelite /usr/bin/
 
 #------------------------------------
-#START SQUEEZELITE
+#EXTRA
 #------------------------------------
 chmod -R 0777 /usr/share/squeeze_files/logs
+/usr/share/squeeze_files/scripts/options/arguments/squeeze_args_de.sh
+
+#------------------------------------
+#START SQUEEZELITE
+#------------------------------------
 service squeezelite start
 exit

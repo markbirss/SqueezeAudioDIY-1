@@ -28,12 +28,6 @@ Enter your options:
               or  mpg can be supplied instead of mp3 to use a specific decoder
               library.
 
-       -d <category>=<level>
-              Set logging  level.  Categories  are:  all,  slimproto,  stream,
-              decode  or  output.   Levels can be: info, debug or sdebug.  The
-              option can be repeated to set different log levels for different
-              categories.
-
        -m <mac addr>
               Override the player's MAC address. The  format  must  be  colon-
               delimited  hexadecimal,  for example: ab:cd:ef:12:34:56. This is
