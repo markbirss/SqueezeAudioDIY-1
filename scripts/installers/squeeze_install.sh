@@ -13,14 +13,8 @@ fi
 mkdir /usr/share/squeeze_files
 #SETUP DIRECTORY
 mkdir /usr/share/squeeze_files/setup
-#LOG DIRECTORIES
-mkdir /usr/share/squeeze_files/logs
-mkdir /usr/share/squeeze_files/logs/squeeze_install
-mkdir /usr/share/squeeze_files/logs/squeeze_re-install
-mkdir /usr/share/squeeze_files/logs/squeeze_latest
-mkdir /usr/share/squeeze_files/logs/lms_install
-mkdir /usr/share/squeeze_files/logs/lms_latest
-mkdir /usr/share/squeeze_files/logs/squeeze/
+#LOG DIRECTORY
+mkdir /var/log/squeezeaudiodiy
 #INSTALLERS DIRECTORIES
 mkdir /usr/share/squeeze_files/installers
 mkdir /usr/share/squeeze_files/installers/squeeze_latest
@@ -92,7 +86,7 @@ cp ./squeezelite /usr/bin/
 #------------------------------------
 #EXTRA
 #------------------------------------
-chmod -R 0777 /usr/share/squeeze_files/logs
+chmod -R 0777 /var/log/squeezeaudiodiy
 /usr/share/squeeze_files/scripts/options/arguments/squeeze_args_de.sh
 
 #------------------------------------

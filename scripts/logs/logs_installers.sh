@@ -5,7 +5,7 @@ title=$(cat /usr/share/squeeze_files/setup/version)
 #FUNCTIONS
 #------------------------------------
 log_viewer () {
-	ls $1/ > /usr/share/squeeze_files/tmp/loglist.txt
+	ls /var/log/squeezeaudiodiy/ | grep $1 > /usr/share/squeeze_files/tmp/loglist.txt
 	loglist=$(cat -n /usr/share/squeeze_files/tmp/loglist.txt)
 	logselect=$(eval `resize` && whiptail --title "$title" --inputbox "$loglist" $LINES $COLUMNS 1 3>&1 1>&2 2>&3)
 	exitstatus=$?
@@ -40,19 +40,19 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-		log_viewer /usr/share/squeeze_files/logs/squeeze_install
+		log_viewer squeeze_install
 		return_logmenu
 	elif [ $menu = 2 ]; then
-		log_viewer /usr/share/squeeze_files/logs/squeeze_re-install
+		log_viewer squeeze_re-install
 		return_logmenu
   elif [ $menu = 3 ]; then
-		log_viewer /usr/share/squeeze_files/logs/squeeze_latest
+		log_viewer squeeze_latest
 		return_logmenu
   elif [ $menu = 4 ]; then
-		log_viewer /usr/share/squeeze_files/logs/lms_install
+		log_viewer lms_install
 		return_logmenu
   elif [ $menu = 5 ]; then
-		log_viewer /usr/share/squeeze_files/logs/lms_latest
+		log_viewer lms_latest
 		return_logmenu
 	elif [ $menu = 6 ]; then
 		squeeze_setup

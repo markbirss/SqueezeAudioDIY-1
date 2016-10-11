@@ -27,13 +27,13 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-		/usr/share/squeeze_files/setup/scripts/installers/squeeze_reinstall.sh 2>&1 | tee /usr/share/squeeze_files/logs/squeeze_re-install/$logname
+		/usr/share/squeeze_files/setup/scripts/installers/squeeze_reinstall.sh 2>&1 | tee /var/log/squeezeaudiodiy/squeeze_reinstall.log_$logname
 	elif [ $menu = 2 ]; then
-		/usr/share/squeeze_files/setup/scripts/installers/squeeze_install_latest.sh 2>&1 | tee /usr/share/squeeze_files/logs/squeeze_latest/$logname
+		/usr/share/squeeze_files/setup/scripts/installers/squeeze_install_latest.sh 2>&1 | tee /var/log/squeezeaudiodiy/squeeze_install_latest.log_$logname
   elif [ $menu = 3 ]; then
-  	/usr/share/squeeze_files/setup/scripts/installers/lms_install.sh 2>&1 | tee /usr/share/squeeze_files/logs/lms_install/$logname
+  	/usr/share/squeeze_files/setup/scripts/installers/lms_install.sh 2>&1 | tee /var/log/squeezeaudiodiy/lms_install.log_$logname
   elif [ $menu = 4 ]; then
-  	/usr/share/squeeze_files/setup/scripts/installers/lms_install_latest.sh 2>&1 | tee /usr/share/squeeze_files/logs/lms_latest/$logname
+  	/usr/share/squeeze_files/setup/scripts/installers/lms_install_latest.sh 2>&1 | tee /var/log/squeezeaudiodiy/lms_install_latest.log_$logname
   elif [ $menu = 5 ]; then
     /usr/share/squeeze_files/setup/scripts/options/audio/squeeze_audio.sh
   elif [ $menu = 6 ]; then

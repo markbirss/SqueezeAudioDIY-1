@@ -10,7 +10,7 @@ view_settings () {
 }
 
 args_changer () {
-	sed -i '19s:.*:SB_EXTRA_ARGS=cha-d all=debug -f /usr/share/squeeze_files/logs/squeeze/squeezelite.log:' /etc/default/squeezelite
+	sed -i '19s:.*:SB_EXTRA_ARGS=cha-d all=debug -f /var/log/squeezeaudiodiy/squeezelite.log:' /etc/default/squeezelite
 	sed -i '19s:$:":' /etc/default/squeezelite
 	sed -i '19s:cha:":' /etc/default/squeezelite
 }
