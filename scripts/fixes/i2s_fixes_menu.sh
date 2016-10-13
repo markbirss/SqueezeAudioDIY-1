@@ -7,7 +7,7 @@ title=$(cat /usr/share/sadiy_files/setup/version)
 menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Armbian - Orange Pi" \
 "2" "Raspbian - Raspberry Pi" \
-"3" "Raspbian - Hifiberry Products"
+"3" "Raspbian - Hifiberry Products" \
 "4" "Back" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
