@@ -1,5 +1,8 @@
-SqueezeAudioDIY 1.3
+SqueezeAudioDIY 1.3 Alpha
 =========================
+This is not a stable version, please use version 1.2.1 found in releases:
+https://github.com/coenraadhuman/SqueezeAudioDIY/releases/tag/1.2.1
+
 These are terminal based utilities to install and manage Squeezelite
 
 Requirements:
