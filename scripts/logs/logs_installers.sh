@@ -1,21 +1,21 @@
 #!/bin/bash
-title=$(cat /usr/share/squeeze_files/setup/version)
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 #------------------------------------
 #FUNCTIONS
 #------------------------------------
 log_viewer () {
-	ls /var/log/squeezeaudiodiy/ | grep $1 > /usr/share/squeeze_files/tmp/loglist.txt
-	loglist=$(cat -n /usr/share/squeeze_files/tmp/loglist.txt)
+	ls /var/log/squeezeaudiodiy/ | grep $1 > /usr/share/sadiy_files/tmp/loglist.txt
+	loglist=$(cat -n /usr/share/sadiy_files/tmp/loglist.txt)
 	logselect=$(eval `resize` && whiptail --title "$title" --inputbox "$loglist" $LINES $COLUMNS 1 3>&1 1>&2 2>&3)
 	exitstatus=$?
 	if [ $exitstatus = 0 ]; then
-			cat -n /usr/share/squeeze_files/tmp/loglist.txt | grep $logselect > /usr/share/squeeze_files/tmp/logselect.txt
-			selection=$(cat /usr/share/squeeze_files/tmp/logselect.txt | cut -c8-42)
+			cat -n /usr/share/sadiy_files/tmp/loglist.txt | grep $logselect > /usr/share/sadiy_files/tmp/logselect.txt
+			selection=$(cat /usr/share/sadiy_files/tmp/logselect.txt | cut -c8-42)
 			displaylog=$(cat /var/log/squeezeaudiodiy/$selection)
 			eval `resize` && whiptail --title "Log:" --msgbox "$displaylog" $LINES $COLUMNS --scrolltext
-			rm /usr/share/squeeze_files/tmp/loglist.txt
-			rm /usr/share/squeeze_files/tmp/logselect.txt
+			rm /usr/share/sadiy_files/tmp/loglist.txt
+			rm /usr/share/sadiy_files/tmp/logselect.txt
 	else
 			echo "[ ERROR ] CANCELED" > /dev/null 2>&1
 			exit
@@ -23,7 +23,7 @@ log_viewer () {
 }
 
 return_logmenu () {
-	/usr/share/squeeze_files/setup/scripts/logs/logs_installers.sh
+	/usr/share/sadiy_files/setup/scripts/logs/logs_installers.sh
 }
 
 #------------------------------------

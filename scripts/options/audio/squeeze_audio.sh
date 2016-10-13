@@ -1,11 +1,11 @@
 #!/bin/bash
-title=$(cat /usr/share/squeeze_files/setup/version)
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 #------------------------------------
 #FUNCTIONS
 #------------------------------------
 audio_select () {
-  selected_device=$(sed -n "${device}p" /usr/share/squeeze_files/tmp/devices.txt)
+  selected_device=$(sed -n "${device}p" /usr/share/sadiy_files/tmp/devices.txt)
   sed -i 9s/.*/SL_SOUNDCARD=cha$selected_device/ /etc/default/squeezelite
   sed -i '9s/$/"/' /etc/default/squeezelite
   sed -i '9s/cha/"/' /etc/default/squeezelite
@@ -14,12 +14,12 @@ audio_select () {
 }
 
 create_list () {
-  squeezelite -l > /usr/share/squeeze_files/tmp/available_list.txt
-  sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' /usr/share/squeeze_files/tmp/available_list.txt #REMOVES SPACES FROM FILE
-  sed -i '1 d' /usr/share/squeeze_files/tmp/available_list.txt #REMOVES FIRST LINE FROM FILE
-  sed -i '$ d' /usr/share/squeeze_files/tmp/available_list.txt #REMOVES LAST LINE FROM FILE
-  sed 's/-.*//' /usr/share/squeeze_files/tmp/available_list.txt > /usr/share/squeeze_files/tmp/devices.txt #REMOVE EVERYTHING AFTER '-' CHAR
-  sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' /usr/share/squeeze_files/tmp/devices.txt #REMOVES SPACES FROM FILE
+  squeezelite -l > /usr/share/sadiy_files/tmp/available_list.txt
+  sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' /usr/share/sadiy_files/tmp/available_list.txt #REMOVES SPACES FROM FILE
+  sed -i '1 d' /usr/share/sadiy_files/tmp/available_list.txt #REMOVES FIRST LINE FROM FILE
+  sed -i '$ d' /usr/share/sadiy_files/tmp/available_list.txt #REMOVES LAST LINE FROM FILE
+  sed 's/-.*//' /usr/share/sadiy_files/tmp/available_list.txt > /usr/share/sadiy_files/tmp/devices.txt #REMOVE EVERYTHING AFTER '-' CHAR
+  sed -i -e 's/^[ \t]*//' -e 's/[ \t]*$//' /usr/share/sadiy_files/tmp/devices.txt #REMOVES SPACES FROM FILE
 }
 
 device_info () {
@@ -52,8 +52,8 @@ device_select () {
 #REQUIREMENTS
 #------------------------------------
 create_list
-available_list=$(cat -n /usr/share/squeeze_files/tmp/devices.txt)
-display_list=$(cat -n /usr/share/squeeze_files/tmp/available_list.txt)
+available_list=$(cat -n /usr/share/sadiy_files/tmp/devices.txt)
+display_list=$(cat -n /usr/share/sadiy_files/tmp/available_list.txt)
 
 #------------------------------------
 #MENU
@@ -79,5 +79,5 @@ fi
 #------------------------------------
 #CLEANUP
 #------------------------------------
-rm /usr/share/squeeze_files/tmp/available_list.txt
-rm /usr/share/squeeze_files/tmp/devices.txt
+rm /usr/share/sadiy_files/tmp/available_list.txt
+rm /usr/share/sadiy_files/tmp/devices.txt

@@ -1,5 +1,5 @@
 #!/bin/bash
-title=$(cat /usr/share/squeeze_files/setup/version)
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 #------------------------------------
 #STOP SQUEEZELITE
@@ -35,12 +35,12 @@ service squeezelite stop
 #------------------------------------
 #COMPILE SQUEEZELITE
 #------------------------------------
-rm -R /usr/share/squeeze_files/installers/squeeze_latest
-mkdir /usr/share/squeeze_files/installers/squeeze_latest
-cd /usr/share/squeeze_files/installers/squeeze_latest
+rm -R /usr/share/sadiy_files/installers/squeeze_latest
+mkdir /usr/share/sadiy_files/installers/squeeze_latest
+cd /usr/share/sadiy_files/installers/squeeze_latest
 apt-get install -y git
 git clone https://github.com/ralph-irving/squeezelite.git
-cd /usr/share/squeeze_files/installers/squeeze_latest/squeezelite/
+cd /usr/share/sadiy_files/installers/squeeze_latest/squeezelite/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
 rm /usr/bin/squeezelite
 cp ./squeezelite /usr/bin/

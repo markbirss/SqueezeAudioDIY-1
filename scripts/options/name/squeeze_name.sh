@@ -1,5 +1,5 @@
 #!/bin/bash
-title=$(cat /usr/share/squeeze_files/setup/version)
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 #------------------------------------
 #FUNCTION
@@ -24,7 +24,7 @@ sudo service squeezelite stop
 #BACKUP SQUEEZELITE CONFIG FILE
 #------------------------------------
 bacname=$(date +"%Y%m%d.%H%M%S")
-cp /etc/default/squeezelite /usr/share/squeeze_files/settings/backups/bacname
+cp /etc/default/squeezelite /usr/share/sadiy_files/settings/backups/bacname
 
 #------------------------------------
 #MENU
@@ -41,7 +41,7 @@ then
 		name_changer $(hostname -s)
 		view_settings
 		service squeezelite start
-		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
+		/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
 	elif [ $menu = 2 ]; then
 		inputbox=$(eval `resize` && whiptail --title "$title" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
 		exitstatus=$?
@@ -49,15 +49,15 @@ then
 			name_changer $inputbox
 			view_settings
 			service squeezelite start
-			/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
+			/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
 		else
-			/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
+			/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
 		fi
 	elif [ $menu = 3 ]; then
 		view_settings
-		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
+		/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
 	elif [ $menu = 4 ]; then
-		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
+		/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
 	fi
 else
 	exit

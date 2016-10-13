@@ -1,5 +1,5 @@
 #!/bin/bash
-title=$(cat /usr/share/squeeze_files/setup/version)
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 #------------------------------------
 #FUNCTION
@@ -22,7 +22,7 @@ if [ $exitstatus = 0 ]; then
 	server_changer $inputbox
 	view_settings
 	service squeezelite start
-	/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
+	/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
 else
-	/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
+	/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
 fi

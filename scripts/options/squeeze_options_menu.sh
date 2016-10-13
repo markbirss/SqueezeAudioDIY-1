@@ -1,5 +1,5 @@
 #!/bin/bash
-title=$(cat /usr/share/squeeze_files/setup/version)
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 #------------------------------------
 #FUNCTION
@@ -27,19 +27,19 @@ if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
 		view_settings
-		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
+		/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
 	elif [ $menu = 2 ]; then
-		/usr/share/squeeze_files/setup/scripts/options/name/squeeze_name.sh
+		/usr/share/sadiy_files/setup/scripts/options/name/squeeze_name.sh
 	elif [ $menu = 3 ]; then
-		/usr/share/squeeze_files/setup/scripts/options/name/squeeze_name_de.sh
+		/usr/share/sadiy_files/setup/scripts/options/name/squeeze_name_de.sh
 	elif [ $menu = 4 ]; then
-		/usr/share/squeeze_files/setup/scripts/options/arguments/squeeze_extra_args.sh
+		/usr/share/sadiy_files/setup/scripts/options/arguments/squeeze_extra_args.sh
 	elif [ $menu = 5 ]; then
-		/usr/share/squeeze_files/setup/scripts/options/arguments/squeeze_args_de.sh
+		/usr/share/sadiy_files/setup/scripts/options/arguments/squeeze_args_de.sh
 	elif [ $menu = 6 ]; then
-		/usr/share/squeeze_files/setup/scripts/options/server/squeeze_server.sh
+		/usr/share/sadiy_files/setup/scripts/options/server/squeeze_server.sh
 	elif [ $menu = 7 ]; then
-		/usr/share/squeeze_files/setup/scripts/options/server/squeeze_server_de.sh
+		/usr/share/sadiy_files/setup/scripts/options/server/squeeze_server_de.sh
 	elif [ $menu = 8 ]; then
 		squeeze_setup
   fi

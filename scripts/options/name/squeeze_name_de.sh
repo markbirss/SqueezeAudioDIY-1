@@ -1,5 +1,5 @@
 #!/bin/bash
-title=$(cat /usr/share/squeeze_files/setup/version)
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 #------------------------------------
 #FUNCTION
@@ -16,7 +16,7 @@ name_de () {
 	sed -i '6s/cha/"/' /etc/default/squeezelite
 	service squeezelite start
 	view_settings
-	/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
+	/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
 }
 
 name_de

@@ -1,5 +1,5 @@
 #!/bin/bash
-title=$(cat /usr/share/squeeze_files/setup/version)
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 #LOG FILE NAME
 logname=$(date +"%Y%m%d.%H%M%S")
@@ -28,23 +28,23 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-		/usr/share/squeeze_files/setup/scripts/install/squeeze/squeeze_reinstall.sh 2>&1 | tee /var/log/squeezeaudiodiy/sque_re-install.log_$logname
+		/usr/share/sadiy_files/setup/scripts/install/squeeze/squeeze_reinstall.sh 2>&1 | tee /var/log/squeezeaudiodiy/sque_re-install.log_$logname
 	elif [ $menu = 2 ]; then
-		/usr/share/squeeze_files/setup/scripts/install/squeeze/squeeze_install_latest.sh 2>&1 | tee /var/log/squeezeaudiodiy/squeeze_latest_.log_$logname
+		/usr/share/sadiy_files/setup/scripts/install/squeeze/squeeze_install_latest.sh 2>&1 | tee /var/log/squeezeaudiodiy/squeeze_latest_.log_$logname
   elif [ $menu = 3 ]; then
-  	/usr/share/squeeze_files/setup/scripts/install/lms/lms_install.sh 2>&1 | tee /var/log/squeezeaudiodiy/logicms_install.log_$logname
+  	/usr/share/sadiy_files/setup/scripts/install/lms/lms_install.sh 2>&1 | tee /var/log/squeezeaudiodiy/logicms_install.log_$logname
   elif [ $menu = 4 ]; then
-  	/usr/share/squeeze_files/setup/scripts/install/lms/lms_install_latest.sh 2>&1 | tee /var/log/squeezeaudiodiy/logicms_latest_.log_$logname
+  	/usr/share/sadiy_files/setup/scripts/install/lms/lms_install_latest.sh 2>&1 | tee /var/log/squeezeaudiodiy/logicms_latest_.log_$logname
   elif [ $menu = 5 ]; then
-    /usr/share/squeeze_files/setup/scripts/options/audio/squeeze_audio.sh
+    /usr/share/sadiy_files/setup/scripts/options/audio/squeeze_audio.sh
   elif [ $menu = 6 ]; then
-		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
+		/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
   elif [ $menu = 7 ]; then
-    /usr/share/squeeze_files/setup/scripts/logs/logs_menu.sh
+    /usr/share/sadiy_files/setup/scripts/logs/logs_menu.sh
   elif [ $menu = 8 ];then
-    /usr/share/squeeze_files/setup/scripts/fixes/i2s_fixes_menu.sh
+    /usr/share/sadiy_files/setup/scripts/fixes/i2s_fixes_menu.sh
   elif [ $menu = 9 ];then
-    /usr/share/squeeze_files/setup/scripts/remove/
+    /usr/share/sadiy_files/setup/scripts/remove/
   fi
 else
 	exit

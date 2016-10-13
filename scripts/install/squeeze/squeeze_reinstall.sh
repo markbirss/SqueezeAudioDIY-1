@@ -1,5 +1,5 @@
 #!/bin/bash
-title=$(cat /usr/share/squeeze_files/setup/version)
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 #------------------------------------
 #STOP SQUEEZELITE
@@ -35,10 +35,10 @@ service squeezelite stop
 #------------------------------------
 #COMPILE SQUEEZELITE
 #------------------------------------
-rm -R /usr/share/squeeze_files/installers/squeeze_include
-mkdir /usr/share/squeeze_files/installers/squeeze_include
-unzip /usr/share/squeeze_files/setup/files/squeezelite-v1.8.5-802.zip -d /usr/share/squeeze_files/installers/squeeze_include
-cd /usr/share/squeeze_files/installers/squeeze_include/squeezelite-master/
+rm -R /usr/share/sadiy_files/installers/squeeze_include
+mkdir /usr/share/sadiy_files/installers/squeeze_include
+unzip /usr/share/sadiy_files/setup/files/squeezelite-v1.8.5-802.zip -d /usr/share/sadiy_files/installers/squeeze_include
+cd /usr/share/sadiy_files/installers/squeeze_include/squeezelite-master/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
 rm /usr/bin/squeezelite
 cp ./squeezelite /usr/bin/

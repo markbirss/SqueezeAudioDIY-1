@@ -1,5 +1,5 @@
 #!/bin/bash
-title=$(cat /usr/share/squeeze_files/setup/version)
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 #------------------------------------
 #MENU
@@ -13,11 +13,11 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-		/usr/share/squeeze_files/setup/scripts/fixes/armbian/i2s_sbc_opi.sh
+		/usr/share/sadiy_files/setup/scripts/fixes/armbian/i2s_sbc_opi.sh
 	elif [ $menu = 2 ]; then
-    /usr/share/squeeze_files/setup/scripts/fixes/raspbian/i2s_sbc_rpi.sh
+    /usr/share/sadiy_files/setup/scripts/fixes/raspbian/i2s_sbc_rpi.sh
 	elif [ $menu = 3 ]; then
-    /usr/share/squeeze_files/setup/scripts/fixes/raspbian/i2s_dac_hifiberry.sh
+    /usr/share/sadiy_files/setup/scripts/fixes/raspbian/i2s_dac_hifiberry.sh
 	elif [ $menu = 4 ]; then
 		squeeze_setup
   fi

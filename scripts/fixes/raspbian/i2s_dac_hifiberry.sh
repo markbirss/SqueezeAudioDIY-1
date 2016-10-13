@@ -1,5 +1,5 @@
 #!/bin/bash
-title=$(cat /usr/share/squeeze_files/setup/version)
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 
 
@@ -35,7 +35,7 @@ linux3.12.x+ () {
        echo "snd_soc_hifiberry_amp"	>> /etc/modules
     fi
   else
-    /usr/share/squeeze_files/setup/scripts/fixes/i2s_fixes_menu.sh
+    /usr/share/sadiy_files/setup/scripts/fixes/i2s_fixes_menu.sh
   fi
 }
 
@@ -61,7 +61,7 @@ linux3.18.x-4.x+ () {
   	   echo "dtoverlay=hifiberry-amp" >> /boot/config.txt
     fi
   else
-    /usr/share/squeeze_files/setup/scripts/fixes/i2s_fixes_menu.sh
+    /usr/share/sadiy_files/setup/scripts/fixes/i2s_fixes_menu.sh
   fi
 }
 
@@ -94,7 +94,7 @@ then
      linux3.12.x+
      rebootpi
   elif [ $menu = 3 ]; then
-    /usr/share/squeeze_files/setup/scripts/fixes/i2s_fixes_menu.sh
+    /usr/share/sadiy_files/setup/scripts/fixes/i2s_fixes_menu.sh
   fi
 else
   exit
