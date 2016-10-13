@@ -45,7 +45,6 @@ Features:
 - Squeezelite options:
   - View Squeezelite settings
   - Set name of the Squeezelite player
-  - Deactivate player name in configuration file
   - Set extra arguments to Squeezelite
   - Deactivate extra arguments in configuration file
   - Point Squeezelite to your Server via IPv4
