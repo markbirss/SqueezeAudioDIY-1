@@ -93,4 +93,3 @@ chmod -R 0777 /usr/share/squeeze_files/tmp
 #START SQUEEZELITE
 #------------------------------------
 service squeezelite start
-exit
