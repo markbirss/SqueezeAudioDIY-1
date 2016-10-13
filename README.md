@@ -1,4 +1,4 @@
-SqueezeAudioDIY 1.3 Alpha
+SqueezeAudioDIY 1.3 Beta
 =========================
 This is not a stable version, please use version 1.2.1 found in releases:
 https://github.com/coenraadhuman/SqueezeAudioDIY/releases/tag/1.2.1
