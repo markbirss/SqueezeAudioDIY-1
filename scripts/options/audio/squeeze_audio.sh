@@ -31,7 +31,7 @@ device_info () {
         then
           device_select
         else
-          squeeze_setup
+          sadiy_setup
   fi
 }
 
@@ -42,9 +42,9 @@ device_select () {
     service squeezelite stop
     audio_select
     service squeezelite start
-    squeeze_setup
+    sadiy_setup
   else
-    squeeze_setup
+    sadiy_setup
   fi
 }
 
@@ -70,7 +70,7 @@ then
 	elif [ $menu = 2 ]; then
 		device_select
   elif [ $menu = 3 ]; then
-		squeeze_setup
+		sadiy_setup
   fi
 else
 	exit

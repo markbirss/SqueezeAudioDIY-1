@@ -41,7 +41,7 @@ then
 	elif [ $menu = 7 ]; then
 		/usr/share/sadiy_files/setup/scripts/options/server/squeeze_server_de.sh
 	elif [ $menu = 8 ]; then
-		squeeze_setup
+		sadiy_setup
   fi
 else
 	exit

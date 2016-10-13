@@ -12,4 +12,4 @@ service logitechmediaserver stop
 install=$(ls | grep logitechmediaserver_7.9.0~.........._all.deb)
 dpkg -i /usr/share/sadiy_files/installers/lms_nightly/$install
 rm /usr/share/sadiy_files/installers/lms_nightly/index*
-squeeze_setup
+sadiy_setup

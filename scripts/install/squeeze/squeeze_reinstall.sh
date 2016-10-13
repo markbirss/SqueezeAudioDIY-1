@@ -51,4 +51,4 @@ service squeezelite start
 #------------------------------------
 #GO BACK TO MENU
 #------------------------------------
-squeeze_setup
+sadiy_setup

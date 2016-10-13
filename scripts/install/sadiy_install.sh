@@ -41,6 +41,7 @@ service squeezelite stop > /dev/null 2>&1
 cp -R ./* /usr/share/sadiy_files/setup
 chmod +x /usr/share/sadiy_files/setup/scripts/sadiy_setup.sh
 rm /usr/bin/squeeze_setup > /dev/null 2>&1
+rm /usr/bin/sadiy_setup > /dev/null 2>&1
 ln -s /usr/share/sadiy_files/setup/scripts/sadiy_setup.sh /usr/bin/squeeze_setup
 ln -s /usr/share/sadiy_files/setup/scripts/sadiy_setup.sh /usr/bin/sadiy_setup
 exitstatus=$?

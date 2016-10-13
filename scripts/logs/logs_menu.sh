@@ -19,7 +19,7 @@ then
   elif [ $menu = 3 ]; then
   	/usr/share/sadiy_files/setup/scripts/logs/logs_watch_squeeze.sh
   elif [ $menu = 4 ]; then
-  	squeeze_setup
+  	sadiy_setup
   fi
 else
 	exit

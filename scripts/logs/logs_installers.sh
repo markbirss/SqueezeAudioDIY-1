@@ -55,7 +55,7 @@ then
 		log_viewer logicms_latest_
 		return_logmenu
 	elif [ $menu = 6 ]; then
-		squeeze_setup
+		sadiy_setup
 	fi
 else
 	exit
