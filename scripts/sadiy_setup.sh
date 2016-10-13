@@ -44,7 +44,7 @@ then
   elif [ $menu = 8 ];then
     /usr/share/sadiy_files/setup/scripts/fixes/i2s_fixes_menu.sh
   elif [ $menu = 9 ];then
-    /usr/share/sadiy_files/setup/scripts/remove/
+    /usr/share/sadiy_files/setup/scripts/remove/sadiy_remove_menu.sh
   fi
 else
 	exit
