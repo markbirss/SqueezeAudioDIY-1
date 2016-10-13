@@ -1,5 +1,8 @@
-SqueezeAudioDIY 1.2.1
+SqueezeAudioDIY 1.3 Alpha
 =========================
+This is not a stable version, please use version 1.2.1 found in releases:
+https://github.com/coenraadhuman/SqueezeAudioDIY/releases/tag/1.2.1
+
 These are terminal based utilities to install and manage Squeezelite
 
 Requirements:
@@ -13,43 +16,56 @@ Supported Architecture:
 - x86_64
 - ARM
 
-Features:
----------
-- Install Squeezelite v1.8.5-802
-- Install latest version of Squeezelite
-- Install stable Logitech Media Server v7.7.5 (Released 27-Nov-2014)
-- Install latest nightly Logitech Media Server v7.9
-- View audio devices in detail
-- Change the default audio device
-- Set default options for Squeezelite
-  - Set name of the Squeezelite player
-- View logs of installers
-
-Notes:
-------
-- Logitech Media Server v7.7.5 does not work on Ubuntu 16.04+
-
-Squeezelite v1.8.5-802 Setup for Debian-Based-Distro:
+Setup:
 -----------------------------------------------------
 ```shell
 cd SqueezeAudioDIY
 ./setup.sh
 ```
 
-To Access Menu After Installation:
+To Access Scripts After Installation:
 ----------------------------------
 ```shell
 squeeze_setup
 ```
 
-Squeezelite:
+Features:
+---------
+- Installers:
+  - Squeezelite v1.8.5-802
+  - Latest version of Squeezelite
+  - Stable Logitech Media Server v7.7.5
+  - Latest nightly Logitech Media Server v7.9.x
+
+- Squeezelite audio device:
+  - View audio devices in detail
+  - Change the default audio device
+
+- Squeezelite options:
+  - View Squeezelite settings
+  - Set name of the Squeezelite player
+  - Deactivate player name in configuration file
+  - Set extra arguments to Squeezelite
+  - Deactivate extra arguments in configuration file
+  - Point Squeezelite to your Server via IPv4
+  - Deactivate custom server IPv4 address in configuration file
+
+- View logs
+  - Installer logs
+  - Squeezelite watch log (when listening)
+  - Squeezelite static log
+
+- Fixes for I2S use:
+ - Armbian - Orange Pi Single Board Computers
+ - Raspbian - Raspberry Pi Singe Board Computers
+ - Raspbian - Hifiberry Products
+
+Notes:
+------
+- Logitech Media Server v7.7.5 does not work on Ubuntu 16.04+
+
+Resources:
 ------------
-Is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
-
-Squeezebox Stable v7.7.5 (Released 27-Nov-2014):
------------------------------------------------
-Is based on the stable build available on http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/
-
-Squeezebox Nightly v7.9:
-------------------------
-Is based on the nightly build available on http://downloads.slimdevices.com/nightly/?ver=7.9
+- Squeezelite is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
+- Squeezebox stable v7.7.5 (Released 27-Nov-2014) based on the stable build available at http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/
+- Sqeezebox nightly v7.9.x is based on the nightly build available at http://downloads.slimdevices.com/nightly/?ver=7.9

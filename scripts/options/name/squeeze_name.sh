@@ -1,4 +1,5 @@
 #!/bin/bash
+title=$(cat /usr/share/squeeze_files/setup/version)
 
 #------------------------------------
 #FUNCTION
@@ -28,7 +29,7 @@ cp /etc/default/squeezelite /usr/share/squeeze_files/settings/backups/bacname
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --menu "squeeze_audio" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "$title" --menu "Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Change name to localhost name" \
 "2" "Enter own custom name" \
 "3" "Show current settings" \
@@ -42,10 +43,10 @@ then
 		service squeezelite start
 		/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
 	elif [ $menu = 2 ]; then
-		new_name=$(eval `resize` && whiptail --title "SqueezeAudioDIY 1.2.1 | Coenraad Human" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
+		inputbox=$(eval `resize` && whiptail --title "$title" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
 		exitstatus=$?
 		if [ $exitstatus = 0 ]; then
-			name_changer $new_name
+			name_changer $inputbox
 			view_settings
 			service squeezelite start
 			/usr/share/squeeze_files/setup/scripts/options/squeeze_options_menu.sh
