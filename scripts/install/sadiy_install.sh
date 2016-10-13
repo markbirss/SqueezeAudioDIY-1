@@ -6,11 +6,6 @@
 rm -R /var/log/squeezeaudiodiy > /dev/null 2>&1
 rm -R /usr/share/sadiy_files > /dev/null 2>&1
 rm -R /usr/share/sadiy_files > /dev/null 2>&1
-exitstatus=$?
-if [ $exitstatus = 0 ]
-then
-  echo "[ OK ] OLD FILES REMOVED"
-fi
 #MAKING NEW DIRECTORIES
 mkdir /usr/share/sadiy_files
 #SETUP DIRECTORY

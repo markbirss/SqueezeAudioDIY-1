@@ -25,8 +25,6 @@ audio_changer () {
     sed -i 9s/.*/SL_SOUNDCARD=cha$selected_device/ /etc/default/squeezelite
     sed -i '9s/$/"/' /etc/default/squeezelite
     sed -i '9s/cha/"/' /etc/default/squeezelite
-    name_settings=$(cat /etc/default/squeezelite)
-    eval `resize` && whiptail --title "$title" --msgbox "$name_settings" $LINES $COLUMNS
   fi
   rm /usr/share/sadiy_files/tmp/available_list.txt
   rm /usr/share/sadiy_files/tmp/devices.txt
@@ -36,9 +34,9 @@ name_changer () {
   inputbox=$(eval `resize` && whiptail --title "$title" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
   exitstatus=$?
   if [ $exitstatus = 0 ]; then
-    sed -i 6s/.*/SL_NAME=cha$1/ /etc/default/squeezelite
-  	sed -i '6s/$/"/' /etc/default/squeezelite
-  	sed -i '6s/cha/"/' /etc/default/squeezelite
+    sed -i '6s:.*:SL_NAME=cha'$inputbox':' /etc/default/squeezelite
+  	sed -i '6s:$:":' /etc/default/squeezelite
+  	sed -i '6s:cha:":' /etc/default/squeezelite
   fi
 }
 
