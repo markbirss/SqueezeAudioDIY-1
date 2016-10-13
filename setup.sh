@@ -10,6 +10,6 @@ if [ "$(id -u)" != "0" ]; then
   exec sudo "$0" "$@"
 fi
 
-./scripts/installers/squeeze_install.sh 2>&1 | tee ./squeeze_install.log_$logname
+./scripts/install/sadiy_install.sh 2>&1 | tee ./squeeze_install.log_$logname
 mv ./squeeze_install.log_$logname /var/log/squeezeaudiodiy/
-./scripts/installers/extra/squeeze_firstconfset.sh
+./scripts/install/sadiy_confset.sh

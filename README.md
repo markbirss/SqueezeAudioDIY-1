@@ -8,7 +8,7 @@ These are terminal based utilities to install and manage Squeezelite
 Requirements:
 -------------
 - Debian Jessie or higher
-- Ubuntu 14.04 or higher
+- Ubuntu 16.04 or higher
 
 Supported Architecture:
 -----------------------
@@ -16,17 +16,18 @@ Supported Architecture:
 - x86_64
 - ARM
 
-Setup:
+To Install:
 -----------------------------------------------------
 ```shell
+git clone https://github.com/coenraadhuman/SqueezeAudioDIY.git
 cd SqueezeAudioDIY
 ./setup.sh
 ```
 
-To Access Scripts After Installation:
+To Access Setup After Installation:
 ----------------------------------
 ```shell
-squeeze_setup
+sadiy_setup
 ```
 
 Features:
