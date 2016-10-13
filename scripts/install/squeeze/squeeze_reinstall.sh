@@ -51,4 +51,5 @@ service squeezelite start
 #------------------------------------
 #GO BACK TO MENU
 #------------------------------------
+./scripts/install/sadiy_confset.sh
 sadiy_setup
