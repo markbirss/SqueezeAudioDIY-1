@@ -32,8 +32,7 @@ cp /etc/default/squeezelite /usr/share/sadiy_files/settings/backups/bacname
 menu=$(eval `resize` && whiptail --title "$title" --menu "Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
 "1" "Change name to localhost name" \
 "2" "Enter own custom name" \
-"3" "Show current settings" \
-"4" "Back" 3>&1 1>&2 2>&3)
+"3" "Back" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -54,9 +53,6 @@ then
 			/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
 		fi
 	elif [ $menu = 3 ]; then
-		view_settings
-		/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
-	elif [ $menu = 4 ]; then
 		/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
 	fi
 else

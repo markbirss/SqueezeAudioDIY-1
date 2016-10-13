@@ -15,7 +15,7 @@ server_changer () {
 	sed -i '15s/cha/"/' /etc/default/squeezelite
 }
 
-inputbox=$(eval `resize` && whiptail --title "$title" --inputbox "Please enter arguments:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
+inputbox=$(eval `resize` && whiptail --title "$title" --inputbox "Please enter arguments:" $LINES $COLUMNS x.x.x.x 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
 	service squeezelite start
