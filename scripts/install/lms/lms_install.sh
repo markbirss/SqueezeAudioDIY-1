@@ -15,7 +15,7 @@ if [ $exitstatus = 0 ]
 fi
 download=$(grep logitechmediaserver_....._all.deb ./index.html | cut -c82-114)
 echo "DOWNLOADING LMS 7.7.5"
-wget http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/$download > /dev/null 2>&1
+wget http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/$download
 exitstatus=$?
 if [ $exitstatus = 0 ]
   then
