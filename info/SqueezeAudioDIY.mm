@@ -1,6 +1,6 @@
 <map version="freeplane 1.3.0">
 <!--To view this file, download free mind mapping software Freeplane from http://freeplane.sourceforge.net -->
-<node TEXT="SqueezeAudioDIY" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1476444512531"><hook NAME="MapStyle" zoom="0.75">
+<node TEXT="SqueezeAudioDIY" ID="ID_1723255651" CREATED="1283093380553" MODIFIED="1476444512531"><hook NAME="MapStyle" zoom="1.5">
 
 <map_styles>
 <stylenode LOCALIZED_TEXT="styles.root_node">
@@ -49,7 +49,7 @@
 </stylenode>
 </map_styles>
 </hook>
-<hook NAME="AutomaticEdgeColor" COUNTER="8"/>
+<hook NAME="AutomaticEdgeColor" COUNTER="9"/>
 <font ITALIC="true"/>
 <node TEXT="Installers" POSITION="right" ID="ID_810126824" CREATED="1476437507409" MODIFIED="1476444551922" HGAP="-30" VSHIFT="-40">
 <icon BUILTIN="full-1"/>
@@ -237,6 +237,18 @@
 <node TEXT="Removers" ID="ID_343788252" CREATED="1476442800936" MODIFIED="1476442862850">
 <icon BUILTIN="full-5"/>
 </node>
+</node>
+<node TEXT="info" POSITION="right" ID="ID_238880890" CREATED="1476632412671" MODIFIED="1476632419334">
+<edge COLOR="#007c00"/>
+<node TEXT="Pcm5102" ID="ID_362362090" CREATED="1476632421453" MODIFIED="1476632527351"/>
+<node TEXT="es9023" ID="ID_444956051" CREATED="1476632430333" MODIFIED="1476632432799"/>
+<node TEXT="Odroid_hifi+" ID="ID_1506105786" CREATED="1476632434589" MODIFIED="1476632517056">
+<node TEXT="patch" ID="ID_599257820" CREATED="1476632596663" MODIFIED="1476632600670">
+<node TEXT="http://forum.odroid.com/viewtopic.php?f=139&amp;t=20316#p135103" ID="ID_1199670638" CREATED="1476632602055" MODIFIED="1476632604305"/>
+</node>
+</node>
+<node TEXT="PiFi Dac+" ID="ID_939127826" CREATED="1476632457068" MODIFIED="1476632465570"/>
+<node TEXT="IQAudio Dac+" ID="ID_344276767" CREATED="1476632471661" MODIFIED="1476632476595"/>
 </node>
 </node>
 </map>
