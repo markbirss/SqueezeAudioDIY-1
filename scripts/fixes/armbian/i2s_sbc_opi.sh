@@ -8,7 +8,7 @@ rebootpi () {
   if (whiptail --title "$title" --yes-button "Reboot" --no-button "Exit" --yesno "Reboot is neccessary, would you like to reboot the system?" 10 60) then
     shutdown -r now
   else
-    sadiy
+    sadiy_setup
   fi
 }
 
