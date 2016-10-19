@@ -60,8 +60,3 @@ cp ./squeezelite /usr/bin/
 #------------------------------------
 chmod -R 0777 /var/log/squeezeaudiodiy
 chmod -R 0777 /usr/share/sadiy_files/tmp
-
-#------------------------------------
-#START SQUEEZELITE
-#------------------------------------
-service squeezelite start
