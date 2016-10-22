@@ -1,4 +1,4 @@
-SqueezeAudioDIY 1.3 Beta
+SqueezeAudioDIY 1.4 Beta
 =========================
 This is not a stable version, please use version 1.2.1 found in releases:
 https://github.com/coenraadhuman/SqueezeAudioDIY/releases/tag/1.2.1
@@ -36,13 +36,13 @@ Features:
   - Squeezelite v1.8.5-802
   - Latest version of Squeezelite
   - Stable Logitech Media Server v7.7.5
+  - Stable Logitech Media Server v7.8.0
+  - Latest nightly Logitech Media Server v7.8.x
   - Latest nightly Logitech Media Server v7.9.x
 
-- Squeezelite audio device:
+- Squeezelite options:
   - View audio devices in detail
   - Change the default audio device
-
-- Squeezelite options:
   - View Squeezelite settings
   - Set name of the Squeezelite player
   - Set extra arguments to Squeezelite
@@ -50,15 +50,13 @@ Features:
   - Point Squeezelite to your Server via IPv4
   - Deactivate custom server IPv4 address in configuration file
 
+- Logitech Media Server options:
+  - Create permanent mount point in fstab for use with LMS (still in development)
+
 - View logs
   - Installer logs
-  - Squeezelite watch log (when listening)
+  - Squeezelite dynamic log
   - Squeezelite static log
-
-- Fixes for I2S use:
- - Armbian - Orange Pi Single Board Computers
- - Raspbian - Raspberry Pi Singe Board Computers
- - Raspbian - Hifiberry Products
 
 Notes:
 ------
