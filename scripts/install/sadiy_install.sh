@@ -68,7 +68,7 @@ else
         echo "[ ERROR ] -----------------------------------------"
 fi
 service squeezelite stop
-sed -i '19s:.*:SB_EXTRA_ARGS=cha-d all=debug -f /var/log/squeezeaudiodiy/squeezelite.log:' /etc/default/squeezelite
+sed -i '19s:.*:SB_EXTRA_ARGS=cha-d all=debug -f /tmp/squeezeaudiodiy/squeezelite.log:' /etc/default/squeezelite
 sed -i '19s:$:":' /etc/default/squeezelite
 sed -i '19s:cha:":' /etc/default/squeezelite
 
@@ -80,12 +80,6 @@ cd /usr/share/sadiy_files/installers/squeeze_include/squeezelite-master/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
 rm /usr/bin/squeezelite
 cp ./squeezelite /usr/bin/
-
-#------------------------------------
-#EXTRA
-#------------------------------------
-chmod -R 0777 /var/log/squeezeaudiodiy
-chmod -R 0777 /usr/share/sadiy_files/tmp
 
 #------------------------------------
 #START SQUEEZELITE
