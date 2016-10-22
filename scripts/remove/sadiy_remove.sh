@@ -7,7 +7,7 @@ if (eval `resize` && whiptail \
       then
         rm /usr/bin/squeeze_setup > /dev/null 2>&1
         rm /usr/bin/sadiy_setup > /dev/null 2>&1
-        rm -R /var/log/squeezeaudiodiy > /dev/null 2>&1
+        rm -R /rmp/squeezeaudiodiy > /dev/null 2>&1
         rm -R /usr/share/sadiy_files > /dev/null 2>&1
         rm -R /usr/share/sadiy_files > /dev/null 2>&1
       else
