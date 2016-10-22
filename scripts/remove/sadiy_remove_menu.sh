@@ -16,9 +16,9 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-		/usr/share/sadiy_files/setup/scripts/remove/squeeze/squeeze_remove.sh 2>&1 | tee /var/log/squeezeaudiodiy/sque_remove+pur.log_$logname
+		/usr/share/sadiy_files/setup/scripts/remove/squeeze_remove.sh 2>&1 | tee /var/log/squeezeaudiodiy/sque_remove+pur.log_$logname
 	elif [ $menu = 2 ]; then
-		/usr/share/sadiy_files/setup/scripts/remove/squeeze/lms_remove.sh 2>&1 | tee /var/log/squeezeaudiodiy/lms_remove+pur_.log_$logname
+		/usr/share/sadiy_files/setup/scripts/remove/lms_remove.sh 2>&1 | tee /var/log/squeezeaudiodiy/lms_remove+pur_.log_$logname
   elif [ $menu = 3 ]; then
     cp /usr/share/sadiy_files/setup/scripts/remove/sadiy_remove.sh /tmp
     /tmp/sadiy_remove.sh

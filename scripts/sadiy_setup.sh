@@ -24,9 +24,9 @@ then
 	if [ $menu = 1 ]; then
 		/usr/share/sadiy_files/setup/scripts/install/install_menu.sh
 	elif [ $menu = 2 ]; then
-		/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
+		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
   elif [ $menu = 3 ]; then
-  	/usr/share/sadiy_files/setup/scripts/options2/lms_options_menu.sh
+  	/usr/share/sadiy_files/setup/scripts/options_lms/lms_options_menu.sh
   elif [ $menu = 4 ]; then
   	/usr/share/sadiy_files/setup/scripts/logs/logs_menu.sh
   elif [ $menu = 5 ]; then

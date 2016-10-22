@@ -16,13 +16,13 @@ exitstatus=$?
 if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
-		/usr/share/sadiy_files/setup/scripts/install/squeeze/squeeze_reinstall.sh 2>&1 | tee /var/log/squeezeaudiodiy/sque_re-install.log_$logname
+		/usr/share/sadiy_files/setup/scripts/install/squeeze_reinstall.sh 2>&1 | tee /var/log/squeezeaudiodiy/sque_re-install.log_$logname
 	elif [ $menu = 2 ]; then
-		/usr/share/sadiy_files/setup/scripts/install/squeeze/squeeze_install_latest.sh 2>&1 | tee /var/log/squeezeaudiodiy/squeeze_latest_.log_$logname
+		/usr/share/sadiy_files/setup/scripts/install/squeeze_install_latest.sh 2>&1 | tee /var/log/squeezeaudiodiy/squeeze_latest_.log_$logname
   elif [ $menu = 3 ]; then
-  	/usr/share/sadiy_files/setup/scripts/install/lms/lms_install.sh 2>&1 | tee /var/log/squeezeaudiodiy/logicms_install.log_$logname
+  	/usr/share/sadiy_files/setup/scripts/install/lms_install.sh 2>&1 | tee /var/log/squeezeaudiodiy/logicms_install.log_$logname
   elif [ $menu = 4 ]; then
-  	/usr/share/sadiy_files/setup/scripts/install/lms/lms_install_latest.sh 2>&1 | tee /var/log/squeezeaudiodiy/logicms_latest_.log_$logname
+  	/usr/share/sadiy_files/setup/scripts/install/lms_install_latest.sh 2>&1 | tee /var/log/squeezeaudiodiy/logicms_latest_.log_$logname
   fi
 else
 	exit
