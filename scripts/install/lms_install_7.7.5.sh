@@ -32,15 +32,44 @@ download_lms () {
 }
 
 #------------------------------------
-#INSTALL
+#GET SITE INFORMATION
 #------------------------------------
-check=$(ls /usr/share/sadiy_files/installers/lms_stable/ | grep logitechmediaserver_7.7.5_all.deb)
-if [ $check = logitechmediaserver_7.7.5_all.deb ]
+wget http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/ > /dev/null 2>&1
+exitstatus=$?
+if [ $exitstatus = 0 ]
   then
-    install_lms
+    echo "[ OK ] INDEX RECEIVED"
   else
-    download_lms
-    install_lms
+    echo "[ ERROR ] INDEX DOWNLOAD FAILED"
 fi
 
-rm /usr/share/sadiy_files/installers/lms_stable/index*
+#------------------------------------
+#COMPARE VERSIONS & INSTALL PACKAGE
+#------------------------------------
+cd /usr/share/sadiy_files/installers/lms_stable/
+newfile=$(grep logitechmediaserver_....._all.deb ./index.html | cut -c82-114)
+oldfile=$(ls | grep logitechmediaserver_7.7.5_all)
+
+if [ $newfile = $oldfile ]
+then
+	echo -n "There is a previous download of v7.7.5 , would you like to re-install it? (y/n): "
+	read answer
+  if [ $answer = y]
+  then
+    service logitechmediaserver stop
+    dpkg -i ./$oldfile
+    rm /usr/share/sadiy_files/installers/lms_stable/index*
+	  sadiy_setup
+  else
+    rm /usr/share/sadiy_files/installers/lms_stable/index*
+    sadiy_setup
+else
+	echo "No previous download found, downloading v7.7.5"
+  download=$(grep logitechmediaserver_....._all.deb ./index.html | cut -c82-114)
+  wget http://downloads.slimdevices.com/LogitechMediaServer_v7.7.5/$download
+	service logitechmediaserver stop
+	install=$(ls | grep LogitechMediaServer_v7.7.5)
+	dpkg -i ./$install
+  rm /usr/share/sadiy_files/installers/lms_stable/index*
+	sadiy_setup
+fi
