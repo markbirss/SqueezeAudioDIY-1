@@ -78,7 +78,7 @@ sed -i '19s:cha:":' /etc/default/squeezelite
 unzip ./files/squeezelite-v1.8.5-802.zip -d /usr/share/sadiy_files/installers/squeeze_include/
 cd /usr/share/sadiy_files/installers/squeeze_include/squeezelite-master/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
-rm /usr/bin/squeezelite
+rm /usr/bin/squeezelite > /dev/null 2>&1
 cp ./squeezelite /usr/bin/
 
 #------------------------------------
