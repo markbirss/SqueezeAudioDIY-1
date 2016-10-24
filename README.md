@@ -1,6 +1,8 @@
 SqueezeAudioDIY 1.4
 ===================
-These are terminal based utilities to install and manage Squeezelite
+These are terminal based utilities to install and manage 
+- Squeezelite
+- Logitech Media Server/Squeezebox
 ![screenshot from 2016-10-24 15-59-22](https://cloud.githubusercontent.com/assets/20205514/19648725/609367ce-9a03-11e6-9442-bb0582cbd21c.png)
 
 Requirements:
