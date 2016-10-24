@@ -24,7 +24,7 @@ if [ $exitstatus = 0 ]; then
 	args_changer $inputbox
 	view_settings
 	service squeezelite start
-	/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
+	/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
 else
-	/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
+	/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
 fi
