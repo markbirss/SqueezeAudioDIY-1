@@ -29,12 +29,12 @@ return_logmenu () {
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
-"1" "Log - Install Squeezelite v1.8.5-802" \
-"2" "Log - Re-install Squeezelite v1.8.5-802" \
-"3" "Log - Install latest Squeezelite available" \
-"4" "Log - Install Logitech Media Server 7.7.5" \
-"5" "Log - Install latest Logitech Media Server v7.9.x" \
+menu=$(whiptail --title "$title" --menu "Install logs:" 18 60 10 \
+"1" "Install Squeezelite v1.8.5-802" \
+"2" "Re-install Squeezelite v1.8.5-802" \
+"3" "Lastest Squeezelite" \
+"4" "Logitech Media Server 7.7.5" \
+"5" "Logitech Media Server 7.9.x" \
 "6" "Back" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
