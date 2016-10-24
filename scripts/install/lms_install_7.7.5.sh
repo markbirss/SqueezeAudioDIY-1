@@ -35,7 +35,7 @@ download_lms () {
 #INSTALL
 #------------------------------------
 check=$(ls /usr/share/sadiy_files/installers/lms_stable/ | grep logitechmediaserver_7.7.5_all.deb)
-if [ check = logitechmediaserver_7.7.5_all.deb ]
+if [ $check = logitechmediaserver_7.7.5_all.deb ]
   then
     install_lms
   else
