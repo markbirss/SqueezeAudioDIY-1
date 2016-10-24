@@ -63,5 +63,5 @@ device_info
 #------------------------------------
 #CLEANUP
 #------------------------------------
-rm /usr/share/sadiy_files/tmp/available_list.txt
-rm /usr/share/sadiy_files/tmp/devices.txt
+rm /usr/share/sadiy_files/tmp/available_list.txt > /dev/null 2>&1
+rm /usr/share/sadiy_files/tmp/devices.txt > /dev/null 2>&1
