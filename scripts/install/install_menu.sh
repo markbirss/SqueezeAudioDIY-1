@@ -11,8 +11,8 @@ menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $CO
 "1" "Re-install Squeezelite v1.8.5-802" \
 "2" "Install latest Squeezelite available" \
 "3" "Install stable Logitech Media Server 7.7.5" \
-"4" "Install stable Logitech Media Server 7.8.0"
-"5" "Install latest nightly Logitech Media Server 7.8.X"
+"4" "Install stable Logitech Media Server 7.8.0" \
+"5" "Install latest nightly Logitech Media Server 7.8.X" \
 "6" "Install latest nightly Logitech Media Server 7.9.X" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
