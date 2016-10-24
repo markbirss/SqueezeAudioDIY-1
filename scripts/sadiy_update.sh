@@ -6,6 +6,7 @@ if (whiptail --title "$title" --yes-button "Yes" --no-button "Back" --yesno "Are
   git clone https://github.com/coenraadhuman/SqueezeAudioDIY.git
   cd SqueezeAudioDIY
   ./setup.sh
+  rm -R /tmp/SqueezeAudioDIY
 else
   sadiy_setup
 fi
