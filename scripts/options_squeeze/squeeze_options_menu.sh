@@ -30,7 +30,7 @@ then
 		view_settings
 		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
 	elif [ $menu = 2 ]; then
-		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_audio.sh
+		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_audio_view.sh
 	elif [ $menu = 3 ]; then
 		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_audio.sh
 	elif [ $menu = 4 ]; then
