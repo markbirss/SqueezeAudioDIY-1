@@ -6,9 +6,7 @@ title=$(cat /usr/share/sadiy_files/setup/version)
 #------------------------------------
 install_lms () {
   service logitechmediaserver stop
-  install=$(ls | grep logitechmediaserver_7.7.5_all.deb)
-  dpkg -i /usr/share/sadiy_files/installers/lms_stable/$install
-  rm /usr/share/sadiy_files/installers/lms_stable/index*
+  dpkg -i /usr/share/sadiy_files/installers/lms_stable/logitechmediaserver_7.7.5_all.deb
   sadiy_setup
 }
 
@@ -36,8 +34,7 @@ download_lms () {
 #------------------------------------
 #INSTALL
 #------------------------------------
-cd /usr/share/sadiy_files/installers/lms_stable/
-check=$(ls | grep logitechmediaserver_7.7.*_all.deb)
+check=$(ls /usr/share/sadiy_files/installers/lms_stable/ | grep logitechmediaserver_7.7.5_all.deb)
 if [ check = logitechmediaserver_7.7.5_all.deb ]
   then
     install_lms
@@ -45,3 +42,5 @@ if [ check = logitechmediaserver_7.7.5_all.deb ]
     download_lms
     install_lms
 fi
+
+rm /usr/share/sadiy_files/installers/lms_stable/index*
