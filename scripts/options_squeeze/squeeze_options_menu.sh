@@ -12,7 +12,7 @@ view_settings () {
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Menu:" 18 60 10 \
+menu=$(whiptail --title "$title" --menu "Squeezelite options menu:" 18 60 10 \
 "1" "View current settings" \
 "2" "View the audio devices in detail" \
 "3" "Change the default audio device" \

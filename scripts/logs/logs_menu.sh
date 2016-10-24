@@ -4,7 +4,7 @@ title=$(cat /usr/share/sadiy_files/setup/version)
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Menu:" 18 60 10 \
+menu=$(whiptail --title "$title" --menu "Logs menu:" 18 60 10 \
 "1" "Installer logs" \
 "2" "Squeezelite static log" \
 "3" "Squeezelite dynamic log" \

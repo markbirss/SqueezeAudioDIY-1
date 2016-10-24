@@ -11,13 +11,14 @@ fi
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" 18 60 10 \
+menu=$(whiptail --title "$title" --menu "Main Menu:" 18 60 10 \
 "1" "Installers" \
 "2" "Squeezelite options" \
 "3" "Logitech Media Server options" \
 "4" "Logs" \
 "5" "Update SqueezeAudioDIY" \
-"6" "Uninstall software" 3>&1 1>&2 2>&3)
+"6" "Uninstall software" \
+"7" "Exit" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -33,6 +34,8 @@ then
     /usr/share/sadiy_files/setup/scripts/sadiy_update.sh
   elif [ $menu = 6 ]; then
 		/usr/share/sadiy_files/setup/scripts/remove/sadiy_remove_menu.sh
+  elif [ $menu = 7 ]; then
+		exit
   fi
 else
 	exit
