@@ -13,7 +13,8 @@ menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" 18 60 10 \
 "3" "Install stable Logitech Media Server 7.7.5" \
 "4" "Install stable Logitech Media Server 7.8.0" \
 "5" "Install latest nightly Logitech Media Server 7.8.X" \
-"6" "Install latest nightly Logitech Media Server 7.9.X" 3>&1 1>&2 2>&3)
+"6" "Install latest nightly Logitech Media Server 7.9.X" \
+"7" "Back" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -29,6 +30,8 @@ then
   	/usr/share/sadiy_files/setup/scripts/install/lms_install_7.8.x.sh 2>&1 | tee /var/log/squeezeaudiodiy/logicms_7.8.xin.log_$logname
   elif [ $menu = 6 ]; then
   	/usr/share/sadiy_files/setup/scripts/install/lms_install_7.9.x.sh 2>&1 | tee /var/log/squeezeaudiodiy/logicms_7.9.xin.log_$logname
+	elif [ $menu = 7 ]; then
+  	sadiy_setup
 	fi
 else
 	exit
