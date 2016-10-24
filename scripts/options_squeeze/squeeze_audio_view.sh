@@ -31,7 +31,7 @@ device_info () {
         then
           device_select
         else
-          sadiy_setup
+          /usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
   fi
 }
 
@@ -44,7 +44,7 @@ device_select () {
     service squeezelite start
     sadiy_setup
   else
-    sadiy_setup
+    /usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
   fi
 }
 
