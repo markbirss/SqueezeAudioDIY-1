@@ -7,7 +7,7 @@ logname=$(date +"%Y%m%d.%H%M%S")
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" 18 60 10 \
 "1" "Remove Squeezelite" \
 "2" "Remove Logitech Media Server" \
 "3" "Remove SqueezeAudioDIY" \

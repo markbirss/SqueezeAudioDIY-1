@@ -4,7 +4,7 @@ title=$(cat /usr/share/sadiy_files/setup/version)
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" 18 60 10 \
 "1" "Permanent mount" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]

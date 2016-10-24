@@ -7,7 +7,7 @@ logname=$(date +"%Y%m%d.%H%M%S")
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" 18 60 10 \
 "1" "Re-install Squeezelite v1.8.5-802" \
 "2" "Install latest Squeezelite available" \
 "3" "Install stable Logitech Media Server 7.7.5" \

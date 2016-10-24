@@ -11,7 +11,7 @@ fi
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" 18 60 10 \
 "1" "Installers" \
 "2" "Squeezelite options" \
 "3" "Logitech Media Server options" \

@@ -4,7 +4,7 @@ title=$(cat /usr/share/sadiy_files/setup/version)
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(eval `resize` && whiptail --title "$title" --menu "Menu:" 18 60 10 \
 "1" "Installer logs" \
 "2" "Squeezelite static log" \
 "3" "Squeezelite watch log (ideal when listening)" \
