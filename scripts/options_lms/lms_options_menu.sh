@@ -12,7 +12,7 @@ if [ $exitstatus = 0 ]
 then
 	if [ $menu = 1 ]; then
 		/usr/share/sadiy_files/setup/scripts/options_lms/lms_network_mount.sh
-	elif [ $menu =2 ]; then
+	elif [ $menu = 2 ]; then
 		sadiy_setup
   fi
 else
