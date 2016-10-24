@@ -4,7 +4,7 @@ title=$(cat /usr/share/sadiy_files/setup/version)
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(whiptail --title "$title" --menu "LMS options menu:" 18 60 10 \
+menu=$(whiptail --title "$title" --menu "Squeezebox options menu:" 18 60 10 \
 "1" "Permanent mount" \
 "2" "Back" 3>&1 1>&2 2>&3)
 exitstatus=$?

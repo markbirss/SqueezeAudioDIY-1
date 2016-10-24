@@ -55,7 +55,7 @@ then
 		log_viewer logicms_latest_
 		return_logmenu
 	elif [ $menu = 6 ]; then
-		/usr/share/sadiy_files/setup/scripts/logs/logs_menu.shp
+		/usr/share/sadiy_files/setup/scripts/logs/logs_menu.sh
 	fi
 else
 	exit
