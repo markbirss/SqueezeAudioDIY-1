@@ -59,7 +59,7 @@ Features:
 Notes:
 ------
 - Logitech Media Server v7.7.5 does not work on Ubuntu 16.04+
-- We include all our research in the info folder, we hope you find it useful
+- We include all our research in the info folder on I2S and boards, we hope you find it useful
 
 Resources:
 ----------
