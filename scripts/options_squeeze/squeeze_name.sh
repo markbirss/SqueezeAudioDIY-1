@@ -40,7 +40,7 @@ then
 		name_changer $(hostname -s)
 		view_settings
 		service squeezelite start
-		/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
+		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
 	elif [ $menu = 2 ]; then
 		inputbox=$(eval `resize` && whiptail --title "$title" --inputbox "Please enter new name:" $LINES $COLUMNS New_Name 3>&1 1>&2 2>&3)
 		exitstatus=$?
@@ -48,12 +48,12 @@ then
 			name_changer $inputbox
 			view_settings
 			service squeezelite start
-			/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
+			/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
 		else
-			/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
+			/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
 		fi
 	elif [ $menu = 3 ]; then
-		/usr/share/sadiy_files/setup/scripts/options/squeeze_options_menu.sh
+		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
 	fi
 else
 	exit
