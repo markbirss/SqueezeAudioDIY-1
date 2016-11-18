@@ -12,7 +12,7 @@ view_settings () {
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(whiptail --title "$title" --menu "Squeezelite options menu:" 18 60 10 \
 "1" "View current settings" \
 "2" "View the audio devices in detail" \
 "3" "Change the default audio device" \
@@ -30,7 +30,7 @@ then
 		view_settings
 		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
 	elif [ $menu = 2 ]; then
-		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_audio.sh
+		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_audio_view.sh
 	elif [ $menu = 3 ]; then
 		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_audio.sh
 	elif [ $menu = 4 ]; then

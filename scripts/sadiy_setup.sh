@@ -11,13 +11,13 @@ fi
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(whiptail --title "$title" --menu "Main Menu:" 18 60 10 \
 "1" "Installers" \
 "2" "Squeezelite options" \
-"3" "Logitech Media Server options" \
-"4" "Logs" \
-"5" "Update SqueezeAudioDIY" \
-"6" "Uninstall software" 3>&1 1>&2 2>&3)
+"3" "Logs" \
+"4" "Update SqueezeAudioDIY" \
+"5" "Uninstall software" \
+"6" "Exit" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -26,13 +26,13 @@ then
 	elif [ $menu = 2 ]; then
 		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_options_menu.sh
   elif [ $menu = 3 ]; then
-  	/usr/share/sadiy_files/setup/scripts/options_lms/lms_options_menu.sh
-  elif [ $menu = 4 ]; then
   	/usr/share/sadiy_files/setup/scripts/logs/logs_menu.sh
-  elif [ $menu = 5 ]; then
+  elif [ $menu = 4 ]; then
     /usr/share/sadiy_files/setup/scripts/sadiy_update.sh
-  elif [ $menu = 6 ]; then
+  elif [ $menu = 5 ]; then
 		/usr/share/sadiy_files/setup/scripts/remove/sadiy_remove_menu.sh
+  elif [ $menu = 6 ]; then
+		exit
   fi
 else
 	exit

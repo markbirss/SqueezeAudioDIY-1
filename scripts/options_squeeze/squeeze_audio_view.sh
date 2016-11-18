@@ -58,7 +58,7 @@ display_list=$(cat -n /usr/share/sadiy_files/tmp/available_list.txt)
 #------------------------------------
 #MENU
 #------------------------------------
-device_select
+device_info
 
 #------------------------------------
 #CLEANUP

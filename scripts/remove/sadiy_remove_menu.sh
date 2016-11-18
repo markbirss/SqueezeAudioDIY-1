@@ -7,11 +7,12 @@ logname=$(date +"%Y%m%d.%H%M%S")
 #------------------------------------
 #MENU
 #------------------------------------
-menu=$(eval `resize` && whiptail --title "$title" --menu "Main Menu:" $LINES $COLUMNS $(( $LINES - 10 )) \
+menu=$(whiptail --title "$title" --menu "Uninstall menu:" 18 60 10 \
 "1" "Remove Squeezelite" \
 "2" "Remove Logitech Media Server" \
 "3" "Remove SqueezeAudioDIY" \
-"4" "Back" 3>&1 1>&2 2>&3)
+"4" "Remove everything" \
+"5" "Back" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]
 then
@@ -22,7 +23,10 @@ then
   elif [ $menu = 3 ]; then
     cp /usr/share/sadiy_files/setup/scripts/remove/sadiy_remove.sh /tmp
     /tmp/sadiy_remove.sh
-  elif [ $menu = 4 ]; then
+	elif [ $menu = 4 ]; then
+		cp /usr/share/sadiy_files/setup/scripts/remove/all_remove.sh /tmp
+    /tmp/sadiy_remove.sh
+  elif [ $menu = 5 ]; then
     sadiy_setup
   fi
 else
