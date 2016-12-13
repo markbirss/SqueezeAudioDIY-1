@@ -60,7 +60,7 @@ Notes:
 ------
 - Logitech Media Server v7.7.5 does not work on Ubuntu 16.04+
 - Logitech Media Server v7.8.0 does not work on Ubuntu 16.04+
-- Logitech Media Server v7.8.X does not work on Ubuntu 16.04+
+- Logitech Media Server v7.8.x does not work on Ubuntu 16.04+
 - We include all our research in the info folder on I2S and boards, we hope you find it useful
 
 Resources:
