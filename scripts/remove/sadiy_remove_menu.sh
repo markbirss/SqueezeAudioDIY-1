@@ -11,7 +11,7 @@ menu=$(whiptail --title "$title" --menu "Uninstall menu:" 18 60 10 \
 "1" "Remove Squeezelite" \
 "2" "Remove Logitech Media Server" \
 "3" "Remove SqueezeAudioDIY" \
-"4" "Remove everything" \
+"4" "Remove Everything" \
 "5" "Back" 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]

@@ -1,4 +1,4 @@
-SqueezeAudioDIY 1.4
+SqueezeAudioDIY 1.4.1
 ===================
 These are terminal based utilities to install and manage Squeezelite, Logitech Media Server.
 ![screenshot from 2016-10-24 15-59-22](https://cloud.githubusercontent.com/assets/20205514/19648725/609367ce-9a03-11e6-9442-bb0582cbd21c.png)
@@ -59,6 +59,8 @@ Features:
 Notes:
 ------
 - Logitech Media Server v7.7.5 does not work on Ubuntu 16.04+
+- Logitech Media Server v7.8.0 does not work on Ubuntu 16.04+
+- Logitech Media Server v7.8.X does not work on Ubuntu 16.04+
 - We include all our research in the info folder on I2S and boards, we hope you find it useful
 
 Resources:

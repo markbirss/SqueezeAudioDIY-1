@@ -38,7 +38,7 @@ then
 	elif [ $menu = 5 ]; then
 		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_extra_args.sh
 	elif [ $menu = 6 ]; then
-		/usr/share/sadiy_files/setup/scripts/options_squeeze/queeze_args_de.sh
+		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_args_de.sh
 	elif [ $menu = 7 ]; then
 		/usr/share/sadiy_files/setup/scripts/options_squeeze/squeeze_server.sh
 	elif [ $menu = 8 ]; then
