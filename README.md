@@ -66,4 +66,4 @@ Notes:
 Resources:
 ----------
 - Squeezelite is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
-- All Squeezebox installation are based on install files available on http://downloads.slimdevices.com/
+- All Squeezebox installations are based on install files available on http://downloads.slimdevices.com/
