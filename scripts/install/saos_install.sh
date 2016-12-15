@@ -33,10 +33,7 @@ service squeezelite stop > /dev/null 2>&1
 #SQUEEZE TOOLS
 #------------------------------------
 cp -R ./* /usr/share/sadiy_files/setup
-chmod +x /usr/share/sadiy_files/setup/scripts/sadiy_setup.sh
-rm /usr/bin/squeeze_setup > /dev/null 2>&1
 rm /usr/bin/sadiy_setup > /dev/null 2>&1
-ln -s /usr/share/sadiy_files/setup/scripts/linux/sadiy_setup.sh /usr/bin/squeeze_setup
 ln -s /usr/share/sadiy_files/setup/scripts/linux/sadiy_setup.sh /usr/bin/sadiy_setup
 
 #------------------------------------
@@ -49,10 +46,10 @@ sed -i '19s:cha:":' /etc/default/squeezelite
 #------------------------------------
 #COMPILE SQUEEZELITE
 #------------------------------------
-unzip ./files/squeezelite-v1.8.5-802.zip -d /usr/share/sadiy_files/installers/squeeze_include/
+unzip ./files/squeezelite-v1.8.5-802-linux.zip -d /usr/share/sadiy_files/installers/squeeze_include/
 cd /usr/share/sadiy_files/installers/squeeze_include/squeezelite-master/
 OPTS="-DDSD -DRESAMPLE -DALSA" make
-rm /usr/bin/squeezelite
+rm /usr/bin/squeezelite > /dev/null 2>&1
 cp ./squeezelite /usr/bin/
 
 #------------------------------------
