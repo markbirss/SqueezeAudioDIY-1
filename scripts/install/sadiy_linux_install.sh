@@ -19,8 +19,7 @@ audio_changer () {
   available_list=$(cat -n /usr/share/sadiy_files/tmp/devices.txt)
   display_list=$(cat -n /usr/share/sadiy_files/tmp/available_list.txt)
   device=$(eval `resize` && whiptail --title "$title" --inputbox "$available_list" $LINES $COLUMNS 1 3>&1 1>&2 2>&3)
-  exitstatus=$?
-  if [ $exitstatus = 0 ]; then
+  if [ $? = 0 ]; then
     selected_device=$(sed -n "${device}p" /usr/share/sadiy_files/tmp/devices.txt)
     sed -i 9s/.*/SL_SOUNDCARD=cha$selected_device/ /etc/default/squeezelite
     sed -i '9s/$/"/' /etc/default/squeezelite
@@ -32,8 +31,7 @@ audio_changer () {
 
 name_changer () {
   inputbox=$(whiptail --title "$title" --inputbox "Please enter new name:" 18 60 New_Name 3>&1 1>&2 2>&3)
-  exitstatus=$?
-  if [ $exitstatus = 0 ]; then
+  if [ $? = 0 ]; then
     sed -i '6s:.*:SL_NAME=cha'$inputbox':' /etc/default/squeezelite
   	sed -i '6s:$:":' /etc/default/squeezelite
   	sed -i '6s:cha:":' /etc/default/squeezelite
@@ -78,8 +76,7 @@ rm /usr/bin/squeeze_setup > /dev/null 2>&1
 rm /usr/bin/sadiy_setup > /dev/null 2>&1
 ln -s /usr/share/sadiy_files/setup/scripts/linux/sadiy_setup.sh /usr/bin/squeeze_setup
 ln -s /usr/share/sadiy_files/setup/scripts/linux/sadiy_setup.sh /usr/bin/sadiy_setup
-exitstatus=$?
-if [ $exitstatus = 0 ]
+if [ $? = 0 ]
   then
     echo "[ OK ] SQUEEZELITE TOOLS INSTALLED"
   else
