@@ -1,4 +1,5 @@
 #!/bin/bash
+title=$(cat /usr/share/sadiy_files/setup/version)
 
 #------------------------------------
 #FUNCTION
@@ -30,7 +31,7 @@ audio_changer () {
 }
 
 name_changer () {
-  inputbox=$(whiptail --title "$title" --inputbox "Please enter new name:" 18 60 10 New_Name 3>&1 1>&2 2>&3)
+  inputbox=$(whiptail --title "$title" --inputbox "Please enter new name:" 18 60 New_Name 3>&1 1>&2 2>&3)
   exitstatus=$?
   if [ $exitstatus = 0 ]; then
     sed -i '6s:.*:SL_NAME=cha'$inputbox':' /etc/default/squeezelite
@@ -120,16 +121,10 @@ rm /usr/bin/squeezelite > /dev/null 2>&1
 cp ./squeezelite /usr/bin/
 
 #------------------------------------
-#START SQUEEZELITE
-#------------------------------------
-service squeezelite start
-
-#------------------------------------
 #FIRST CONFIG RUN
 #------------------------------------
-service squeezelite stop
 name_changer
 audio_changer
 view_settings
 service squeezelite start
-exit
+sadiy_setup
