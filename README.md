@@ -50,7 +50,7 @@ Features:
 
 - Update utility for tools
 
-- Unistall utility for all software
+- Uninstall utility for all software
 
 - View logs
   - Squeezelite dynamic log
