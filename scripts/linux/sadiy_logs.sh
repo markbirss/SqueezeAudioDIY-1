@@ -5,11 +5,11 @@ title=$(cat /usr/share/sadiy_files/setup/version)
 #FUNCTIONS
 #------------------------------------
 static_log () {
-  cat /tmp/squeezelite.log | more
+  cat /tmp/squeezeaudiodiy/squeezelite.log | more
 }
 
 watch_log () {
-  watch tail -n 20 /tmp/squeezelite.log
+  watch tail -n 20 /tmp/squeezeaudiodiy/squeezelite.log
 }
 
 log_viewer () {
