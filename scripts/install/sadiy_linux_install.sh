@@ -104,7 +104,7 @@ else
         echo "[ ERROR ] -----------------------------------------"
 fi
 service squeezelite stop
-sed -i '19s:.*:SB_EXTRA_ARGS=cha-d all=debug -f /tmp/squeezeaudiodiy/squeezelite.log:' /etc/default/squeezelite
+sed -i '19s:.*:SB_EXTRA_ARGS=cha-d all=debug -f /tmp/squeezelite.log:' /etc/default/squeezelite
 sed -i '19s:$:":' /etc/default/squeezelite
 sed -i '19s:cha:":' /etc/default/squeezelite
 
