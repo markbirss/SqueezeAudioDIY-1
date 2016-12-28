@@ -1,6 +1,7 @@
 Odroid C2 PINS for Audio I2S Interface
 
-Furthest from USB Connectors
+
+Closest to USB Connectors
 
 Pin1 = GND 
 Pin2 = 
@@ -10,4 +11,4 @@ Pin5 = LRCLK
 Pin6 = BCK
 Pin7 = DATA
 
-Closest to USB Connectors
+Furthest from USB Connectors
