@@ -67,3 +67,4 @@ Resources:
 ----------
 - Squeezelite is based on the project of Ralph Irving here at github https://github.com/ralph-irving/squeezelite.git
 - All Squeezebox installations are based on install files available on http://downloads.slimdevices.com/
+- Possible future UI template for web based version - https://github.com/creativetimofficial/paper-dashboard-angular
